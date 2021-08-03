@@ -15,6 +15,7 @@ const reciples = (state = initialState, action) => {
     case API_CALL_START:
       return { ...state, loading: true, error: null };
     case LOAD_RECIPLES_SUCCESS:
+      console.log(action.payload);
       return {
         ...state,
         list: action.payload,

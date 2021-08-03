@@ -4,6 +4,7 @@ export const endPoint = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 export const LOAD_RECIPLES_SUCCESS = 'LOAD_RECIPLES_SUCCESS';
 export const LOAD_RECIPLES_FAILURE = 'LOAD_RECIPLES_FAILURE';
 export const API_CALL_START = 'API_CALL_START';
+export const CHANGE_FILTER = 'CHANGE_FILTER';
 
 const loadRecipesSuccess = (data) => ({
   type: LOAD_RECIPLES_SUCCESS,
@@ -12,6 +13,11 @@ const loadRecipesSuccess = (data) => ({
 
 const apiCallStart = () => ({
   type: API_CALL_START,
+});
+
+export const changeFilter = (filter) => ({
+  type: CHANGE_FILTER,
+  payload: filter,
 });
 
 const loadRecipesFailure = (error) => ({
