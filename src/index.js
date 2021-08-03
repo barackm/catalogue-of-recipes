@@ -5,8 +5,10 @@ import App from './App';
 import createStore from './store/createStore';
 
 import './index.css';
+import { loadReciplesAsync } from './store/actions';
 
 const store = createStore();
+store.dispatch(loadReciplesAsync());
 
 ReactDOM.render(
   <React.StrictMode>
