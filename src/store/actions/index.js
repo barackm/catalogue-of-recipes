@@ -25,7 +25,7 @@ export const loadReciplesAsync = () => async (dispatch) => {
     const response = await axios.get(endPoint);
     dispatch(loadRecipesSuccess(response.data.meals));
   } catch (error) {
-    dispatch(loadRecipesFailure(error));
+    dispatch(loadRecipesFailure(error.message));
   }
   axios.get(endPoint);
 };
