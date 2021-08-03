@@ -1,5 +1,5 @@
 const initialState = {
-  reciples: [],
+  list: [],
   loading: false,
 };
 
