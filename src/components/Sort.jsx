@@ -18,7 +18,7 @@ export default function Sort() {
 
   return (
     <div className="sort-main-wrapper d-flex flex-center flex-between">
-      <span>sort by: </span>
+      <span>Sort By: </span>
       <a className="selected-filter-method d-flex flex-center" href="#f" onClick={handleToggleSort}>
         {sortMethod}
         <IconContext.Provider value={{ className: 'sort-arrow' }}>

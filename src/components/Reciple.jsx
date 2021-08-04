@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Reciple() {
   return (
-    <Link to="/" className="reciple-item-container">
+    <Link to={`reciples/${13629}`} className="reciple-item-container">
       <div className="image-wrapper">
         <img src="https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg" alt="reciple" />
       </div>

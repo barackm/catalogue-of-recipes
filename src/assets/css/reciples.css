@@ -22,6 +22,7 @@
 .reciple-details .name {
   color: var(--dark);
   height: 0;
+  font-weight: 500;
 }
 
 .category-area-container .category {

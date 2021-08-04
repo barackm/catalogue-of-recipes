@@ -9,6 +9,7 @@ import './assets/css/main.css';
 import './assets/css/header.css';
 import './assets/css/home.css';
 import './assets/css/reciples.css';
+import './assets/css/recipleDetails.css';
 
 const store = createStore();
 
