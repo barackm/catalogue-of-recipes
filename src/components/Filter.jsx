@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Filter(props) {
-  const { categories, selectedCategory, onChangeFilter } = props;
+  const {
+    categories, selectedCategory, onChangeFilter, error,
+  } = props;
   const handleChangeFilter = (e) => {
     e.preventDefault();
     const category = e.target.getAttribute('data-filter');
@@ -27,39 +29,23 @@ export default function Filter(props) {
           <span>👨‍🍳</span>
         </h1>
       </div>
-      <div className="filter-content">
-        <h3>Filter by category</h3>
-        <ul className="filter-categories-list">
-          <li className={selectedCategory === 'All' ? 'active-category' : ''}>
-            <a
-              href="#f"
-              data-filter="All"
-              className="category-item d-flex flex-center flex-between"
-              onClick={handleChangeFilter}
-            >
-              All
-              <div
-                className="category-icon-wrapper d-flex flex-center"
-                style={{
-                  backgroundColor:
-                      colors[Math.floor(Math.random() * colors.length)],
-                }}
-              >
-                <span>
-                  {emojis[Math.floor(Math.random() * emojis.length)]}
-                </span>
-              </div>
-            </a>
-          </li>
-          {categories.map((category) => (
-            <li key={category.idCategory} className={selectedCategory === category.strCategory ? 'active-category' : ''}>
+      { error || categories.length === 0 ? (
+        <div className="d-flex flex-center list-empty-message">
+          😥
+          {error || 'Sorry the list is empty.' }
+        </div>
+      ) : (
+        <div className="filter-content">
+          <h3>Filter by category</h3>
+          <ul className="filter-categories-list">
+            <li className={selectedCategory === 'All' ? 'active-category' : ''}>
               <a
                 href="#f"
-                data-filter={category.strCategory}
+                data-filter="All"
                 className="category-item d-flex flex-center flex-between"
                 onClick={handleChangeFilter}
               >
-                {category.strCategory}
+                All
                 <div
                   className="category-icon-wrapper d-flex flex-center"
                   style={{
@@ -73,15 +59,44 @@ export default function Filter(props) {
                 </div>
               </a>
             </li>
-          ))}
-        </ul>
-      </div>
+            {categories.map((category) => (
+              <li key={category.idCategory} className={selectedCategory === category.strCategory ? 'active-category' : ''}>
+                <a
+                  href="#f"
+                  data-filter={category.strCategory}
+                  className="category-item d-flex flex-center flex-between"
+                  onClick={handleChangeFilter}
+                >
+                  {category.strCategory}
+                  <div
+                    className="category-icon-wrapper d-flex flex-center"
+                    style={{
+                      backgroundColor:
+                      colors[Math.floor(Math.random() * colors.length)],
+                    }}
+                  >
+                    <span>
+                      {emojis[Math.floor(Math.random() * emojis.length)]}
+                    </span>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
     </div>
   );
 }
+
+Filter.defaultProps = {
+  error: '',
+};
 
 Filter.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   selectedCategory: PropTypes.string.isRequired,
   onChangeFilter: PropTypes.func.isRequired,
+  error: PropTypes.string,
 };
