@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recipe should render correctly 1`] = `
+<a
+  className="recipe-item-container"
+  href="/recipes/52977"
+  onClick={[Function]}
+>
+  <div
+    className="image-wrapper"
+  >
+    <img
+      alt="recipe"
+      src="https://www.themealdb.com/images/media/meals/58oia61564916529.jpg"
+    />
+  </div>
+  <div
+    className="recipe-details"
+  >
+    <h3
+      className="name"
+    >
+      Corba
+    </h3>
+    <div
+      className="category-area-container d-flex flex-center flex-between"
+    >
+      <div
+        className="category"
+      >
+        <span>
+          Side
+        </span>
+      </div>
+      <h4
+        className="from"
+      >
+        From:
+         
+        <span>
+          Turkish
+        </span>
+      </h4>
+    </div>
+  </div>
+</a>
+`;
