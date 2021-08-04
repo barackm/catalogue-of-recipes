@@ -121,3 +121,11 @@
 .active-category .category-item {
   color: #e0aea6;
 }
+
+.loading-spinner-wrapper {
+  min-height: 300px;
+}
+
+.list-empty-message {
+  min-height: 300px;
+}

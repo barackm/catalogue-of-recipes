@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import HashLoader from 'react-spinners/HashLoader';
 import _ from 'lodash';
 
 import Filter from '../components/Filter';
@@ -52,7 +53,7 @@ class Home extends React.Component {
 
   handlePageChange = (currentPage) => {
     this.setState({ currentPage });
-  }
+  };
 
   renderFilteredRecipes = (reciples) => {
     const { filter } = this.props;
@@ -78,10 +79,16 @@ class Home extends React.Component {
   };
 
   render() {
-    const { categories, reciples } = this.props;
     const {
-      selectedCategory, query, orderColumn, currentPage,
-      pageSize,
+      categories,
+      reciples,
+      loadingCategories,
+      loadingReciples,
+      loadCategoriesError,
+      loadReciplesError,
+    } = this.props;
+    const {
+      selectedCategory, query, orderColumn, currentPage, pageSize,
     } = this.state;
     const filteredReciples = this.renderFilteredRecipes(reciples);
     const searchedReciples = this.renderSearchedRecipes(filteredReciples);
@@ -92,11 +99,23 @@ class Home extends React.Component {
         <Header />
         <div className="home-content-main-area d-flex">
           <div className="side-bar-wrapper">
-            <Filter
-              categories={categories}
-              selectedCategory={selectedCategory}
-              onChangeFilter={this.handleSeletectCategory}
-            />
+            {loadingCategories && (
+              <div className="loading-spinner-wrapper d-flex flex-center">
+                <HashLoader
+                  color="#e0aea6"
+                  loading={loadingReciples}
+                  size={70}
+                />
+              </div>
+            )}
+            {!loadingCategories && (
+              <Filter
+                categories={categories}
+                selectedCategory={selectedCategory}
+                onChangeFilter={this.handleSeletectCategory}
+                error={loadCategoriesError}
+              />
+            )}
           </div>
           <div className="main-home-content">
             <div className="header d-flex flex-center flex-between">
@@ -106,19 +125,36 @@ class Home extends React.Component {
                 activeColumn={orderColumn}
               />
             </div>
-            <ReciplesList
-              reciples={pagedReciples}
-              itemsCount={sortedReciples.length}
-              currentPage={currentPage}
-              pageSize={pageSize}
-              onPageChange={this.handlePageChange}
-            />
+            {loadingReciples && (
+              <div className="loading-spinner-wrapper d-flex flex-center">
+                <HashLoader
+                  color="#e0aea6"
+                  loading={loadingReciples}
+                  size={70}
+                />
+              </div>
+            )}
+            {!loadingReciples && (
+              <ReciplesList
+                reciples={pagedReciples}
+                itemsCount={sortedReciples && sortedReciples.length}
+                currentPage={currentPage}
+                pageSize={pageSize}
+                onPageChange={this.handlePageChange}
+                error={loadReciplesError}
+              />
+            )}
           </div>
         </div>
       </div>
     );
   }
 }
+
+Home.defaultProps = {
+  loadReciplesError: '',
+  loadCategoriesError: '',
+};
 
 Home.propTypes = {
   loadCategories: PropTypes.func.isRequired,
@@ -127,6 +163,10 @@ Home.propTypes = {
   reciples: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   changeFilter: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
+  loadingCategories: PropTypes.bool.isRequired,
+  loadingReciples: PropTypes.bool.isRequired,
+  loadCategoriesError: PropTypes.string,
+  loadReciplesError: PropTypes.string,
 };
 
 const mapStateToProps = (state) => ({
@@ -135,6 +175,8 @@ const mapStateToProps = (state) => ({
   categories: state.categories.list,
   loadingCategories: state.categories.loading,
   loadingReciples: state.reciples.loading,
+  loadCategoriesError: state.categories.error,
+  loadReciplesError: state.reciples.error,
 });
 
 const mapDispatchToProps = {

@@ -7,7 +7,7 @@ import {
 const initialState = {
   list: [],
   loading: false,
-  error: null,
+  error: '',
 };
 
 const categories = (state = initialState, action) => {
