@@ -68,7 +68,7 @@ export default function RecipleDetails() {
     : ''));
   return (
     <div className="reciples-details-main-container">
-      <Header image={cooker} title1="Poutine" title2="From: Canadian" />
+      <Header image={cooker} title1="Poutine 👨‍🍳 🍽️" title2="From: Canadian" />
       <div className="reciple-details-content-wrapper d-flex flex-unit">
         <div className="reciple-image-details">
           <div className="reciple-image-wrapper">
@@ -82,7 +82,7 @@ export default function RecipleDetails() {
 
             <ul className="ingredients-list">
               {myIngredients.map((ing) => (
-                <li key={ing}>
+                <li key={ing + Math.random}>
                   <IconContext.Provider value={{ className: 'reciple-details-icon' }}>
                     <BsCheckCircle />
                   </IconContext.Provider>

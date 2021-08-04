@@ -1,5 +1,6 @@
 import React from 'react';
 import Filter from '../components/Filter';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Sort from '../components/Sort';
@@ -21,6 +22,7 @@ export default function Home() {
           <ReciplesList />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

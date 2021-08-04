@@ -1,10 +1,15 @@
 import axios from 'axios';
 
-export const endPoint = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+const endPoint = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+const categoriesEndPoint = 'https://www.themealdb.com/api/json/v1/1/categories.php';
+
 export const LOAD_RECIPLES_SUCCESS = 'LOAD_RECIPLES_SUCCESS';
 export const LOAD_RECIPLES_FAILURE = 'LOAD_RECIPLES_FAILURE';
 export const API_CALL_START = 'API_CALL_START';
 export const CHANGE_FILTER = 'CHANGE_FILTER';
+export const LOAD_CATEGORIES_SUCCESS = 'LOAD_CATEGORIES_SUCCESS';
+export const LOAD_CATEGORIES_FAILURE = 'LOAD_CATEGORIES_FAILURE';
+export const LOAD_CATEGORIES_START = 'LOAD_CATEGORIES_START';
 
 const loadRecipesSuccess = (data) => ({
   type: LOAD_RECIPLES_SUCCESS,
@@ -25,6 +30,20 @@ const loadRecipesFailure = (error) => ({
   payload: error,
 });
 
+const loadCategoriesSuccess = (categories) => ({
+  type: LOAD_CATEGORIES_SUCCESS,
+  payload: categories,
+});
+
+const loadCategoriesFailure = (error) => ({
+  type: LOAD_CATEGORIES_FAILURE,
+  payload: error,
+});
+
+const loadCategoriesStart = () => ({
+  type: LOAD_CATEGORIES_START,
+});
+
 export const loadReciplesAsync = () => async (dispatch) => {
   dispatch(apiCallStart());
   try {
@@ -32,6 +51,17 @@ export const loadReciplesAsync = () => async (dispatch) => {
     dispatch(loadRecipesSuccess(response.data.meals));
   } catch (error) {
     dispatch(loadRecipesFailure(error.message));
+  }
+  axios.get(endPoint);
+};
+
+export const loadCategoriesAsync = () => async (dispatch) => {
+  dispatch(loadCategoriesStart());
+  try {
+    const response = await axios.get(categoriesEndPoint);
+    dispatch(loadCategoriesSuccess(response.data.categories));
+  } catch (error) {
+    dispatch(loadCategoriesFailure(error.message));
   }
   axios.get(endPoint);
 };

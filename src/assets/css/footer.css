@@ -1,0 +1,16 @@
+.footer-links-wrapper {
+  margin-right: 6rem;
+}
+
+.footer-attribution a {
+  color: var(--dark);
+}
+
+.footer-links-wrapper li a {
+  padding: 0 1rem;
+}
+
+.footer-github-icon {
+  color: var(--dark);
+  font-size: 1.2rem;
+}

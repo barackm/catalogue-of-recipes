@@ -10,9 +10,10 @@ import './assets/css/header.css';
 import './assets/css/home.css';
 import './assets/css/reciples.css';
 import './assets/css/recipleDetails.css';
+import './assets/css/footer.css';
 
 const store = createStore();
-
+console.log(store.getState());
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
