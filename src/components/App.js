@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
-import Header from './Header';
+import Home from '../containers/Home';
 import Navbar from './Navbar';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div className="ppp">
       <Navbar />
       <Switch>
-        <Route path="/" exact component={Header} />
+        <Route path="/" exact component={Home} />
       </Switch>
     </div>
   );

@@ -1,0 +1,32 @@
+.home-content-main-area {
+  margin-left: 6rem;
+  margin-right: 6rem;
+  padding-top: 3rem;
+}
+
+.side-bar-wrapper {
+  flex: 1;
+}
+
+.main-home-content {
+  flex: 3;
+}
+
+.search-bar-main-container {
+  background-color: var(--light);
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  width: 60%;
+  justify-content: flex-start;
+}
+
+.search-input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  margin-left: 0.3rem;
+}
+
+.search-input::placeholder {
+  color: var(--dark-light-color);
+}
