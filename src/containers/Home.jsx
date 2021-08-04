@@ -20,6 +20,7 @@ class Home extends React.Component {
     super(props);
     this.state = {
       selectedCategory: 'All',
+      query: '',
     };
   }
 
@@ -28,6 +29,10 @@ class Home extends React.Component {
     loadCategories();
     loadReciples();
   }
+
+  handleSearchReciple = (e) => {
+    this.setState({ query: e.target.value });
+  };
 
   handleSeletectCategory = (category) => {
     const { changeFilter } = this.props;
@@ -39,12 +44,23 @@ class Home extends React.Component {
     const { filter } = this.props;
     if (filter === 'All') return reciples;
     return reciples.filter((reciple) => reciple.strCategory.includes(filter));
-  }
+  };
+
+  renderSearchedRecipes = (reciples) => {
+    const { query } = this.state;
+    if (query === '') return reciples;
+    return reciples.filter(
+      (reciple) => reciple.strMeal.toLowerCase().includes(query.toLocaleLowerCase())
+        || reciple.strArea.toLowerCase().includes(query.toLocaleLowerCase()),
+    );
+  };
 
   render() {
     const { categories, reciples } = this.props;
-    const { selectedCategory } = this.state;
+    const { selectedCategory, query } = this.state;
     const filteredReciples = this.renderFilteredRecipes(reciples);
+    const searchedReciples = this.renderSearchedRecipes(filteredReciples);
+
     return (
       <div>
         <Header />
@@ -58,10 +74,10 @@ class Home extends React.Component {
           </div>
           <div className="main-home-content">
             <div className="header d-flex flex-center flex-between">
-              <Search />
+              <Search query={query} onChange={this.handleSearchReciple} />
               <Sort />
             </div>
-            <ReciplesList reciples={filteredReciples} />
+            <ReciplesList reciples={searchedReciples} />
           </div>
         </div>
         <Footer />
