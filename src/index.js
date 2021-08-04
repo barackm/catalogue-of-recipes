@@ -1,20 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import App from './components/App';
 import createStore from './store/createStore';
 
-import './index.css';
-import { loadReciplesAsync } from './store/actions';
+import './css/main.css';
+import './css/header.css';
 
 const store = createStore();
-store.dispatch(loadReciplesAsync());
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),
 );

@@ -1,0 +1,56 @@
+:root {
+  --dark: #333;
+  --black: #111;
+  --white: #fff;
+  --primary: #b48484;
+  --light-weight: 400;
+  --dark-light-color: #333;
+  --light-color: rgb(187, 187, 187);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+ul {
+  padding: 0;
+}
+
+ul,
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-unit {
+  flex: 1;
+}
