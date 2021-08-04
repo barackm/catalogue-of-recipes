@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import reciples from './reciples';
 import filter from './filter';
-import category from './category';
+import categories from './categories';
 
-const reducer = combineReducers({ reciples, filter, category });
+const reducer = combineReducers({ reciples, filter, categories });
 
 export default reducer;

@@ -1,14 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Filter() {
-  const categories = [
-    { id: 1, name: 'All' },
-    { id: 2, name: 'category1' },
-    { id: 3, name: 'category2' },
-    { id: 4, name: 'category3' },
-    { id: 5, name: 'category4' },
-    { id: 6, name: 'category5' },
-  ];
+export default function Filter(props) {
+  const { categories } = props;
   const emojis = ['🍇', '🍔', '🍕', '🍟', '🍣', '🍥', '🍢'];
   const colors = [
     '#934A5F',
@@ -31,12 +25,12 @@ export default function Filter() {
         <h3>Filter by category</h3>
         <ul className="filter-categories-list">
           {categories.map((category) => (
-            <li key={category.id}>
+            <li key={category.idCategory}>
               <a
                 href="#f"
                 className="category-item d-flex flex-center flex-between"
               >
-                {category.name}
+                {category.strCategory}
                 <div
                   className="category-icon-wrapper d-flex flex-center"
                   style={{
@@ -56,3 +50,7 @@ export default function Filter() {
     </div>
   );
 }
+
+Filter.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+};

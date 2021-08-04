@@ -10,7 +10,7 @@ const initialState = {
   error: null,
 };
 
-const category = (state = initialState, action) => {
+const categories = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_CATEGORIES_START:
       return {
@@ -36,4 +36,4 @@ const category = (state = initialState, action) => {
   }
 };
 
-export default category;
+export default categories;
