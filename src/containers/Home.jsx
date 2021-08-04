@@ -12,7 +12,7 @@ export default function Home() {
           <h1>sidebar</h1>
         </div>
         <div className="main-home-content">
-          <div className="header d-flex flex-between">
+          <div className="header d-flex flex-center flex-between">
             <Search />
             <Sort />
           </div>
