@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Filter(props) {
-  const { categories } = props;
+  const { categories, selectedCategory, onChangeFilter } = props;
+  const handleChangeFilter = (e) => {
+    e.preventDefault();
+    const category = e.target.getAttribute('data-filter');
+    onChangeFilter(category);
+  };
+
   const emojis = ['🍇', '🍔', '🍕', '🍟', '🍣', '🍥', '🍢'];
   const colors = [
     '#934A5F',
@@ -24,11 +30,34 @@ export default function Filter(props) {
       <div className="filter-content">
         <h3>Filter by category</h3>
         <ul className="filter-categories-list">
+          <li className={selectedCategory === 'All' ? 'active-category' : ''}>
+            <a
+              href="#f"
+              data-filter="All"
+              className="category-item d-flex flex-center flex-between"
+              onClick={handleChangeFilter}
+            >
+              All
+              <div
+                className="category-icon-wrapper d-flex flex-center"
+                style={{
+                  backgroundColor:
+                      colors[Math.floor(Math.random() * colors.length)],
+                }}
+              >
+                <span>
+                  {emojis[Math.floor(Math.random() * emojis.length)]}
+                </span>
+              </div>
+            </a>
+          </li>
           {categories.map((category) => (
-            <li key={category.idCategory}>
+            <li key={category.idCategory} className={selectedCategory === category.strCategory ? 'active-category' : ''}>
               <a
                 href="#f"
+                data-filter={category.strCategory}
                 className="category-item d-flex flex-center flex-between"
+                onClick={handleChangeFilter}
               >
                 {category.strCategory}
                 <div
@@ -53,4 +82,6 @@ export default function Filter(props) {
 
 Filter.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  selectedCategory: PropTypes.string.isRequired,
+  onChangeFilter: PropTypes.func.isRequired,
 };

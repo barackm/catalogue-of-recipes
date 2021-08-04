@@ -117,3 +117,7 @@
   color: var(--dark);
   font-weight: bold;
 }
+
+.active-category .category-item {
+  color: #e0aea6;
+}
