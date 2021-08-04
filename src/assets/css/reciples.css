@@ -43,3 +43,29 @@
 .category-area-container .from span {
   font-weight: 500;
 }
+
+.pagination-main-container {
+  margin: 2rem 0;
+}
+
+.pagination-item {
+  background-color: var(--light);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: var(--default-transition);
+}
+
+.pagination-item:first-child {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: var(--primary);
+}
+
+.pagination-item:last-child {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.pagination-item:hover {
+  background-color: var(--primary);
+}

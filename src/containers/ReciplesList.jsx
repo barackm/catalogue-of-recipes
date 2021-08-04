@@ -1,4 +1,5 @@
 import React from 'react';
+import Pagination from '../components/Pagination';
 import Reciple from '../components/Reciple';
 
 export default function ReciplesList() {
@@ -12,6 +13,7 @@ export default function ReciplesList() {
         <Reciple />
         <Reciple />
       </div>
+      <Pagination />
     </div>
   );
 }
