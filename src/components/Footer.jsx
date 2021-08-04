@@ -14,7 +14,7 @@ export default function Footer() {
           <HiPlus />
         </IconContext.Provider>
       </Link>
-      <p className="footer-attribution">
+      <p className="footer-attribution d-flex">
         &copy;
         {' '}
         {new Date().getFullYear()}

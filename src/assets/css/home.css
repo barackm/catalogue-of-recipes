@@ -129,3 +129,26 @@
 .list-empty-message {
   min-height: 300px;
 }
+
+@media screen and (max-width: 900px) {
+  .home-content-main-area {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-content-main-area {
+    margin-right: 2rem;
+    margin-left: 2rem;
+    flex-direction: column;
+  }
+
+  .filter-categories-list {
+    padding-right: 0;
+  }
+
+  .side-bar-wrapper {
+    order: 2;
+  }
+}

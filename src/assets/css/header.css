@@ -15,6 +15,20 @@ header {
   width: 100%;
 }
 
+.navbar-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.404);
+  z-index: -1;
+  border: none;
+  opacity: 0;
+  transition: var(--default-transition);
+  transition-duration: 0.7s;
+}
+
 .links li a {
   padding: 0 1.3rem;
   font-weight: var(--light-weight);
@@ -73,6 +87,7 @@ header {
 .hero-area {
   align-items: flex-start;
   padding: 5rem;
+  z-index: 99;
 }
 
 .hero-paragraph {
@@ -99,16 +114,12 @@ header {
   transform: translateX(1rem);
 }
 
-.hero-image-wrapper {
-  position: absolute;
-  right: 0;
-  width: auto;
-}
-
 .hiro-image {
+  position: absolute;
   object-fit: cover;
-  width: 50%;
-  transform: translate(7rem, 2rem);
+  right: 15rem;
+  height: 90%;
+  top: 4rem;
 }
 
 .close-menu-btn.menu-closed {
@@ -145,20 +156,6 @@ header {
     position: absolute;
     top: 2rem;
     right: 2rem;
-  }
-
-  .navbar-overlay {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.404);
-    z-index: -1;
-    border: none;
-    opacity: 0;
-    transition: var(--default-transition);
-    transition-duration: 0.7s;
   }
 
   .navbar-overlay.visible {
@@ -221,5 +218,46 @@ header {
     transform: translateX(0);
     opacity: 1;
     z-index: 999999;
+  }
+
+  .header-wrapper {
+    margin-left: 4rem;
+    margin-right: 4rem;
+    width: 60%;
+  }
+
+  .hiro-image {
+    right: 5rem;
+    height: 80%;
+    top: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 2.4rem;
+  }
+
+  .hero-paragraph {
+    width: 60%;
+  }
+
+  .header-wrapper {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .nav-logo-wrapper {
+    margin-left: 2rem;
+  }
+
+  .nav-links-wrapper {
+    margin-right: 2rem;
+  }
+
+  .hiro-image {
+    right: 1rem;
+    height: 70%;
+    top: 4rem;
   }
 }

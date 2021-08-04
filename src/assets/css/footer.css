@@ -23,3 +23,31 @@ footer {
 .logo-plus-icon {
   color: var(--darker-primary);
 }
+
+@media screen and (min-width: 900px) {
+  footer {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start !important;
+    display: none;
+  }
+
+  .footer-links-wrapper {
+    margin-left: 6rem;
+  }
+
+  .footer-links-wrapper a:first-child {
+    padding-left: 0;
+  }
+
+  .nav-logo-wrapper {
+    margin-left: 6rem;
+  }
+
+  footer .footer-attribution {
+    order: 3;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
