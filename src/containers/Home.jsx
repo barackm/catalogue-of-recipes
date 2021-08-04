@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 import Filter from '../components/Filter';
 import Footer from '../components/Footer';
@@ -21,6 +22,7 @@ class Home extends React.Component {
     this.state = {
       selectedCategory: 'All',
       query: '',
+      orderColumn: 'None',
     };
   }
 
@@ -31,14 +33,20 @@ class Home extends React.Component {
   }
 
   handleSearchReciple = (e) => {
-    this.setState({ query: e.target.value });
+    const { changeFilter } = this.props;
+    changeFilter('All');
+    this.setState({ query: e.target.value, selectedCategory: 'All' });
   };
 
   handleSeletectCategory = (category) => {
     const { changeFilter } = this.props;
-    this.setState({ selectedCategory: category });
+    this.setState({ selectedCategory: category, query: '' });
     changeFilter(category);
   };
+
+  handleChangeOrderColumn = (orderColumn) => {
+    this.setState({ orderColumn });
+  }
 
   renderFilteredRecipes = (reciples) => {
     const { filter } = this.props;
@@ -49,17 +57,26 @@ class Home extends React.Component {
   renderSearchedRecipes = (reciples) => {
     const { query } = this.state;
     if (query === '') return reciples;
+
     return reciples.filter(
       (reciple) => reciple.strMeal.toLowerCase().includes(query.toLocaleLowerCase())
         || reciple.strArea.toLowerCase().includes(query.toLocaleLowerCase()),
     );
   };
 
+  renderSortedRecipes = (reciples) => {
+    const { orderColumn } = this.state;
+    if (orderColumn === 'None') return reciples;
+    const iteratee = orderColumn === 'Name' ? 'strMeal' : 'strArea';
+    return _.orderBy(reciples, iteratee, 'ASC');
+  }
+
   render() {
     const { categories, reciples } = this.props;
-    const { selectedCategory, query } = this.state;
+    const { selectedCategory, query, orderColumn } = this.state;
     const filteredReciples = this.renderFilteredRecipes(reciples);
     const searchedReciples = this.renderSearchedRecipes(filteredReciples);
+    const sortedReciples = this.renderSortedRecipes(searchedReciples);
 
     return (
       <div>
@@ -75,9 +92,9 @@ class Home extends React.Component {
           <div className="main-home-content">
             <div className="header d-flex flex-center flex-between">
               <Search query={query} onChange={this.handleSearchReciple} />
-              <Sort />
+              <Sort onChangeSortColumn={this.handleChangeOrderColumn} activeColumn={orderColumn} />
             </div>
-            <ReciplesList reciples={searchedReciples} />
+            <ReciplesList reciples={sortedReciples} />
           </div>
         </div>
         <Footer />
