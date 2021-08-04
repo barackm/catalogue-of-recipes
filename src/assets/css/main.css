@@ -2,10 +2,11 @@
   --dark: #333;
   --black: #111;
   --white: #fff;
-  --primary: #b48484;
+  --primary: #fbe0dc;
   --light-weight: 400;
-  --dark-light-color: #333;
+  --dark-light-color: rgb(61, 61, 61);
   --light-color: rgb(187, 187, 187);
+  --default-transition: all 0.2s ease-in-out;
 }
 
 body {

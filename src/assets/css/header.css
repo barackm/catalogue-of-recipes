@@ -54,5 +54,47 @@ header {
   margin-right: 6rem;
   background-color: var(--primary);
   border-radius: 2rem;
-  min-height: 30rem;
+  min-height: 27rem;
+  position: relative;
+}
+
+.hero-area {
+  align-items: flex-start;
+  padding: 5rem;
+}
+
+.hero-paragraph {
+  width: 40%;
+  color: var(--dark-light-color);
+  line-height: 1.6;
+}
+
+.hero-text {
+  margin: 0;
+  font-size: 3rem;
+}
+
+.how-they-work {
+  color: var(--dark);
+}
+
+.how-they-work .hero-arrow-icon {
+  transition: var(--default-transition);
+  margin-left: 0.5rem;
+}
+
+.how-they-work:hover > .hero-arrow-icon {
+  transform: translateX(1rem);
+}
+
+.hero-image-wrapper {
+  position: absolute;
+  right: 0;
+  width: auto;
+}
+
+.hiro-image {
+  object-fit: cover;
+  width: 50%;
+  transform: translate(7rem, 2rem);
 }

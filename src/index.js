@@ -5,8 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './components/App';
 import createStore from './store/createStore';
 
-import './css/main.css';
-import './css/header.css';
+import './assets/css/main.css';
+import './assets/css/header.css';
 
 const store = createStore();
 
