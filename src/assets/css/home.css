@@ -73,6 +73,20 @@
   transform: translateX(-0.8rem);
 }
 
+.filter-categories-list {
+  padding-right: 1.5rem;
+}
+
+.filter-categories-list li a {
+  padding: 0.4rem 0;
+}
+
+.category-icon-wrapper {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 0.3rem;
+}
+
 .sort-method-list.shown li {
   color: var(--light-color);
   margin: 0.7rem 0;
@@ -81,4 +95,25 @@
 .sort-method-list.shown li a {
   margin-left: 1rem;
   color: var(--light-color);
+}
+
+.filter-header h1 {
+  margin: 0;
+}
+
+.filter-header h1 span {
+  margin-left: 1.5rem;
+}
+
+.filter-content {
+  padding-top: 2.5rem;
+}
+
+.filter-content h3 {
+  margin: 0;
+}
+
+.category-item {
+  color: var(--dark);
+  font-weight: bold;
 }

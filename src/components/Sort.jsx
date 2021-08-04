@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IconContext } from 'react-icons';
-import { FiChevronDown } from 'react-icons/fi';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
 export default function Sort() {
   const [sortMethod, setSortMethod] = useState('None');
@@ -22,7 +22,7 @@ export default function Sort() {
       <a className="selected-filter-method d-flex flex-center" href="#f" onClick={handleToggleSort}>
         {sortMethod}
         <IconContext.Provider value={{ className: 'sort-arrow' }}>
-          <FiChevronDown />
+          {showSort ? <FiChevronUp /> : <FiChevronDown />}
         </IconContext.Provider>
       </a>
       <ul className={showSort ? 'sort-method-list shown' : 'sort-method-list'}>
