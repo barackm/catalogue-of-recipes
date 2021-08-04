@@ -10,6 +10,9 @@
   --light: rgba(240, 236, 236, 0.795);
   --danger: #e63900;
   --darker-primary: #e0aea6;
+  --tablet: 768px;
+  --desktop: 1200px;
+  --mobile: 480px;
 }
 
 body {
