@@ -152,3 +152,21 @@
     order: 2;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .main-home-content .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sort-main-wrapper {
+    margin-left: 0;
+    margin-top: 1rem;
+    width: 95%;
+  }
+
+  .search-bar-main-container {
+    width: 95%;
+    margin-right: 2rem;
+  }
+}

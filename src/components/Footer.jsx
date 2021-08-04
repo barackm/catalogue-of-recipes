@@ -7,14 +7,14 @@ import { GrEmoji } from 'react-icons/gr';
 
 export default function Footer() {
   return (
-    <footer className="d-flex flex-center flex-between">
-      <Link to="/" className="nav-logo-wrapper d-flex flex-center">
+    <footer className="d-flex flex-center flex-between footer-main-container">
+      <Link to="/" className="nav-logo-wrapper footer d-flex flex-center">
         Food
         <IconContext.Provider value={{ className: 'logo-plus-icon' }}>
           <HiPlus />
         </IconContext.Provider>
       </Link>
-      <p className="footer-attribution d-flex">
+      <p className="footer-attribution d-flex flex-center">
         &copy;
         {' '}
         {new Date().getFullYear()}
@@ -24,7 +24,7 @@ export default function Footer() {
           Barack Mukelenga
         </a>
       </p>
-      <ul className="d-flex footer-links-wrapper">
+      <ul className="d-flex footer-links-wrapper footer-links">
         <li>
           <a href="https://github.com/barackm" target="_blank" rel="noreferrer">
             <IconContext.Provider value={{ className: 'footer-github-icon' }}>

@@ -261,3 +261,9 @@ header {
     top: 4rem;
   }
 }
+
+@media (max-width: 480px) {
+  .nav-logo-wrapper {
+    margin-left: 2rem;
+  }
+}
