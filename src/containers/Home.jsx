@@ -9,7 +9,11 @@ import Search from '../components/Search';
 import Sort from '../components/Sort';
 import ReciplesList from './ReciplesList';
 
-import { loadCategoriesAsync, loadReciplesAsync } from '../store/actions';
+import {
+  changeFilter,
+  loadCategoriesAsync,
+  loadReciplesAsync,
+} from '../store/actions';
 
 class Home extends React.Component {
   constructor(props) {
@@ -26,13 +30,21 @@ class Home extends React.Component {
   }
 
   handleSeletectCategory = (category) => {
+    const { changeFilter } = this.props;
     this.setState({ selectedCategory: category });
+    changeFilter(category);
   };
+
+  renderFilteredRecipes = (reciples) => {
+    const { filter } = this.props;
+    if (filter === 'All') return reciples;
+    return reciples.filter((reciple) => reciple.strCategory.includes(filter));
+  }
 
   render() {
     const { categories, reciples } = this.props;
     const { selectedCategory } = this.state;
-
+    const filteredReciples = this.renderFilteredRecipes(reciples);
     return (
       <div>
         <Header />
@@ -49,7 +61,7 @@ class Home extends React.Component {
               <Search />
               <Sort />
             </div>
-            <ReciplesList reciples={reciples} />
+            <ReciplesList reciples={filteredReciples} />
           </div>
         </div>
         <Footer />
@@ -63,6 +75,8 @@ Home.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   loadReciples: PropTypes.func.isRequired,
   reciples: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  changeFilter: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -76,6 +90,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   loadCategories: () => loadCategoriesAsync(),
   loadReciples: () => loadReciplesAsync(),
+  changeFilter: (filter) => changeFilter(filter),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
