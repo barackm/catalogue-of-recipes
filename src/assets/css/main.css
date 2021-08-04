@@ -9,6 +9,7 @@
   --default-transition: all 0.2s ease-in-out;
   --light: rgba(240, 236, 236, 0.795);
   --danger: #e63900;
+  --darker-primary: #e0aea6;
 }
 
 body {

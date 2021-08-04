@@ -54,12 +54,16 @@
   padding: 0.6rem 1rem;
   cursor: pointer;
   transition: var(--default-transition);
+  border: none;
 }
 
 .pagination-item:first-child {
   border-top-left-radius: 50%;
   border-bottom-left-radius: 50%;
-  background-color: var(--primary);
+}
+
+.pagination-item.active {
+  background-color: var(--darker-primary);
 }
 
 .pagination-item:last-child {
@@ -68,5 +72,5 @@
 }
 
 .pagination-item:hover {
-  background-color: var(--primary);
+  background-color: var(--darker-primary);
 }

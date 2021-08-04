@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 import Filter from '../components/Filter';
-import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Sort from '../components/Sort';
@@ -15,6 +14,7 @@ import {
   loadCategoriesAsync,
   loadReciplesAsync,
 } from '../store/actions';
+import paginate from '../components/utils/paginate';
 
 class Home extends React.Component {
   constructor(props) {
@@ -23,6 +23,8 @@ class Home extends React.Component {
       selectedCategory: 'All',
       query: '',
       orderColumn: 'None',
+      pageSize: 6,
+      currentPage: 1,
     };
   }
 
@@ -46,6 +48,10 @@ class Home extends React.Component {
 
   handleChangeOrderColumn = (orderColumn) => {
     this.setState({ orderColumn });
+  };
+
+  handlePageChange = (currentPage) => {
+    this.setState({ currentPage });
   }
 
   renderFilteredRecipes = (reciples) => {
@@ -69,15 +75,18 @@ class Home extends React.Component {
     if (orderColumn === 'None') return reciples;
     const iteratee = orderColumn === 'Name' ? 'strMeal' : 'strArea';
     return _.orderBy(reciples, iteratee, 'ASC');
-  }
+  };
 
   render() {
     const { categories, reciples } = this.props;
-    const { selectedCategory, query, orderColumn } = this.state;
+    const {
+      selectedCategory, query, orderColumn, currentPage,
+      pageSize,
+    } = this.state;
     const filteredReciples = this.renderFilteredRecipes(reciples);
     const searchedReciples = this.renderSearchedRecipes(filteredReciples);
     const sortedReciples = this.renderSortedRecipes(searchedReciples);
-
+    const pagedReciples = paginate(sortedReciples, currentPage, pageSize);
     return (
       <div>
         <Header />
@@ -92,12 +101,20 @@ class Home extends React.Component {
           <div className="main-home-content">
             <div className="header d-flex flex-center flex-between">
               <Search query={query} onChange={this.handleSearchReciple} />
-              <Sort onChangeSortColumn={this.handleChangeOrderColumn} activeColumn={orderColumn} />
+              <Sort
+                onChangeSortColumn={this.handleChangeOrderColumn}
+                activeColumn={orderColumn}
+              />
             </div>
-            <ReciplesList reciples={sortedReciples} />
+            <ReciplesList
+              reciples={pagedReciples}
+              itemsCount={sortedReciples.length}
+              currentPage={currentPage}
+              pageSize={pageSize}
+              onPageChange={this.handlePageChange}
+            />
           </div>
         </div>
-        <Footer />
       </div>
     );
   }
