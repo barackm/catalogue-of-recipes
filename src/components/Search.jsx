@@ -11,7 +11,13 @@ export default function Search(props) {
       <IconContext.Provider value={{ className: 'search-icon' }}>
         <FiSearch />
       </IconContext.Provider>
-      <input type="text" value={query} onChange={onChange} className="search-input" placeholder="Search reciples by name or area..." />
+      <input
+        type="text"
+        value={query}
+        onChange={onChange}
+        className="search-input"
+        placeholder="Search recipes by name or area..."
+      />
     </div>
   );
 }

@@ -1,25 +1,25 @@
-.reciples-list-main-container {
+.recipes-list-main-container {
   padding-top: 2.5rem;
 }
 
-.reciples-wrapper {
+.recipes-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
 }
 
-.reciple-item-container .image-wrapper {
+.recipe-item-container .image-wrapper {
   border-radius: 1rem;
   overflow: hidden;
 }
 
-.reciple-item-container .image-wrapper img {
+.recipe-item-container .image-wrapper img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-.reciple-details .name {
+.recipe-details .name {
   color: var(--dark);
   height: 0;
   font-weight: 500;
@@ -76,13 +76,13 @@
 }
 
 @media (max-width: 1024px) {
-  .reciples-wrapper {
+  .recipes-wrapper {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
-  .reciples-wrapper {
+  .recipes-wrapper {
     grid-template-columns: repeat(1, 1fr);
   }
 }

@@ -6,40 +6,40 @@ import { connect } from 'react-redux';
 import Header from '../components/Header';
 import cooker from '../assets/img/cooker2.png';
 
-function RecipleDetails(props) {
-  const [reciple, setReciple] = useState({});
-  const { allReciple, history, match } = props; // eslint-disable-line
+function RecipeDetails(props) {
+  const [recipe, setRecipe] = useState({});
+  const { allRecipes, history, match } = props; // eslint-disable-line
   useEffect(() => {
     const foundid = match.params.id; // eslint-disable-line
     if (!foundid) return history.replace('/'); // eslint-disable-line
-    const selectedReciple = allReciple.find((r) => r.idMeal === foundid);
-    if (!selectedReciple) return history.replace('/'); // eslint-disable-line
-    return setReciple(selectedReciple);
+    const selectedRecipe = allRecipes.find((r) => r.idMeal === foundid);
+    if (!selectedRecipe) return history.replace('/'); // eslint-disable-line
+    return setRecipe(selectedRecipe);
   }, []);
 
   const myIngredients = [];
-  Object.keys(reciple).map((key) => (key.startsWith('strIngredient') && reciple[key] !== ''
-    ? myIngredients.push(reciple[key])
+  Object.keys(recipe).map((key) => (key.startsWith('strIngredient') && recipe[key] !== ''
+    ? myIngredients.push(recipe[key])
     : ''));
 
   return (
-    <div className="reciples-details-main-container">
-      <Header image={cooker} title1={`${reciple.strMeal} 👨‍🍳 🍽️`} title2={`From: ${reciple.strArea}`} />
-      <div className="reciple-details-content-wrapper d-flex flex-unit">
-        <div className="reciple-image-details">
-          <div className="reciple-image-wrapper">
+    <div className="recipes-details-main-container">
+      <Header image={cooker} title1={`${recipe.strMeal} 👨‍🍳 🍽️`} title2={`From: ${recipe.strArea}`} />
+      <div className="recipe-details-content-wrapper d-flex flex-unit">
+        <div className="recipe-image-details">
+          <div className="recipe-image-wrapper">
             <img
-              src={reciple.strMealThumb}
-              alt="reciple"
+              src={recipe.strMealThumb}
+              alt="recipe"
             />
           </div>
-          <div className="reciple-ingredients">
+          <div className="recipe-ingredients">
             <h1>Ingredients</h1>
 
             <ul className="ingredients-list">
               {myIngredients.map((ing) => (
                 <li key={ing + Math.random}>
-                  <IconContext.Provider value={{ className: 'reciple-details-icon' }}>
+                  <IconContext.Provider value={{ className: 'recipe-details-icon' }}>
                     <BsCheckCircle />
                   </IconContext.Provider>
                   {ing}
@@ -48,14 +48,14 @@ function RecipleDetails(props) {
             </ul>
           </div>
         </div>
-        <div className="reciple-instructions-details">
+        <div className="recipe-instructions-details">
           <h1>Instructions</h1>
           <p>
-            {reciple.strInstructions}
+            {recipe.strInstructions}
           </p>
           <div className="imbeded-video-wrapper">
             <iframe
-              src={`https://www.youtube.com/embed/${reciple.strYoutube && reciple.strYoutube.split('=')[1]}`}
+              src={`https://www.youtube.com/embed/${recipe.strYoutube && recipe.strYoutube.split('=')[1]}`}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -68,12 +68,12 @@ function RecipleDetails(props) {
   );
 }
 
-RecipleDetails.propTypes = {
-  allReciple: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+RecipeDetails.propTypes = {
+  allRecipes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  allReciple: state.reciples.list,
+  allRecipes: state.recipes.list,
 });
 
-export default connect(mapStateToProps)(RecipleDetails);
+export default connect(mapStateToProps)(RecipeDetails);

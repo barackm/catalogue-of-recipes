@@ -38,7 +38,7 @@ function Header(props) {
 }
 
 Header.defaultProps = {
-  title1: 'Reciples',
+  title1: 'Recipes',
   title2: 'Catalogue',
   paragraph:
     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quae nesciunt porro maiores quod aliquam vero dicta animi ipsa assumenda.',

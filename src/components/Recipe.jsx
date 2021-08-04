@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-export default function Reciple(props) {
-  const { reciple } = props;
+export default function Recipe(props) {
+  const { recipe } = props;
   const {
     idMeal, strMeal, strCategory, strMealThumb, strArea,
-  } = reciple;
+  } = recipe;
 
   return (
-    <Link to={`reciples/${idMeal}`} className="reciple-item-container">
+    <Link to={`recipes/${idMeal}`} className="recipe-item-container">
       <div className="image-wrapper">
-        <img src={strMealThumb} alt="reciple" />
+        <img src={strMealThumb} alt="recipe" />
       </div>
-      <div className="reciple-details">
+      <div className="recipe-details">
         <h3 className="name">{strMeal}</h3>
         <div className="category-area-container d-flex flex-center flex-between">
           <div className="category">
@@ -31,6 +31,6 @@ export default function Reciple(props) {
   );
 }
 
-Reciple.propTypes = {
-  reciple: PropTypes.objectOf(PropTypes.string).isRequired,
+Recipe.propTypes = {
+  recipe: PropTypes.objectOf(PropTypes.string).isRequired,
 };

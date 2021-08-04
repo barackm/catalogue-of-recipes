@@ -22,7 +22,7 @@ const Navbar = () => {
           <div className="d-flex flex-center links">
             <li><Link to="/">Shop</Link></li>
             <li><Link to="/">Features</Link></li>
-            <li><Link to="/">Reciples</Link></li>
+            <li><Link to="/">Recipes</Link></li>
           </div>
           <div className="login-info d-flex">
             <li>

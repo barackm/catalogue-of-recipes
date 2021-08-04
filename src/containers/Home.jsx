@@ -8,12 +8,12 @@ import Filter from '../components/Filter';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Sort from '../components/Sort';
-import ReciplesList from './ReciplesList';
+import RecipesList from './RecipesList';
 
 import {
   changeFilter,
   loadCategoriesAsync,
-  loadReciplesAsync,
+  loadRecipesAsync,
 } from '../store/actions';
 import paginate from '../components/utils/paginate';
 
@@ -30,12 +30,12 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    const { loadCategories, loadReciples } = this.props;
+    const { loadCategories, loadRecipes } = this.props;
     loadCategories();
-    loadReciples();
+    loadRecipes();
   }
 
-  handleSearchReciple = (e) => {
+  handleSearchRecipe = (e) => {
     const { changeFilter } = this.props;
     changeFilter('All');
     this.setState({ query: e.target.value, selectedCategory: 'All' });
@@ -55,45 +55,45 @@ class Home extends React.Component {
     this.setState({ currentPage });
   };
 
-  renderFilteredRecipes = (reciples) => {
+  renderFilteredRecipes = (recipes) => {
     const { filter } = this.props;
-    if (filter === 'All') return reciples;
-    return reciples.filter((reciple) => reciple.strCategory.includes(filter));
+    if (filter === 'All') return recipes;
+    return recipes.filter((recipe) => recipe.strCategory.includes(filter));
   };
 
-  renderSearchedRecipes = (reciples) => {
+  renderSearchedRecipes = (recipes) => {
     const { query } = this.state;
-    if (query === '') return reciples;
+    if (query === '') return recipes;
 
-    return reciples.filter(
-      (reciple) => reciple.strMeal.toLowerCase().includes(query.toLocaleLowerCase())
-        || reciple.strArea.toLowerCase().includes(query.toLocaleLowerCase()),
+    return recipes.filter(
+      (recipe) => recipe.strMeal.toLowerCase().includes(query.toLocaleLowerCase())
+        || recipe.strArea.toLowerCase().includes(query.toLocaleLowerCase()),
     );
   };
 
-  renderSortedRecipes = (reciples) => {
+  renderSortedRecipes = (recipes) => {
     const { orderColumn } = this.state;
-    if (orderColumn === 'None') return reciples;
+    if (orderColumn === 'None') return recipes;
     const iteratee = orderColumn === 'Name' ? 'strMeal' : 'strArea';
-    return _.orderBy(reciples, iteratee, 'ASC');
+    return _.orderBy(recipes, iteratee, 'ASC');
   };
 
   render() {
     const {
       categories,
-      reciples,
+      recipes,
       loadingCategories,
-      loadingReciples,
+      loadingRecipes,
       loadCategoriesError,
-      loadReciplesError,
+      loadRecipesError,
     } = this.props;
     const {
       selectedCategory, query, orderColumn, currentPage, pageSize,
     } = this.state;
-    const filteredReciples = this.renderFilteredRecipes(reciples);
-    const searchedReciples = this.renderSearchedRecipes(filteredReciples);
-    const sortedReciples = this.renderSortedRecipes(searchedReciples);
-    const pagedReciples = paginate(sortedReciples, currentPage, pageSize);
+    const filteredRecipes = this.renderFilteredRecipes(recipes);
+    const searchedRecipes = this.renderSearchedRecipes(filteredRecipes);
+    const sortedRecipes = this.renderSortedRecipes(searchedRecipes);
+    const pagedRecipes = paginate(sortedRecipes, currentPage, pageSize);
     return (
       <div>
         <Header />
@@ -103,7 +103,7 @@ class Home extends React.Component {
               <div className="loading-spinner-wrapper d-flex flex-center">
                 <HashLoader
                   color="#e0aea6"
-                  loading={loadingReciples}
+                  loading={loadingRecipes}
                   size={70}
                 />
               </div>
@@ -119,29 +119,29 @@ class Home extends React.Component {
           </div>
           <div className="main-home-content">
             <div className="header d-flex flex-center flex-between">
-              <Search query={query} onChange={this.handleSearchReciple} />
+              <Search query={query} onChange={this.handleSearchRecipe} />
               <Sort
                 onChangeSortColumn={this.handleChangeOrderColumn}
                 activeColumn={orderColumn}
               />
             </div>
-            {loadingReciples && (
+            {loadingRecipes && (
               <div className="loading-spinner-wrapper d-flex flex-center">
                 <HashLoader
                   color="#e0aea6"
-                  loading={loadingReciples}
+                  loading={loadingRecipes}
                   size={70}
                 />
               </div>
             )}
-            {!loadingReciples && (
-              <ReciplesList
-                reciples={pagedReciples}
-                itemsCount={sortedReciples && sortedReciples.length}
+            {!loadingRecipes && (
+              <RecipesList
+                recipes={pagedRecipes}
+                itemsCount={sortedRecipes && sortedRecipes.length}
                 currentPage={currentPage}
                 pageSize={pageSize}
                 onPageChange={this.handlePageChange}
-                error={loadReciplesError}
+                error={loadRecipesError}
               />
             )}
           </div>
@@ -152,36 +152,36 @@ class Home extends React.Component {
 }
 
 Home.defaultProps = {
-  loadReciplesError: '',
+  loadRecipesError: '',
   loadCategoriesError: '',
 };
 
 Home.propTypes = {
   loadCategories: PropTypes.func.isRequired,
   categories: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  loadReciples: PropTypes.func.isRequired,
-  reciples: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  loadRecipes: PropTypes.func.isRequired,
+  recipes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   changeFilter: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
   loadingCategories: PropTypes.bool.isRequired,
-  loadingReciples: PropTypes.bool.isRequired,
+  loadingRecipes: PropTypes.bool.isRequired,
   loadCategoriesError: PropTypes.string,
-  loadReciplesError: PropTypes.string,
+  loadRecipesError: PropTypes.string,
 };
 
 const mapStateToProps = (state) => ({
-  reciples: state.reciples.list,
+  recipes: state.recipes.list,
   filter: state.filter,
   categories: state.categories.list,
   loadingCategories: state.categories.loading,
-  loadingReciples: state.reciples.loading,
+  loadingRecipes: state.recipes.loading,
   loadCategoriesError: state.categories.error,
-  loadReciplesError: state.reciples.error,
+  loadRecipesError: state.recipes.error,
 });
 
 const mapDispatchToProps = {
   loadCategories: () => loadCategoriesAsync(),
-  loadReciples: () => loadReciplesAsync(),
+  loadRecipes: () => loadRecipesAsync(),
   changeFilter: (filter) => changeFilter(filter),
 };
 

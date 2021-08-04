@@ -8,8 +8,8 @@ import createStore from './store/createStore';
 import './assets/css/main.css';
 import './assets/css/header.css';
 import './assets/css/home.css';
-import './assets/css/reciples.css';
-import './assets/css/recipleDetails.css';
+import './assets/css/recipes.css';
+import './assets/css/recipeDetails.css';
 import './assets/css/footer.css';
 
 const store = createStore();
