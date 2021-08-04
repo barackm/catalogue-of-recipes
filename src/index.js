@@ -8,6 +8,7 @@ import createStore from './store/createStore';
 import './assets/css/main.css';
 import './assets/css/header.css';
 import './assets/css/home.css';
+import './assets/css/reciples.css';
 
 const store = createStore();
 

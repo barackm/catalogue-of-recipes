@@ -1,0 +1,45 @@
+.reciples-list-main-container {
+  padding-top: 2.5rem;
+}
+
+.reciples-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
+
+.reciple-item-container .image-wrapper {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.reciple-item-container .image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.reciple-details .name {
+  color: var(--dark);
+  height: 0;
+}
+
+.category-area-container .category {
+  background-color: var(--primary);
+  color: var(--dark);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.2rem;
+}
+
+.category-area-container .category span {
+  font-weight: var(--light-weight);
+}
+
+.category-area-container .from {
+  color: var(--dark-light-color);
+  font-weight: var(--light-weight);
+}
+
+.category-area-container .from span {
+  font-weight: 500;
+}

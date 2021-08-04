@@ -3,6 +3,7 @@ import Filter from '../components/Filter';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Sort from '../components/Sort';
+import ReciplesList from './ReciplesList';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
             <Search />
             <Sort />
           </div>
+          <ReciplesList />
         </div>
       </div>
     </div>
