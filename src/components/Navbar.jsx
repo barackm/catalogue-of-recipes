@@ -8,6 +8,7 @@ import { GrClose } from 'react-icons/gr';
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const toggleMenu = () => setShowMenu(!showMenu);
+  const closeMenu = () => setShowMenu(false);
   return (
     <div className={showMenu ? 'main-navbar-container d-flex open' : 'main-navbar-container d-flex'}>
       <Link to="/" className="nav-logo-wrapper d-flex flex-center">
@@ -20,16 +21,16 @@ const Navbar = () => {
       <nav className="d-flex flex-center flex-unit nav-links-wrapper">
         <ul className="d-flex flex-center flex-between links-container">
           <div className="d-flex flex-center links">
-            <li><Link to="/">Shop</Link></li>
-            <li><Link to="/">Features</Link></li>
-            <li><Link to="/">Recipes</Link></li>
+            <li><Link to="/" onClick={closeMenu}>Shop</Link></li>
+            <li><Link to="/" onClick={closeMenu}>Features</Link></li>
+            <li><Link to="/" onClick={closeMenu}>Recipes</Link></li>
           </div>
           <div className="login-info d-flex">
             <li>
-              <Link to="/" className="login-btn">Login</Link>
+              <Link to="/" className="login-btn" onClick={closeMenu}>Login</Link>
             </li>
             <li>
-              <Link to="/" className="signup-btn">Sign Up</Link>
+              <Link to="/" className="signup-btn" onClick={closeMenu}>Sign Up</Link>
             </li>
           </div>
           <button type="button" className="close-menu-btn menu-closed" onClick={toggleMenu}>
