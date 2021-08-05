@@ -8,18 +8,19 @@ import cooker from '../assets/img/cooker2.png';
 
 function RecipeDetails(props) {
   const [recipe, setRecipe] = useState({});
-  const { allRecipes, history, match } = props; // eslint-disable-line
+  const { allRecipes, history, match } = props;
+  const { id } = match.params;
   useEffect(() => {
-    const foundid = match.params.id; // eslint-disable-line
-    if (!foundid) return history.replace('/'); // eslint-disable-line
+    const foundid = id;
+    if (!foundid) return history.replace('/');
     const selectedRecipe = allRecipes.find((r) => r.idMeal === foundid);
-    if (!selectedRecipe) return history.replace('/'); // eslint-disable-line
+    if (!selectedRecipe) return history.replace('/');
     return setRecipe(selectedRecipe);
   }, []);
 
   const myIngredients = [];
-  Object.keys(recipe).map((key) => (key.startsWith('strIngredient') && recipe[key] !== ''
-    ? myIngredients.push(recipe[key])
+  Object.keys(recipe).map((key, index) => (key.startsWith('strIngredient') && recipe[key] !== ''
+    ? myIngredients.push({ name: recipe[key], id: index })
     : ''));
 
   return (
@@ -38,11 +39,11 @@ function RecipeDetails(props) {
 
             <ul className="ingredients-list">
               {myIngredients.map((ing) => (
-                <li key={ing + Math.random}>
+                <li key={ing.id}>
                   <IconContext.Provider value={{ className: 'recipe-details-icon' }}>
                     <BsCheckCircle />
                   </IconContext.Provider>
-                  {ing}
+                  {ing.name}
                 </li>
               ))}
             </ul>
@@ -70,6 +71,8 @@ function RecipeDetails(props) {
 
 RecipeDetails.propTypes = {
   allRecipes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 const mapStateToProps = (state) => ({
