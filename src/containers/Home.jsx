@@ -43,7 +43,7 @@ class Home extends React.Component {
 
   handleSeletectCategory = (category) => {
     const { changeFilter } = this.props;
-    this.setState({ selectedCategory: category, query: '' });
+    this.setState({ selectedCategory: category, query: '', currentPage: 1 });
     changeFilter(category);
   };
 
