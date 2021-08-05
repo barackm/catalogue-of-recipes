@@ -16,7 +16,7 @@
 
 # Live demo
 
-Visit [this link](https://recipes-catelogue-plus.netlify.app/recipes/)
+Visit [this link](https://recipes-catalogue-plus.netlify.app/recipes/)
 
 # Getting Started
 
