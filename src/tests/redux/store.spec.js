@@ -1,4 +1,4 @@
-import createStore from '../store/createStore';
+import createStore from '../../store/createStore';
 
 const store = createStore();
 

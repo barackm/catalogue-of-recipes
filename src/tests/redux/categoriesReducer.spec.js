@@ -2,8 +2,8 @@ import {
   LOAD_CATEGORIES_FAILURE,
   LOAD_CATEGORIES_START,
   LOAD_CATEGORIES_SUCCESS,
-} from '../store/actions';
-import createStore from '../store/createStore';
+} from '../../store/actions';
+import createStore from '../../store/createStore';
 
 const store = createStore();
 

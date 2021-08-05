@@ -1,4 +1,4 @@
-import paginate from '../components/utils/paginate';
+import paginate from '../../components/utils/paginate';
 
 describe('paginate', () => {
   it('should return the correct page', () => {

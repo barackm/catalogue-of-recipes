@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination should render correctly 1`] = `
+<div
+  className="pagination-main-container d-flex flex-center"
+>
+  <ul
+    className="d-flex"
+  >
+    <button
+      className="pagination-item active"
+      onClick={[Function]}
+      type="button"
+    >
+      1
+    </button>
+    <button
+      className="pagination-item"
+      onClick={[Function]}
+      type="button"
+    >
+      2
+    </button>
+    <button
+      className="pagination-item"
+      onClick={[Function]}
+      type="button"
+    >
+      3
+    </button>
+    <button
+      className="pagination-item"
+      onClick={[Function]}
+      type="button"
+    >
+      4
+    </button>
+    <button
+      className="pagination-item"
+      onClick={[Function]}
+      type="button"
+    >
+      5
+    </button>
+  </ul>
+</div>
+`;

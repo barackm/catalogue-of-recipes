@@ -2,8 +2,8 @@ import {
   API_CALL_START,
   LOAD_RECIPES_FAILURE,
   LOAD_RECIPES_SUCCESS,
-} from '../store/actions';
-import createStore from '../store/createStore';
+} from '../../store/actions';
+import createStore from '../../store/createStore';
 
 const store = createStore();
 

@@ -1,15 +1,15 @@
+import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 
-import Search from '../components/Search';
+import Footer from '../../components/Footer';
 
-describe('Search', () => {
+describe('Footer', () => {
   it('should render correctly', () => {
     const tree = renderer
       .create(
-        <Search
-          query="Beef"
-          onChange={() => {}}
-        />,
+        <BrowserRouter>
+          <Footer />
+        </BrowserRouter>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

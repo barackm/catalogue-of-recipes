@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 
-import Pagination from '../components/Pagination';
+import Pagination from '../../components/Pagination';
 
 describe('Pagination', () => {
   it('should render correctly', () => {

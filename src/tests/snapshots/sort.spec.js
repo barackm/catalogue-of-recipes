@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 
-import Sort from '../components/Sort';
+import Sort from '../../components/Sort';
 
 describe('Sort', () => {
   it('should render correctly', () => {

@@ -2,9 +2,9 @@ import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import { render, screen } from '@testing-library/react';
-import createStore from '../store/createStore';
+import createStore from '../../store/createStore';
 
-import Home from '../containers/Home';
+import Home from '../../containers/Home';
 
 const store = createStore();
 

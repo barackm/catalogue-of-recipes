@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search should render correctly 1`] = `
+<div
+  className="search-bar-main-container d-flex flex-center"
+>
+  <svg
+    className="search-icon"
+    fill="none"
+    height="1em"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth="2"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+    viewBox="0 0 24 24"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      cx="11"
+      cy="11"
+      r="8"
+    />
+    <line
+      x1="21"
+      x2="16.65"
+      y1="21"
+      y2="16.65"
+    />
+  </svg>
+  <input
+    className="search-input"
+    onChange={[Function]}
+    placeholder="Search recipes by name or area..."
+    type="text"
+    value="Beef"
+  />
+</div>
+`;

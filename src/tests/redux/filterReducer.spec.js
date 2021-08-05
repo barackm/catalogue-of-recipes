@@ -1,5 +1,5 @@
-import { CHANGE_FILTER } from '../store/actions';
-import createStore from '../store/createStore';
+import { CHANGE_FILTER } from '../../store/actions';
+import createStore from '../../store/createStore';
 
 const store = createStore();
 

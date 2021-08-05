@@ -2,8 +2,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import renderer from 'react-test-renderer';
-import RecipeDetails from '../containers/RecipleDetails';
-import createStore from '../store/createStore';
+import RecipeDetails from '../../containers/RecipleDetails';
+import createStore from '../../store/createStore';
 
 const store = createStore();
 
