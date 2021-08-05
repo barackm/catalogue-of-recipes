@@ -12,4 +12,10 @@ describe('filterReducer', () => {
     store.dispatch({ type: CHANGE_FILTER, payload: 'Beef' });
     expect(store.getState().filter).toBe('Beef');
   });
+
+  it('should throw an error if requesting for an unexisting reducer', () => {
+    expect(() => {
+      store.dispatch();
+    }).toThrow();
+  });
 });

@@ -52,4 +52,10 @@ describe('recipes reducer', () => {
     store.dispatch({ type: 'UNKNOWN_ACTION' });
     expect(store.getState().recipes.error).toBe('Error');
   });
+
+  it('should throw an error if requesting for an unexisting reducer', () => {
+    expect(() => {
+      store.dispatch();
+    }).toThrow();
+  });
 });

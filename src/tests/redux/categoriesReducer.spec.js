@@ -45,4 +45,10 @@ describe('categoriesReducer', () => {
     store.dispatch({ type: 'unknown' });
     expect(store.getState().categories.loading).toBe(false);
   });
+
+  it('should throw an error if requesting for an unexisting reducer', () => {
+    expect(() => {
+      store.dispatch();
+    }).toThrow();
+  });
 });
