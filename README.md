@@ -18,7 +18,7 @@
 
 Visit [this link](https://recipes-catelogue-plus.netlify.app/recipes/)
 
-# Getting Started with Create React App
+# Getting Started
 
 **To get the local copy of the project up and running you will need to run the following commands on your terminal:**
 
