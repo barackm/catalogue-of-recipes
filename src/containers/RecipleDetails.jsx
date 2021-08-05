@@ -69,10 +69,17 @@ function RecipeDetails(props) {
   );
 }
 
+RecipeDetails.defaultProps = {
+  history: {},
+  match: {
+    params: { id: '11' },
+  },
+};
+
 RecipeDetails.propTypes = {
   allRecipes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
-  match: PropTypes.objectOf(PropTypes.any).isRequired,
+  history: PropTypes.objectOf(PropTypes.any),
+  match: PropTypes.objectOf(PropTypes.any),
 };
 
 const mapStateToProps = (state) => ({
