@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter should render correctly 1`] = `
+<div
+  className="filter-main-container"
+>
+  <div
+    className="filter-header"
+  >
+    <h1>
+      Recipes
+      <span>
+        👨‍🍳
+      </span>
+    </h1>
+  </div>
+  <div
+    className="d-flex flex-center list-empty-message"
+  >
+    😥
+    Sorry the list is empty.
+  </div>
+</div>
+`;

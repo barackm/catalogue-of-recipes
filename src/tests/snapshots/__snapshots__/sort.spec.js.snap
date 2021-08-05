@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sort should render correctly 1`] = `
+<div
+  className="sort-main-wrapper d-flex flex-center flex-between"
+>
+  <span>
+    Sort By: 
+  </span>
+  <a
+    className="selected-filter-method d-flex flex-center"
+    href="#f"
+    onClick={[Function]}
+  >
+    None
+    <svg
+      className="sort-arrow"
+      fill="none"
+      height="1em"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polyline
+        points="6 9 12 15 18 9"
+      />
+    </svg>
+  </a>
+  <ul
+    className="sort-method-list"
+  >
+    <li>
+      <a
+        data-sort="None"
+        href="#f"
+        onClick={[Function]}
+        value="None"
+      >
+        None
+      </a>
+    </li>
+    <li>
+      <a
+        data-sort="Name"
+        href="#f"
+        onClick={[Function]}
+        value="Name"
+      >
+        Name
+      </a>
+    </li>
+    <li>
+      <a
+        data-sort="Area"
+        href="#f"
+        onClick={[Function]}
+        value="Area"
+      >
+        Area
+      </a>
+    </li>
+  </ul>
+</div>
+`;

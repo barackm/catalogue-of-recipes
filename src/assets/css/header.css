@@ -1,0 +1,286 @@
+header {
+  background-color: #fff;
+}
+
+.main-navbar-container {
+  padding: 2rem 0;
+}
+
+.nav-links-wrapper {
+  align-items: center;
+  margin-right: 6rem;
+}
+
+.nav-links-wrapper ul {
+  width: 100%;
+}
+
+.navbar-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.404);
+  z-index: -1;
+  border: none;
+  opacity: 0;
+  transition: var(--default-transition);
+  transition-duration: 0.7s;
+}
+
+.links li a {
+  padding: 0 1.3rem;
+  font-weight: var(--light-weight);
+  color: var(--dark);
+}
+
+.close-menu-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: none;
+}
+
+.close-menu-icon {
+  font-size: 1.5rem;
+}
+
+.nav-logo-wrapper {
+  margin-left: 6rem;
+  margin-right: 6rem;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--dark);
+}
+
+.signup-btn {
+  background-color: var(--black);
+  color: var(--light-color);
+  letter-spacing: 1px;
+  border-radius: 4rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  font-weight: var(--light-weight);
+}
+
+.login-btn {
+  font-weight: var(--light-weight);
+  color: var(--dark);
+}
+
+.header-main-container {
+  width: 100%;
+}
+
+.header-wrapper {
+  margin-left: 6rem;
+  margin-right: 6rem;
+  background-color: var(--primary);
+  border-radius: 2rem;
+  min-height: 27rem;
+  position: relative;
+}
+
+.hero-area {
+  align-items: flex-start;
+  padding: 5rem;
+  z-index: 99;
+}
+
+.hero-paragraph {
+  width: 40%;
+  color: var(--dark-light-color);
+  line-height: 1.6;
+}
+
+.hero-text {
+  margin: 0;
+  font-size: 3rem;
+}
+
+.how-they-work {
+  color: var(--dark);
+}
+
+.how-they-work .hero-arrow-icon {
+  transition: var(--default-transition);
+  margin-left: 0.5rem;
+}
+
+.how-they-work:hover > .hero-arrow-icon {
+  transform: translateX(1rem);
+}
+
+.hiro-image {
+  position: absolute;
+  object-fit: cover;
+  right: 15rem;
+  height: 90%;
+  top: 4rem;
+}
+
+.close-menu-btn.menu-closed {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .close-menu-btn {
+    display: block;
+  }
+
+  .links-container {
+    position: fixed;
+    width: 50% !important;
+    left: 0;
+    height: 100vh;
+    top: 0;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary);
+    margin: 0;
+    z-index: 0;
+    padding: 3rem;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.404);
+    opacity: 0;
+    transform: translateX(-100vh);
+    transition: var(--default-transition);
+    transition-duration: 0.6s;
+  }
+
+  .close-menu-btn.menu-closed {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .navbar-overlay.visible {
+    opacity: 1;
+    z-index: 999;
+  }
+
+  .links-container .links {
+    flex-direction: column;
+    padding-top: 5rem;
+  }
+
+  .login-info li {
+    margin: 0.8rem 0;
+  }
+
+  .links-container .links li {
+    padding: 1rem 0;
+  }
+
+  .links-container .links li a {
+    font-size: 1.4rem;
+  }
+
+  .login-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-btn {
+    font-size: 1.4rem;
+  }
+
+  .signup-btn {
+    margin-left: 0;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .main-navbar-container {
+    justify-content: space-between;
+  }
+
+  .nav-links-wrapper {
+    justify-content: flex-end;
+    margin-right: 4rem;
+  }
+
+  .nav-logo-wrapper {
+    margin-left: 4rem;
+  }
+
+  .main-navbar-container.open {
+    position: relative;
+    background-color: var(--white);
+  }
+
+  .main-navbar-container.open .links-container {
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 999999;
+  }
+
+  .header-wrapper {
+    margin-left: 4rem;
+    margin-right: 4rem;
+    width: 60%;
+  }
+
+  .hiro-image {
+    right: 5rem;
+    height: 80%;
+    top: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 2.4rem;
+  }
+
+  .hero-paragraph {
+    width: 60%;
+  }
+
+  .header-wrapper {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .nav-logo-wrapper {
+    margin-left: 2rem;
+  }
+
+  .nav-links-wrapper {
+    margin-right: 2rem;
+  }
+
+  .hiro-image {
+    right: 1rem;
+    height: 70%;
+    top: 4rem;
+  }
+
+  .hero-area {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-logo-wrapper {
+    margin-left: 2rem;
+  }
+
+  .hero-text {
+    font-size: 1.4rem;
+  }
+
+  .hero-paragraph {
+    line-height: 1.2;
+    width: 100%;
+  }
+
+  .hiro-image {
+    opacity: 0.4;
+  }
+}

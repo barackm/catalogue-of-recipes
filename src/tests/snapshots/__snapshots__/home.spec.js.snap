@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render correctly 1`] = `
+<div>
+  <header
+    className="app-header"
+  >
+    <div
+      className="header-main-container d-flex flex-center"
+    >
+      <div
+        className="header-wrapper flex-unit d-flex"
+      >
+        <div
+          className="hero-area d-flex flex-center flex-column"
+        >
+          <h1
+            className="hero-text"
+          >
+            Recipes
+            <br />
+            Catalogue
+          </h1>
+          <p
+            className="hero-paragraph"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quae nesciunt porro maiores quod aliquam vero dicta animi ipsa assumenda.
+          </p>
+          <a
+            className="how-they-work d-flex flex-center"
+            href="/"
+            onClick={[Function]}
+          >
+            How they work
+            <svg
+              className="hero-arrow-icon"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                d="M10.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L12.793 8l-2.647-2.646a.5.5 0 010-.708z"
+                fillRule="evenodd"
+              />
+              <path
+                clipRule="evenodd"
+                d="M2 8a.5.5 0 01.5-.5H13a.5.5 0 010 1H2.5A.5.5 0 012 8z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </a>
+        </div>
+        <div
+          className="hero-image-wrapper"
+        >
+          <img
+            alt="hiro"
+            className="hiro-image"
+            src="hero-illustration.png"
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+  <div
+    className="home-content-main-area d-flex"
+  >
+    <div
+      className="side-bar-wrapper"
+    >
+      <div
+        className="loading-spinner-wrapper d-flex flex-center"
+      >
+        <span
+          className="css-1u252oj"
+        >
+          <span
+            className="css-rqmy7v"
+          />
+          <span
+            className="css-17y5dvi"
+          />
+        </span>
+      </div>
+    </div>
+    <div
+      className="main-home-content"
+    >
+      <div
+        className="header d-flex flex-center flex-between"
+      >
+        <div
+          className="search-bar-main-container d-flex flex-center"
+        >
+          <svg
+            className="search-icon"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="11"
+              cy="11"
+              r="8"
+            />
+            <line
+              x1="21"
+              x2="16.65"
+              y1="21"
+              y2="16.65"
+            />
+          </svg>
+          <input
+            className="search-input"
+            onChange={[Function]}
+            placeholder="Search recipes by name or area..."
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="sort-main-wrapper d-flex flex-center flex-between"
+        >
+          <span>
+            Sort By: 
+          </span>
+          <a
+            className="selected-filter-method d-flex flex-center"
+            href="#f"
+            onClick={[Function]}
+          >
+            None
+            <svg
+              className="sort-arrow"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="6 9 12 15 18 9"
+              />
+            </svg>
+          </a>
+          <ul
+            className="sort-method-list"
+          >
+            <li>
+              <a
+                data-sort="None"
+                href="#f"
+                onClick={[Function]}
+                value="None"
+              >
+                None
+              </a>
+            </li>
+            <li>
+              <a
+                data-sort="Name"
+                href="#f"
+                onClick={[Function]}
+                value="Name"
+              >
+                Name
+              </a>
+            </li>
+            <li>
+              <a
+                data-sort="Area"
+                href="#f"
+                onClick={[Function]}
+                value="Area"
+              >
+                Area
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        className="loading-spinner-wrapper d-flex flex-center"
+      >
+        <span
+          className="css-1u252oj"
+        >
+          <span
+            className="css-rqmy7v"
+          />
+          <span
+            className="css-17y5dvi"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

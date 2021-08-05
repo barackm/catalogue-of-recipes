@@ -1,13 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import App from './components/App';
+import createStore from './store/createStore';
 
+import './assets/css/main.css';
+import './assets/css/header.css';
+import './assets/css/home.css';
+import './assets/css/recipes.css';
+import './assets/css/recipeDetails.css';
+import './assets/css/footer.css';
+
+const store = createStore();
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function

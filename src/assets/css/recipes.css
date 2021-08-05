@@ -1,0 +1,88 @@
+.recipes-list-main-container {
+  padding-top: 2.5rem;
+}
+
+.recipes-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
+
+.recipe-item-container .image-wrapper {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.recipe-item-container .image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.recipe-details .name {
+  color: var(--dark);
+  height: 0;
+  font-weight: 500;
+}
+
+.category-area-container .category {
+  background-color: var(--primary);
+  color: var(--dark);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.2rem;
+}
+
+.category-area-container .category span {
+  font-weight: var(--light-weight);
+}
+
+.category-area-container .from {
+  color: var(--dark-light-color);
+  font-weight: var(--light-weight);
+}
+
+.category-area-container .from span {
+  font-weight: 500;
+}
+
+.pagination-main-container {
+  margin: 2rem 0;
+}
+
+.pagination-item {
+  background-color: var(--light);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: var(--default-transition);
+  border: none;
+}
+
+.pagination-item:first-child {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.pagination-item.active {
+  background-color: var(--darker-primary);
+}
+
+.pagination-item:last-child {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.pagination-item:hover {
+  background-color: var(--darker-primary);
+}
+
+@media (max-width: 1024px) {
+  .recipes-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .recipes-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

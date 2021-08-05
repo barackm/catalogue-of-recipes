@@ -1,0 +1,63 @@
+:root {
+  --dark: #333;
+  --black: #111;
+  --white: #fff;
+  --primary: #fbe0dc;
+  --light-weight: 400;
+  --dark-light-color: rgb(61, 61, 61);
+  --light-color: rgb(187, 187, 187);
+  --default-transition: all 0.2s ease-in-out;
+  --light: rgba(240, 236, 236, 0.795);
+  --danger: #e63900;
+  --darker-primary: #e0aea6;
+  --tablet: 768px;
+  --desktop: 1200px;
+  --mobile: 480px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+ul {
+  padding: 0;
+}
+
+ul,
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-unit {
+  flex: 1;
+}
