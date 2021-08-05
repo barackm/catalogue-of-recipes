@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-export default function Recipe(props) {
+const Recipe = (props) => {
   const { recipe } = props;
   const {
     idMeal, strMeal, strCategory, strMealThumb, strArea,
@@ -29,8 +29,10 @@ export default function Recipe(props) {
       </div>
     </Link>
   );
-}
+};
 
 Recipe.propTypes = {
   recipe: PropTypes.objectOf(PropTypes.string).isRequired,
 };
+
+export default Recipe;

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { IconContext } from 'react-icons';
 import { FiSearch } from 'react-icons/fi';
 
-export default function Search(props) {
+const Search = (props) => {
   const { query, onChange } = props;
   return (
     <div className="search-bar-main-container d-flex flex-center">
@@ -20,9 +20,11 @@ export default function Search(props) {
       />
     </div>
   );
-}
+};
 
 Search.propTypes = {
   query: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
+
+export default Search;

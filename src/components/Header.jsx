@@ -6,7 +6,7 @@ import { BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import illustration from '../assets/img/hero-illustration.png';
 
-function Header(props) {
+const Header = (props) => {
   const {
     title1, title2, paragraph, image,
   } = props;
@@ -35,7 +35,7 @@ function Header(props) {
       </div>
     </header>
   );
-}
+};
 
 Header.defaultProps = {
   title1: 'Recipes',

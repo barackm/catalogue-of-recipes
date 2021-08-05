@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { IconContext } from 'react-icons';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
-export default function Sort(props) {
+const Sort = (props) => {
   const [showSort, setShowSort] = useState(false);
   const { onChangeSortColumn, activeColumn } = props;
   const sortOptions = ['None', 'Name', 'Area'];
@@ -36,9 +36,11 @@ export default function Sort(props) {
       </ul>
     </div>
   );
-}
+};
 
 Sort.propTypes = {
   activeColumn: PropTypes.string.isRequired,
   onChangeSortColumn: PropTypes.func.isRequired,
 };
+
+export default Sort;

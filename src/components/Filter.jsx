@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Filter(props) {
+const Filter = (props) => {
   const {
     categories, selectedCategory, onChangeFilter, error,
   } = props;
@@ -88,7 +88,7 @@ export default function Filter(props) {
 
     </div>
   );
-}
+};
 
 Filter.defaultProps = {
   error: '',
@@ -100,3 +100,4 @@ Filter.propTypes = {
   onChangeFilter: PropTypes.func.isRequired,
   error: PropTypes.string,
 };
+export default Filter;
