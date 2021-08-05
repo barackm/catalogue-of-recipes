@@ -260,10 +260,27 @@ header {
     height: 70%;
     top: 4rem;
   }
+
+  .hero-area {
+    padding: 2rem;
+  }
 }
 
 @media (max-width: 480px) {
   .nav-logo-wrapper {
     margin-left: 2rem;
+  }
+
+  .hero-text {
+    font-size: 1.4rem;
+  }
+
+  .hero-paragraph {
+    line-height: 1.2;
+    width: 100%;
+  }
+
+  .hiro-image {
+    opacity: 0.4;
   }
 }
