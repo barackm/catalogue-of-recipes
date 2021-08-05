@@ -26,6 +26,10 @@ Visit [this link](https://recipes-catelogue-plus.netlify.app/recipes/)
 
 ## Available Scripts
 
+After you have cloned the repository you will need to install all the available dependencies, for that you can run:
+
+`npm install`
+
 In the project directory, you can run:
 
 `npm start`
