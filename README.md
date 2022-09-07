@@ -1,22 +1,32 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# Sweet~aromas
 
-# Catalogue of Recipes
+> Sweet~aromas is a catalogue of Recipes that provides a set of instructions used for preparing and producing a certain food, dish, or drink. The purpose of a recipe is to have a precise record of the ingredients used, the amounts needed, and the way they are combined.
 
-> Catalogue of Recipes is a React based app that provides a set of instructions used for preparing and producing a certain food, dish, or drink. The purpose of a recipe is to have a precise record of the ingredients used, the amounts needed, and the way they are combined.
+### Screenshots 📸
 
-![screenshot](./Screenshot1.png)
-![screenshot](./Screenshot2.png)
-![screenshot](./Screenshot3.png)
+|-| Sweet~aromas |-|
+|-|----------------------------------|-|
+|-| ![screenshot](./Screenshot1.png) |-|
+|-| |-|
+|-| ![screenshot](./Screenshot2.png) |-|
+|-| |-|
+|-| ![screenshot](./Screenshot3.png) |-|
 
-## Built With
 
-- React
-- Redux
-- CSS
+## Built With 🛠️
 
-# Live demo
+- ![React](https://img.shields.io/badge/-React-000000?style=flat&logo=react)
+- ![Redux](https://img.shields.io/badge/-Redux-000000?style=flat&logo=redux&logoColor=ffffff&labelColor=violet)
+- ![CSS3](https://img.shields.io/badge/-CSS3-000000?style=flat&logo=css3&logoColor=ffffff&labelColor=1572B6)
+- ![Sass](https://img.shields.io/badge/-Sass-000000?style=flat&logo=sass&logoColor=ffffff&labelColor=%23CC6699)
 
-Visit [this link](https://recipes-catalogue-plus.netlify.app/recipes/)
+## Live Demo 🔗
+
+[Live Demo Link](https://recipes-catalogue-plus.netlify.app/recipes/)
+
+## Documentation Demo 🔗
+
+[Documentation Link](https://sweetaromas.herokuapp.com/api-docs/)
 
 # Getting Started
 
@@ -95,7 +105,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## Author
+## Authors
 
 👤 **Barack Mukelenga**
 
@@ -103,6 +113,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Twitter: [@BarackMukelenga](https://twitter.com/BarackMukelenga)
 - LinkedIn: [Baraka Mukelenga](https://www.linkedin.com/in/baraka-mukelenga/)
 - Portfolio: [Barackm](https://barackm.me)
+
+👤 **Ben Mukebo**
+
+- GitHub: [@BenMukebo](https://github.com/BenMukebo)
+- Twitter [@BenMukebo](https://twitter.com/BenMukebo)
+- LinkedIn [BenMukebo](https://www.linkedin.com/in/kasongo-mukebo-ben-591720205/)
+
 
 ## 🤝 Contributing
 
@@ -112,7 +129,7 @@ Feel free to check the [issues page](https://github.com/barackm/catalogue-of-rec
 
 ## Show your support
 
-Give a ⭐️ if you like this project!❤️
+Give a ⭐️ if you like this project! ❤️
 
 ## Acknowledgments
 
@@ -124,3 +141,5 @@ Give a ⭐️ if you like this project!❤️
 The MIT License (MIT)
 
 Copyright (c) 2021 [Baraka Mukelenga](https://barackm.me)
+
+Copyright (c) 2022 [Ben Mukebo](https://www.benmukebo.me/
