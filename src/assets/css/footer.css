@@ -24,6 +24,14 @@ footer {
   color: var(--darker-primary);
 }
 
+.footer-attribution span {
+  min-width: 80px;
+}
+
+.twitter {
+  display: block;
+}
+
 @media (max-width: 900px) {
   .nav-logo-wrapper.footer {
     margin-left: 4rem;
@@ -31,6 +39,10 @@ footer {
 
   .footer-links-wrapper.footer-links {
     margin-right: 4rem;
+  }
+
+  .twitter {
+    display: none;
   }
 }
 
@@ -56,5 +68,11 @@ footer {
 
   .footer-attribution {
     order: 3;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .twitter {
+    display: block;
   }
 }
