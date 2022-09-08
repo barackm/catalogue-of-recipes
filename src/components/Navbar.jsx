@@ -26,11 +26,14 @@ const Navbar = () => {
             <li><Link to="/" onClick={closeMenu}>Recipes</Link></li>
           </div>
           <div className="login-info d-flex">
-            <li>
+            {/* <li>
               <Link to="/" className="login-btn" onClick={closeMenu}>Login</Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link to="/" className="signup-btn" onClick={closeMenu}>Sign Up</Link>
+            </li> */}
+            <li>
+              <Link to="/" className="signup-btn" onClick={closeMenu}>Logout</Link>
             </li>
           </div>
           <button type="button" className="close-menu-btn menu-closed" onClick={toggleMenu}>

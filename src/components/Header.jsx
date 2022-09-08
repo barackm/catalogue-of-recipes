@@ -38,10 +38,10 @@ const Header = (props) => {
 };
 
 Header.defaultProps = {
-  title1: 'Recipes',
-  title2: 'Catalogue',
+  title1: 'Sweet',
+  title2: 'Aromas',
   paragraph:
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quae nesciunt porro maiores quod aliquam vero dicta animi ipsa assumenda.',
+    'We are dedicated to serving the needs of our customers each every day. We have a large variety of pasta, chicken, veal, seafood, stuffed artichokes, braciole. Ask your server to ask the kitchen if we can make your favorite.',
   image: illustration,
 };
 
