@@ -5,6 +5,7 @@ import { FaRegUser, FaUser } from 'react-icons/fa';
 import { HiOutlineMailOpen } from 'react-icons/hi';
 import { FiPhoneCall } from 'react-icons/fi';
 import { RiLockPasswordLine } from 'react-icons/ri';
+import axios from 'axios';
 import styles from '../../assets/scss/Login.module.scss';
 
 const Register = () => {
@@ -12,18 +13,45 @@ const Register = () => {
   const [email, setEmail] = useState('');
   // const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassowrd] = useState('');
+  const baseUrl = 'https://sweetaromas.herokuapp.com';
+  // const baseUrl = 'http://localhost:3001';
 
   const handleRegister = (e) => {
     e.preventDefault();
     if (userName === '' || email === '' || password === '') return;
-    const data = {
+    const user = {
       user_name: userName,
       email,
       // phoneNumber,
       password,
     };
-    console.log('users:', data);
+    axios.post(`${baseUrl}/signup`, { user }).then(
+      (res) => {
+        console.log({ user });
+      },
+    ).catch(
+      (res) => {
+        console.log(res);
+      },
+    );
+    // console.log({ user });
+    // const res = await axios.post(`${baseUrl}/signup`, { user });
+    // res.data.json; // { answer: 42 }
   };
+
+  // try {
+  //   await axios({
+  //     method: 'post',
+  //     url: `${baseUrl}/signup`,
+  //     data: {
+  //       user: {
+  //         user_name,
+  //         email,
+  //         password,
+  //         // phone_number: phoneNumber,
+  //       },
+  //     },
+  // });
 
   return (
     <section className={styles['login-register']}>
