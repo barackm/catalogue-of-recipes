@@ -11,7 +11,12 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('LOGIN', e);
+    if (email === '' || password === '') return;
+    const data = {
+      email,
+      password,
+    };
+    console.log('users:', data);
   };
 
   return (

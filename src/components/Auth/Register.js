@@ -15,7 +15,14 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log('SIGN_UP, e');
+    if (userName === '' || email === '' || password === '') return;
+    const data = {
+      user_name: userName,
+      email,
+      // phoneNumber,
+      password,
+    };
+    console.log('users:', data);
   };
 
   return (
