@@ -3,20 +3,28 @@ import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { HiOutlineMailOpen } from 'react-icons/hi';
 import { RiLockPasswordLine } from 'react-icons/ri';
+import axios from 'axios';
 import styles from '../../assets/scss/Login.module.scss';
 
 const Login = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassowrd] = useState('');
+  const [password, setPassword] = useState('');
+  const baseUrl = 'https://sweetaromas.herokuapp.com';
 
   const handleLogin = (e) => {
     e.preventDefault();
     if (email === '' || password === '') return;
-    const data = {
+    const user = {
       email,
       password,
     };
-    console.log('users:', data);
+
+    axios.post(`${baseUrl}/login`, { user })
+      .then((res) => {
+        console.log(res);
+      }).catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -49,7 +57,7 @@ const Login = () => {
             name="Password"
             placeholder="Password"
             required
-            onChange={(e) => setPassowrd(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
         </div>

@@ -27,31 +27,17 @@ const Register = () => {
     };
     axios.post(`${baseUrl}/signup`, { user }).then(
       (res) => {
-        console.log({ user });
+        console.log(res);
       },
     ).catch(
-      (res) => {
-        console.log(res);
+      (err) => {
+        console.log(err);
       },
     );
     // console.log({ user });
     // const res = await axios.post(`${baseUrl}/signup`, { user });
     // res.data.json; // { answer: 42 }
   };
-
-  // try {
-  //   await axios({
-  //     method: 'post',
-  //     url: `${baseUrl}/signup`,
-  //     data: {
-  //       user: {
-  //         user_name,
-  //         email,
-  //         password,
-  //         // phone_number: phoneNumber,
-  //       },
-  //     },
-  // });
 
   return (
     <section className={styles['login-register']}>
