@@ -14,9 +14,8 @@ const Register = () => {
   // const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassowrd] = useState('');
   const baseUrl = 'https://sweetaromas.herokuapp.com';
-  // const baseUrl = 'http://localhost:3001';
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     if (userName === '' || email === '' || password === '') return;
     const user = {
@@ -25,18 +24,14 @@ const Register = () => {
       // phoneNumber,
       password,
     };
-    axios.post(`${baseUrl}/signup`, { user }).then(
-      (res) => {
-        console.log(res);
-      },
-    ).catch(
-      (err) => {
-        console.log(err);
-      },
-    );
-    // console.log({ user });
-    // const res = await axios.post(`${baseUrl}/signup`, { user });
+    // // console.log({ user });
     // res.data.json; // { answer: 42 }
+    try {
+      const response = await axios.post(`${baseUrl}/signup`, { user });
+      const { data } = response;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

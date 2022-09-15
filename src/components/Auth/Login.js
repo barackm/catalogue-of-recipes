@@ -11,20 +11,30 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const baseUrl = 'https://sweetaromas.herokuapp.com';
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (email === '' || password === '') return;
     const user = {
       email,
       password,
     };
+    //   await axios.post(`${baseUrl}/login`, { user })
+    //     .then((res) => {
+    //       console.log(res.headers.authorization);
+    //       const { token } = res.data;
+    //       localStorage.setItem('token', token);
+    //     }).catch((err) => {
+    //       console.log(err);
+    //     });
+    try {
+      const response = await axios.post(`${baseUrl}/login`, { user });
+      const { authorization } = response.headers;
+      console.log(authorization);
 
-    axios.post(`${baseUrl}/login`, { user })
-      .then((res) => {
-        console.log(res);
-      }).catch((err) => {
-        console.log(err);
-      });
+      // const { token } = res.data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -79,3 +89,4 @@ export default Login;
 
 // rfce
 // rafce
+
