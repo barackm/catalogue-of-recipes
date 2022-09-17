@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { IconContext } from 'react-icons';
 import { Link } from 'react-router-dom';
-import { HiPlus } from 'react-icons/hi';
+// import { HiPlus } from 'react-icons/hi';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GrClose } from 'react-icons/gr';
+import logo from '../assets/img/logo_transparent.png';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -12,10 +13,12 @@ const Navbar = () => {
   return (
     <div className={showMenu ? 'main-navbar-container d-flex open' : 'main-navbar-container d-flex'}>
       <Link to="/" className="nav-logo-wrapper d-flex flex-center">
-        Food
-        <IconContext.Provider value={{ className: 'logo-plus-icon' }}>
+        <div className="div-logo">
+          <img src={logo} alt={logo} />
+        </div>
+        {/* <IconContext.Provider value={{ className: 'logo-plus-icon' }}>
           <HiPlus />
-        </IconContext.Provider>
+        </IconContext.Provider> */}
       </Link>
       <button type="button" className={showMenu ? 'navbar-overlay visible' : 'navbar-overlay'} onClick={toggleMenu}> </button>
       <nav className="d-flex flex-center flex-unit nav-links-wrapper">
