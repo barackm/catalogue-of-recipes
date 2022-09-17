@@ -9,6 +9,7 @@ import styles from '../../assets/scss/Login.module.scss';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const baseUrl = 'https://sweetaromas.herokuapp.com';
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -19,7 +20,8 @@ const Login = () => {
     };
 
     try {
-      const response = await axios.post('/login', { user });
+      const response = await axios.post(`${baseUrl}/login`, { user });
+      // const response = await axios.post('/login', { user });
       const { authorization } = response.headers;
       console.log(authorization);
 
