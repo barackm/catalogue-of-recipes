@@ -55,6 +55,15 @@ header {
   color: var(--dark);
 }
 
+.div-logo {
+  width: 180px;
+  height: auto;
+}
+
+.div-logo img {
+  width: 100%;
+}
+
 .signup-btn {
   background-color: var(--black);
   color: var(--light-color);
