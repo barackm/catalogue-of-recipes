@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import HashLoader from 'react-spinners/HashLoader';
 import _ from 'lodash';
-
 import axios from 'axios';
+// import jwt_decode from 'jwt-decode';
+
 import Filter from '../components/Filter';
 import Header from '../components/Header';
 import Search from '../components/Search';
@@ -25,25 +26,28 @@ const Home = (props) => {
   const pageSize = 6;
   const [currentPage, setCurrentPage] = useState(1);
   const { loadCategories, loadRecipes } = props;
-
   const [currentUser, setCurrentUser] = useState('');
-  const baseUrl = 'https://sweetaromas.herokuapp.com';
+
+  // const baseUrl = 'https://sweetaromas.herokuapp.com';
 
   const handleRequest = async () => {
-    const config = {
-      headers: {
-        Authorization: localStorage.getItem('token'),
-      },
-    };
+    // const config = {
+    //   headers: {
+    //     Authorization: localStorage.getItem('token'),
+    //   },
+    // };
 
     try {
-      const response = await axios.get(`${baseUrl}/users`, config);
+      // const response = await axios.get(`${baseUrl}/users/5`, config);
+      const response = await axios.get('/users/5');
       const { data } = response;
-      console.log('Show', data.users);
-      setCurrentUser(data);
-      // localStorage.setItem('token', authorization);
+      // const data = response?.data;
+      // const data = response?.data;
+      // console.log('Show', data);
+      // const decoded = jwt_decode.decode(localStorage.getItem('token'), { header: true });
+      // console.log('hello here:', decoded);
 
-      // const { token } = res.data;
+      setCurrentUser(data.user_name);
     } catch (error) {
       console.log(error);
     }
@@ -54,6 +58,7 @@ const Home = (props) => {
     loadRecipes();
     handleRequest();
   }, [loadCategories, loadRecipes]);
+
   // componentDidMount() {
 
   // }
@@ -111,9 +116,13 @@ const Home = (props) => {
   const searchedRecipes = renderSearchedRecipes(filteredRecipes);
   const sortedRecipes = renderSortedRecipes(searchedRecipes);
   const pagedRecipes = paginate(sortedRecipes, currentPage, pageSize);
+
+  // if ({ currentUser }) {
+  //   return '402: You need to sign in or sign up before continuing.';
+  // }
   return (
     <div>
-      <Header />
+      <Header userName={currentUser} />
       <div className="home-content-main-area d-flex">
         <div className="side-bar-wrapper">
           {loadingCategories && (

@@ -1,48 +1,15 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { IconContext } from 'react-icons';
 import { BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-// import jwt_decode from 'jwt-decode';
 import illustration from '../assets/img/hero-illustration.png';
 
 const Header = (props) => {
   const {
-    title1, title2, paragraph, image,
+    title1, title2, paragraph, image, userName,
   } = props;
 
-  const [currentUser, setCurrentUser] = useState('');
-  // const baseUrl = 'https://sweetaromas.herokuapp.com';
-
-  const handleRequest = async () => {
-    // const config = {
-    //   headers: {
-    //     Authorization: localStorage.getItem('token'),
-    //   },
-    // };
-
-    try {
-      // const response = await axios.get(`${baseUrl}/users/5`, config);
-      const response = await axios.get('/users/5');
-      const { data } = response;
-      // const data = response?.data;
-      // const data = response?.data;
-      // console.log('Show', data);
-      // const decoded = jwt_decode.decode(localStorage.getItem('token'), { header: true });
-      // console.log('hello here:', decoded);
-
-      setCurrentUser(data.user_name);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    handleRequest();
-  }, []);
   return (
     <header className="app-header">
       <div className="header-main-container d-flex flex-center">
@@ -65,7 +32,7 @@ const Header = (props) => {
             <p>
               Welcome
               {' ~ '}
-              <span>{ currentUser }</span>
+              <span>{ userName }</span>
               {'. '}
             </p>
           </div>
@@ -84,6 +51,7 @@ Header.defaultProps = {
   paragraph:
     'We are dedicated to serving the needs of our customers each every day. We have a large variety of pasta, chicken, veal, seafood, stuffed artichokes, braciole. Ask your server to ask the kitchen if we can make your favorite.',
   image: illustration,
+  userName: 'back',
 };
 
 Header.propTypes = {
@@ -91,6 +59,7 @@ Header.propTypes = {
   title2: PropTypes.string,
   paragraph: PropTypes.string,
   image: PropTypes.string,
+  userName: PropTypes.string,
 };
 
 export default Header;
