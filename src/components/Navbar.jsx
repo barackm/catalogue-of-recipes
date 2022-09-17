@@ -10,9 +10,33 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const toggleMenu = () => setShowMenu(!showMenu);
   const closeMenu = () => setShowMenu(false);
+  let buttons;
+
+  if (localStorage.getItem('token')) {
+    buttons = (
+      <div className="login-info d-flex">
+        <li>
+          <Link to="/" className="signup-btn" onClick={() => localStorage.clear()}>Logout</Link>
+        </li>
+      </div>
+    );
+  } else {
+    (
+      buttons = (
+        <div className="login-info d-flex">
+          <li>
+            <Link to="/login" className="login-btn" onClick={closeMenu}>Login</Link>
+          </li>
+          <li>
+            <Link to="/signup" className="signup-btn" onClick={closeMenu}>Sign Up</Link>
+          </li>
+        </div>
+      )
+    );
+  }
   return (
     <div className={showMenu ? 'main-navbar-container d-flex open' : 'main-navbar-container d-flex'}>
-      <Link to="/" className="nav-logo-wrapper d-flex flex-center">
+      <Link to="/recipies" className="nav-logo-wrapper d-flex flex-center">
         <div className="div-logo">
           <img src={logo} alt={logo} />
         </div>
@@ -28,17 +52,7 @@ const Navbar = () => {
             <li><Link to="/" onClick={closeMenu}>Features</Link></li>
             <li><Link to="/" onClick={closeMenu}>Recipes</Link></li>
           </div>
-          <div className="login-info d-flex">
-            {/* <li>
-              <Link to="/" className="login-btn" onClick={closeMenu}>Login</Link>
-            </li> */}
-            {/* <li>
-              <Link to="/" className="signup-btn" onClick={closeMenu}>Sign Up</Link>
-            </li> */}
-            <li>
-              <Link to="/" className="signup-btn" onClick={closeMenu}>Logout</Link>
-            </li>
-          </div>
+          {buttons}
           <button type="button" className="close-menu-btn menu-closed" onClick={toggleMenu}>
             <IconContext.Provider value={{ className: 'close-menu-icon' }}>
               <GrClose />
