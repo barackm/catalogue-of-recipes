@@ -114,6 +114,33 @@ header {
   transform: translateX(1rem);
 }
 
+.current-user p {
+  position: absolute;
+  top: 0.7rem;
+  left: 17rem;
+  font-size: 22px;
+  font-weight: 500;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: var(--dark);
+  justify-items: flex-start;
+  animation: crane-float 20s alternate infinite ease-in-out both;
+  transform: translateX(-150%);
+}
+
+/* .current-user p span {
+  color: var(--dark-light-color);
+} */
+
+@keyframes crane-float {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(70%);
+  }
+}
+
 .hiro-image {
   position: absolute;
   object-fit: cover;
@@ -126,7 +153,7 @@ header {
   display: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
   .close-menu-btn {
     display: block;
   }
@@ -255,6 +282,12 @@ header {
     margin-right: 2rem;
   }
 
+  .current-user p {
+    top: 0.5rem;
+    left: 10rem;
+    font-size: 18px;
+  }
+
   .hiro-image {
     right: 1rem;
     height: 70%;
@@ -278,6 +311,23 @@ header {
   .hero-paragraph {
     line-height: 1.2;
     width: 100%;
+  }
+
+  .current-user p {
+    top: 0.5rem;
+    left: 2.5rem;
+    font-size: 16px;
+    animation: crane-float 10s alternate infinite ease-in-out both;
+  }
+
+  @keyframes crane-float {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-20px);
+    }
   }
 
   .hiro-image {
