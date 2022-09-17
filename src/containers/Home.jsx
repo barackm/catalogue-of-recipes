@@ -27,19 +27,18 @@ const Home = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
   const { loadCategories, loadRecipes } = props;
   const [currentUser, setCurrentUser] = useState('');
-
-  // const baseUrl = 'https://sweetaromas.herokuapp.com';
+  const baseUrl = 'https://sweetaromas.herokuapp.com';
 
   const handleRequest = async () => {
-    // const config = {
-    //   headers: {
-    //     Authorization: localStorage.getItem('token'),
-    //   },
-    // };
+    const config = {
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+    };
 
     try {
-      // const response = await axios.get(`${baseUrl}/users/5`, config);
-      const response = await axios.get('/users/5');
+      const response = await axios.get(`${baseUrl}/users/5`, config);
+      // const response = await axios.get('/users/5');
       const { data } = response;
       // const data = response?.data;
       // const data = response?.data;
@@ -117,9 +116,10 @@ const Home = (props) => {
   const sortedRecipes = renderSortedRecipes(searchedRecipes);
   const pagedRecipes = paginate(sortedRecipes, currentPage, pageSize);
 
-  // if ({ currentUser }) {
-  //   return '402: You need to sign in or sign up before continuing.';
-  // }
+  if (!currentUser) {
+    console.log(currentUser);
+    return '402: You need to sign in or sign up before continuing.';
+  }
   return (
     <div>
       <Header userName={currentUser} />
@@ -160,6 +160,7 @@ const Home = (props) => {
               pageSize={pageSize}
               onPageChange={handlePageChange}
               error={loadRecipesError}
+              userName={currentUser}
             />
           )}
         </div>

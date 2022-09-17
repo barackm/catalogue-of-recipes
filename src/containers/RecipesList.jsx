@@ -6,8 +6,13 @@ import Recipe from '../components/Recipe';
 
 export default function RecipesList(props) {
   const {
-    recipes, itemsCount, pageSize, currentPage, onPageChange, error,
+    recipes, itemsCount, pageSize, currentPage, onPageChange, error, userName,
   } = props;
+
+  if (!userName) {
+    return '402: You need to sign in or sign up before continuing.';
+  }
+
   return (
     (error || recipes.length === 0) ? (
       <div className="d-flex flex-center list-empty-message">
@@ -35,6 +40,7 @@ export default function RecipesList(props) {
 RecipesList.defaultProps = {
   itemsCount: 0,
   error: '',
+  userName: '',
 };
 
 RecipesList.propTypes = {
@@ -44,4 +50,5 @@ RecipesList.propTypes = {
   currentPage: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
   error: PropTypes.string,
+  userName: PropTypes.string,
 };
