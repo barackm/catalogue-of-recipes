@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import axios from 'axios';
 import App from './components/App';
 import createStore from './store/createStore';
 
@@ -12,7 +13,11 @@ import './assets/css/recipes.css';
 import './assets/css/recipeDetails.css';
 import './assets/css/footer.css';
 
+axios.defaults.baseURL = 'https://sweetaromas.herokuapp.com';
+axios.defaults.headers.common.Authorization = localStorage.getItem('token');
+
 const store = createStore();
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

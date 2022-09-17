@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import HashLoader from 'react-spinners/HashLoader';
 import _ from 'lodash';
 
+import axios from 'axios';
 import Filter from '../components/Filter';
 import Header from '../components/Header';
 import Search from '../components/Search';
@@ -17,52 +18,73 @@ import {
 } from '../store/actions';
 import paginate from '../components/utils/paginate';
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedCategory: 'All',
-      query: '',
-      orderColumn: 'None',
-      pageSize: 6,
-      currentPage: 1,
+const Home = (props) => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [query, setQuery] = useState('');
+  const [orderColumn, setOrderColumn] = useState('None');
+  const pageSize = 6;
+  const [currentPage, setCurrentPage] = useState(1);
+  const { loadCategories, loadRecipes } = props;
+
+  const [currentUser, setCurrentUser] = useState('');
+  const baseUrl = 'https://sweetaromas.herokuapp.com';
+
+  const handleRequest = async () => {
+    const config = {
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
     };
-  }
 
-  componentDidMount() {
-    const { loadCategories, loadRecipes } = this.props;
-    loadCategories();
-    loadRecipes();
-  }
+    try {
+      const response = await axios.get(`${baseUrl}/users`, config);
+      const { data } = response;
+      console.log('Show', data.users);
+      setCurrentUser(data);
+      // localStorage.setItem('token', authorization);
 
-  handleSearchRecipe = (e) => {
-    const { changeFilter } = this.props;
-    changeFilter('All');
-    this.setState({ query: e.target.value, selectedCategory: 'All' });
+      // const { token } = res.data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  handleSeletectCategory = (category) => {
-    const { changeFilter } = this.props;
-    this.setState({ selectedCategory: category, query: '', currentPage: 1 });
+  useEffect(() => {
+    loadCategories();
+    loadRecipes();
+    handleRequest();
+  }, [loadCategories, loadRecipes]);
+  // componentDidMount() {
+
+  // }
+
+  const handleSearchRecipe = (e) => {
+    const { changeFilter } = props;
+    changeFilter('All');
+    setQuery({ query: e.target.value, selectedCategory: 'All' });
+  };
+
+  const handleSeletectCategory = (category) => {
+    const { changeFilter } = props;
+    setSelectedCategory({ selectedCategory: category, query: '', currentPage: 1 });
     changeFilter(category);
   };
 
-  handleChangeOrderColumn = (orderColumn) => {
-    this.setState({ orderColumn });
+  const handleChangeOrderColumn = (orderColumn) => {
+    setOrderColumn({ orderColumn });
   };
 
-  handlePageChange = (currentPage) => {
-    this.setState({ currentPage });
+  const handlePageChange = (currentPage) => {
+    setCurrentPage({ currentPage });
   };
 
-  renderFilteredRecipes = (recipes) => {
-    const { filter } = this.props;
+  const renderFilteredRecipes = (recipes) => {
+    const { filter } = props;
     if (filter === 'All') return recipes;
     return recipes.filter((recipe) => recipe.strCategory.includes(filter));
   };
 
-  renderSearchedRecipes = (recipes) => {
-    const { query } = this.state;
+  const renderSearchedRecipes = (recipes) => {
     if (query === '') return recipes;
 
     return recipes.filter(
@@ -71,85 +93,71 @@ class Home extends React.Component {
     );
   };
 
-  renderSortedRecipes = (recipes) => {
-    const { orderColumn } = this.state;
+  const renderSortedRecipes = (recipes) => {
     if (orderColumn === 'None') return recipes;
     const iteratee = orderColumn === 'Name' ? 'strMeal' : 'strArea';
     return _.orderBy(recipes, iteratee, 'ASC');
   };
 
-  render() {
-    const {
-      categories,
-      recipes,
-      loadingCategories,
-      loadingRecipes,
-      loadCategoriesError,
-      loadRecipesError,
-    } = this.props;
-    const {
-      selectedCategory, query, orderColumn, currentPage, pageSize,
-    } = this.state;
-    const filteredRecipes = this.renderFilteredRecipes(recipes);
-    const searchedRecipes = this.renderSearchedRecipes(filteredRecipes);
-    const sortedRecipes = this.renderSortedRecipes(searchedRecipes);
-    const pagedRecipes = paginate(sortedRecipes, currentPage, pageSize);
-    return (
-      <div>
-        <Header />
-        <div className="home-content-main-area d-flex">
-          <div className="side-bar-wrapper">
-            {loadingCategories && (
-              <div className="loading-spinner-wrapper d-flex flex-center">
-                <HashLoader
-                  color="#e0aea6"
-                  loading={loadingRecipes}
-                  size={70}
-                />
-              </div>
-            )}
-            {!loadingCategories && (
-              <Filter
-                categories={categories}
-                selectedCategory={selectedCategory}
-                onChangeFilter={this.handleSeletectCategory}
-                error={loadCategoriesError}
-              />
-            )}
-          </div>
-          <div className="main-home-content">
-            <div className="header d-flex flex-center flex-between">
-              <Search query={query} onChange={this.handleSearchRecipe} />
-              <Sort
-                onChangeSortColumn={this.handleChangeOrderColumn}
-                activeColumn={orderColumn}
-              />
+  const {
+    categories,
+    recipes,
+    loadingCategories,
+    loadingRecipes,
+    loadCategoriesError,
+    loadRecipesError,
+  } = props;
+  const filteredRecipes = renderFilteredRecipes(recipes);
+  const searchedRecipes = renderSearchedRecipes(filteredRecipes);
+  const sortedRecipes = renderSortedRecipes(searchedRecipes);
+  const pagedRecipes = paginate(sortedRecipes, currentPage, pageSize);
+  return (
+    <div>
+      <Header />
+      <div className="home-content-main-area d-flex">
+        <div className="side-bar-wrapper">
+          {loadingCategories && (
+            <div className="loading-spinner-wrapper d-flex flex-center">
+              <HashLoader color="#e0aea6" loading={loadingRecipes} size={70} />
             </div>
-            {loadingRecipes && (
-              <div className="loading-spinner-wrapper d-flex flex-center">
-                <HashLoader
-                  color="#e0aea6"
-                  loading={loadingRecipes}
-                  size={70}
-                />
-              </div>
-            )}
-            {!loadingRecipes && (
-              <RecipesList
-                recipes={pagedRecipes}
-                itemsCount={sortedRecipes && sortedRecipes.length}
-                currentPage={currentPage}
-                pageSize={pageSize}
-                onPageChange={this.handlePageChange}
-                error={loadRecipesError}
-              />
-            )}
+          )}
+          {!loadingCategories && (
+            <Filter
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onChangeFilter={handleSeletectCategory}
+              error={loadCategoriesError}
+            />
+          )}
+        </div>
+        <div className="main-home-content">
+          <div className="header d-flex flex-center flex-between">
+            <Search query={query} onChange={handleSearchRecipe} />
+            <Sort
+              onChangeSortColumn={handleChangeOrderColumn}
+              activeColumn={orderColumn}
+            />
           </div>
+          {loadingRecipes && (
+            <div className="loading-spinner-wrapper d-flex flex-center">
+              <HashLoader color="#e0aea6" loading={loadingRecipes} size={70} />
+            </div>
+          )}
+          {!loadingRecipes && (
+            <RecipesList
+              recipes={pagedRecipes}
+              itemsCount={sortedRecipes && sortedRecipes.length}
+              currentPage={currentPage}
+              pageSize={pageSize}
+              onPageChange={handlePageChange}
+              error={loadRecipesError}
+            />
+          )}
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 Home.defaultProps = {
   loadRecipesError: '',

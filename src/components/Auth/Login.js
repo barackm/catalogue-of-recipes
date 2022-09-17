@@ -9,7 +9,6 @@ import styles from '../../assets/scss/Login.module.scss';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const baseUrl = 'https://sweetaromas.herokuapp.com';
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,20 +17,13 @@ const Login = () => {
       email,
       password,
     };
-    //   await axios.post(`${baseUrl}/login`, { user })
-    //     .then((res) => {
-    //       console.log(res.headers.authorization);
-    //       const { token } = res.data;
-    //       localStorage.setItem('token', token);
-    //     }).catch((err) => {
-    //       console.log(err);
-    //     });
+
     try {
-      const response = await axios.post(`${baseUrl}/login`, { user });
+      const response = await axios.post('/login', { user });
       const { authorization } = response.headers;
       console.log(authorization);
 
-      // const { token } = res.data;
+      localStorage.setItem('token', authorization);
     } catch (error) {
       console.log(error);
     }
@@ -90,3 +82,12 @@ export default Login;
 // rfce
 // rafce
 
+// const api = 'your api';
+// const token = JSON.parse(sessionStorage.getItem('data'));
+// const token = user.data.id; /*take only token and save in token variable*/
+// axios.get(api , { headers: {"Authorization" : `Bearer ${token}`} })
+// .then(res => {
+// console.log(res.data);
+// .catch((error) => {
+//   console.log(error)
+// });

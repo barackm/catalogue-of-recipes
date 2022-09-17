@@ -13,7 +13,6 @@ const Register = () => {
   const [email, setEmail] = useState('');
   // const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassowrd] = useState('');
-  const baseUrl = 'https://sweetaromas.herokuapp.com';
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -24,10 +23,9 @@ const Register = () => {
       // phoneNumber,
       password,
     };
-    // // console.log({ user });
-    // res.data.json; // { answer: 42 }
+
     try {
-      const response = await axios.post(`${baseUrl}/signup`, { user });
+      const response = await axios.post('/signup`, { user }');
       const { data } = response;
     } catch (error) {
       console.log(error);
@@ -110,3 +108,24 @@ const Register = () => {
 };
 
 export default Register;
+
+// handleRequest = async () => {
+//   const baseUrl = 'https://sweetaromas.herokuapp.com';
+
+//   const config = {
+//     headers: {
+//       Authorization: localStorage.getItem('token'),
+//     },
+//   };
+
+//   try {
+//     const response = await axios.get(`${baseUrl}/users`, config);
+//     const data = response;
+//     console.log('zrdxzrdxzreserrxrexrexzrzrzrdzrd', data);
+//     // localStorage.setItem('token', authorization);
+
+//     // const { token } = res.data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
