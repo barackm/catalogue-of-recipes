@@ -15,18 +15,21 @@ const Header = (props) => {
   } = props;
 
   const [currentUser, setCurrentUser] = useState('');
-  const baseUrl = 'https://sweetaromas.herokuapp.com';
+  // const baseUrl = 'https://sweetaromas.herokuapp.com';
 
   const handleRequest = async () => {
-    const config = {
-      headers: {
-        Authorization: localStorage.getItem('token'),
-      },
-    };
+    // const config = {
+    //   headers: {
+    //     Authorization: localStorage.getItem('token'),
+    //   },
+    // };
 
     try {
-      const response = await axios.get(`${baseUrl}/users/5`, config);
+      // const response = await axios.get(`${baseUrl}/users/5`, config);
+      const response = await axios.get('/users/5');
       const { data } = response;
+      // const data = response?.data;
+      // const data = response?.data;
       // console.log('Show', data);
       // const decoded = jwt_decode.decode(localStorage.getItem('token'), { header: true });
       // console.log('hello here:', decoded);
