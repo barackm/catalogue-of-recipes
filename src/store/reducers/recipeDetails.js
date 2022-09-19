@@ -10,7 +10,7 @@ const initialState = {
   error: '',
 };
 
-const recipeDatails = (state = initialState, action) => {
+const recipeDetails = (state = initialState, action) => {
   switch (action.type) {
     case API_CALL_START:
       return { ...state, loading: true, error: null };
@@ -28,4 +28,4 @@ const recipeDatails = (state = initialState, action) => {
   }
 };
 
-export default recipeDatails;
+export default recipeDetails;
