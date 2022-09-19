@@ -5,7 +5,7 @@ import {
 } from '../actions';
 
 const initialState = {
-  list: [],
+  details: {},
   loading: false,
   error: '',
 };
@@ -15,9 +15,10 @@ const recipeDetails = (state = initialState, action) => {
     case API_CALL_START:
       return { ...state, loading: true, error: null };
     case LOAD_DETAILS_SUCCESS:
+      // console.log(action.payload, 'debo');
       return {
         ...state,
-        list: action.payload,
+        details: action.payload,
         loading: false,
         error: null,
       };

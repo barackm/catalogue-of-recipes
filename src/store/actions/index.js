@@ -79,13 +79,16 @@ export const loadCategoriesAsync = () => async (dispatch) => {
   axios.get(endPoint);
 };
 
-export const loadDetailsAsync = () => async (dispatch) => {
+export const loadDetailsAsync = (id, navigate) => async (dispatch) => {
   dispatch(apiCallStart());
   try {
-    const response = await axios.get(detailsUrl);
-    dispatch(loadDetailsSuccess(response.data.meals));
+    const { data } = await axios.get(`${detailsUrl}${id}`);
+    const meal = data.meals[0];
+    // console.log(meal, 'barack');
+    dispatch(loadDetailsSuccess(meal));
   } catch (error) {
     dispatch(loadDetailsFailure(error.message));
+    navigate(`/recipes/${id}`);
   }
   axios.get(endPoint);
 };
