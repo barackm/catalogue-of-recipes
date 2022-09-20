@@ -44,7 +44,81 @@ const LandingPage = () => (
         Food
       </h1> */}
     </div>
-    
+    <div className={styles['landing-main']}>
+      <article>
+        <div className={styles.plateImg}>
+          <img src={plate} alt="logo" />
+        </div>
+        <h2>EXQUISITE FINE DINING. HAND-CRAFTED COCKTAILS.</h2>
+        <p>
+          The NEW Pines Modern Steakhouse—reopened on the 1st floor of the Casino expansion—offers guests
+          timeless glamour,hospitality, and modern design along with specialty items such as wagyu steak tartare,
+          imported caviar, homemade pastas, and house made gelato. Experience a unique and authentic dining experience only at The Pines.
+        </p>
+        <p>
+          Make your reservations today for the restaurant honored by Wine Spectator with the 2021 Award of Excellence and
+          named the “Best Restaurant” by Inland Empire Magazine readers, for three consecutive years (2018, 2019, and 2020).
+        </p>
+      </article>
+      <aside>
+        <div className={styles.asideDiv}>
+          <div className={styles.btn}>
+            <button type="submit">RESERVATION</button>
+          </div>
+          <ul>
+            <li className={styles.time}>
+              <h4>
+                <span />
+                Hours
+              </h4>
+              <p>
+                <strong>Monday - Thursday:</strong>
+                <br />
+                6am - 10pm
+              </p>
+              <p>
+                <strong>Friday - Saturday:</strong>
+                <br />
+                4pm - 2am
+              </p>
+              <p>
+                <strong>Sunday:</strong>
+                <br />
+                7am - 9am | 2pm - 10pm
+              </p>
+            </li>
+
+            <li className={styles.location}>
+              <h4>
+                <span />
+                Location:
+              </h4>
+              <p>Kigai-city Town</p>
+            </li>
+
+            <li className={styles.phone}>
+              <h4>
+                <span />
+                Phone:
+              </h4>
+              <p>+ 250 784 165 613</p>
+            </li>
+
+            <li className={styles.chefHat}>
+              <h4>
+                <span />
+                Executive Chef:
+              </h4>
+              <p>Magnus Ben</p>
+            </li>
+            <li>
+              <p><strong>Must be 21 or older.</strong></p>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
   </section>
 );
 
