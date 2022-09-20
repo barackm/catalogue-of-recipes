@@ -1,0 +1,239 @@
+@import 'config';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.landingPage {
+  width: 100%;
+  background-color: rgb(251, 230, 230);
+  padding: 0 1rem;
+  // max-width: 90%;
+  
+}
+
+.landing-header {
+  @include d-flex(column);
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  background-color: var(--white);
+  color: var(--black);
+  border-radius: 8px;
+
+  // background-image: linear-gradient(90deg, #000000 13.02%, rgba(0, 0, 0, 0) 99.99%), url('../img/landing5.jpg');
+  // background-repeat: no-repeat;
+  // background-size: contain;
+  // background-position: center center;
+  // background: url('../img/landing5.jpg') no-repeat;
+  h1 {
+    font-size: 42px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 3rem auto 4rem;
+  }
+
+  .signup-btn {
+    background-color: var(--black);
+    color: var(--light-color);
+    letter-spacing: 1px;
+    border-radius: 4px;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+    font-weight: var(--light-weight);
+  } 
+}
+
+.landing-main {
+  background-color: bisque;
+  @include d-flex(column);
+  // align-items: flex-start;
+  padding: 1rem;
+
+
+  article {
+    background-color: beige;
+    padding: 1rem;
+    
+    .plateImg {
+      // margin: 1rem 0;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      font-size: 28px;
+      // font-size: 32px;
+      letter-spacing: 0.06em;
+      line-height: 40px;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 26px;
+      margin-top: 24px;
+    }
+  }
+
+  aside {
+    background: #fffaf1 url(../img/background-pattern.png) center center repeat;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+
+    .asideDiv {
+      width: 100%;
+      border: 1px solid var(--primary);
+      // margin: 20px;
+      padding: 20px 1rem;
+    }
+
+    .btn::after {
+      content: " ";
+      display: block;
+      width: 100%;
+      margin: 20px auto;
+      border-top: 2px solid var(--primary);
+    }
+
+    button {
+      width: 100%;
+      background: #A6631B;
+      background: var(--primary);
+      font-weight: 500;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      line-height: 22px;
+      text-align: center;
+      color: var(--white);
+      padding: 17px;
+    }
+ 
+    ul {
+      @include d-flex(column);
+      align-items: flex-start;
+      width: 100%;
+      padding-left: 2rem;
+    }
+
+    // ul > * {
+    //   width: 100%;
+    //   padding-left: 1rem;
+    // }
+
+    Li h4 {
+      font-weight: 700;
+      position: relative;
+      color: #A6631B;
+      letter-spacing: 0;
+      margin-bottom: 6px;
+    }
+
+    li p {
+      font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--body-bg);
+      margin-bottom: 1.5rem;
+    }
+
+    li span {
+      z-index: 999;
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      top: -5px;
+      left: -35px;
+    }
+
+    .time h4 span {
+      // position: absolute;
+      // content: " ";
+      // display: block;
+      background: url(../../assets/img/time-icon.svg) no-repeat center center;
+    }
+
+    .location h4 span {
+      background: url(../../assets/img/location-icon.svg) no-repeat center center;
+    }
+
+    .phone h4 span {
+      background: url(../../assets/img/phone-icon.svg) no-repeat center center;
+    }
+
+    .chefHat h4 span {
+      background: url(../../assets/img/chef-hat-icon.svg) no-repeat center center;
+    }
+  
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .landing-header {
+    // width: 100%;
+    // background-color: #A6631B;
+  }
+
+  // .landing-main {
+  //   aside {
+  //     width: 100%;
+  //   }
+  // }
+    
+}
+
+@media screen and (min-width: 768px) {
+  .landing-header {
+    // padding: 20px 3%;
+    // background-color: #A6631B;
+  }
+
+  .landing-main {
+    background-color: bisque;
+    @include d-flex(row);
+    align-items: flex-start;
+    justify-content: space-around;
+    // padding: 1rem;
+  
+    aside {
+      min-width: 300px;
+      margin-left: 1%;
+      transform: translateY(-7rem);
+    }
+  }  
+}
+
+
+@media screen and (min-width: 992px) {
+  .landing-header {
+    padding: 4rem 5% 5rem;
+
+    h1 {
+      font-size: 52px;
+    }
+  
+    p {
+      font-size: 24px;
+    }
+
+    .signup-btn {
+      font-size: 1.4rem;
+    } 
+  }
+
+  .landing-main {
+    justify-content: space-around;
+    padding: 1rem 4%;
+  
+    aside {
+      min-width: 400px;
+      margin-left: 2%;
+    }
+  }  
+}
+
