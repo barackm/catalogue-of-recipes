@@ -11,11 +11,11 @@ import image5 from '../../assets/img/landing5.jpg';
 import image6 from '../../assets/img/landing6.jpg';
 // import logo from '../../assets/img/name.png';
 // import pattern from '../../assets/img/background-pattern.png';
-import plate from '../../assets/img/plate-icon.svg';
-import time from '../../assets/img/time-icon.svg';
-import location from '../../assets/img/location-icon.svg';
-import phone from '../../assets/img/phone-icon.svg';
-import chefHat from '../../assets/img/chef-hat-icon.svg';
+import plate from '../../assets/img/landing/plate-icon.svg';
+import curbside from '../../assets/img/landing/curbside-new.png';
+import pickup from '../../assets/img/landing/pickup.png';
+import reduced from '../../assets/img/landing/reduced.png';
+import states from '../../assets/img/landing/states.svg';
 import styles from '../../assets/scss/LandingPage.module.scss';
 
 const LandingPage = () => (
@@ -32,9 +32,9 @@ const LandingPage = () => (
         increase new traffic to your site, convert those new visitors to customers, and
         keep them coming back for more. Sign up today for a 90-day free trial.
       </p>
-      <div className={styles.signup}>
+      <button type="submit" className={styles.signup}>
         <Link to="/signup" className={styles['signup-btn']}> Get Started</Link>
-      </div>
+      </button>
       {/* <p>Become cooking magician</p>
       <h4>sweet~Aromas</h4> */}
       {/* <h1>
@@ -44,10 +44,11 @@ const LandingPage = () => (
         Food
       </h1> */}
     </div>
+
     <div className={styles['landing-main']}>
       <article>
         <div className={styles.plateImg}>
-          <img src={plate} alt="logo" />
+          <img src={plate} alt="plate" />
         </div>
         <h2>EXQUISITE FINE DINING. HAND-CRAFTED COCKTAILS.</h2>
         <p>
@@ -63,7 +64,7 @@ const LandingPage = () => (
       <aside>
         <div className={styles.asideDiv}>
           <div className={styles.btn}>
-            <button type="submit">RESERVATION</button>
+            <button type="button">RESERVATION</button>
           </div>
           <ul>
             <li className={styles.time}>
@@ -117,6 +118,66 @@ const LandingPage = () => (
           </ul>
         </div>
       </aside>
+    </div>
+
+    <div className={styles['landing-dev']}>
+      <div className={styles.curbsideImg}>
+        <img src={curbside} alt="curbside" />
+      </div>
+      <article>
+        <h2>
+          Do More With
+          <br />
+          The
+          <span>
+            Rated Food Ordering Software
+          </span>
+        </h2>
+        <ul>
+          <li>
+            <div className={styles['curbside-header']}>
+              <div className="flex-unit d-flex">
+                <div><img src={pickup} alt="pickup" /></div>
+                <h4>Curbside Pick-up</h4>
+              </div>
+              <div id="show" className={styles['show-btn']}>
+                <div className={styles.showMore} />
+                <div className={styles.showLess} />
+              </div>
+            </div>
+            <p>Make off-premises dining experience safe and convenient for your customers with a curbside pick up capability. Restolabs online ordering system allows seamless communication between the restaurants and the customers who will pick up the order.</p>
+          </li>
+          <li>
+            <div className={styles['curbside-header']}>
+              <div className="flex-unit d-flex">
+                <div><img src={reduced} alt="reduced" /></div>
+                <h4>In-Store Touchless Ordering</h4>
+              </div>
+              <div id="show" className={styles['show-btn']}>
+                <div className={styles.showMore} />
+                <div className={styles.showLess} />
+              </div>
+            </div>
+            <p>Our QR Code Ordering is designed to make the customers&apos; dine-in journey safe and efficient, starting from ordering to receiving food and making the payment. It offers a fast and simple way to minimize human contact, encourage repeat visit, and boost loyalty.</p>
+          </li>
+          <li>
+            <div className={styles['curbside-header']}>
+              <div className="flex-unit d-flex">
+                <div><img src={states} alt="states" /></div>
+                <h4>Reduced On-boarding time</h4>
+              </div>
+              <div id="show" className={styles['show-btn']}>
+                <div className={styles.showMore} />
+                <div className={styles.showLess} />
+              </div>
+            </div>
+            <p>No one wants to wait for weeks and months to get to business. Our onboarding process is designed to help you reach your early value in the least amount of time by putting in minimum effort.</p>
+          </li>
+          <li>
+            <button type="button">Request a Free Demo Now</button>
+          </li>
+        </ul>
+      </article>
     </div>
 
   </section>
