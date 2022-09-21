@@ -1,0 +1,42 @@
+@import '../../../assets/scss/config';
+
+section.portfolio {
+  @include d-flex(column);
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+
+  h2 {
+    @extend %h2-properties;
+    text-align: center;
+    // color: $orange;
+    // font-size: 2.5rem;
+    // font-weight: bold;
+  }
+
+  /* slider */
+  .swiper {
+    overflow: visible!important;
+  }
+  
+  .portfolio-slider {
+    margin-top: 3rem;
+    width: 100%;
+
+    .swiper-wrapper {
+      display: flex;
+    }
+    
+    .swiper-slide {
+      width: 16rem!important;
+      height: 8rem;
+    }
+
+    img {
+      width: 15rem;
+      height: 100%;
+      // filter: drop-shadow(-12px 15px 13px var(--darker-primary));
+      border-radius: 19px;
+    }
+  }
+}
