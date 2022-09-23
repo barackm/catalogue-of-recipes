@@ -13,7 +13,6 @@ function Portfolio() {
   return (
     <section className="portfolio">
       {/* heading */}
-      {/* <h3>Recent Projects</h3> */}
       <h2>As Featured On</h2>
 
       {/* slider */}

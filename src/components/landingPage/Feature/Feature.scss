@@ -9,18 +9,17 @@ section.portfolio {
   h2 {
     @extend %h2-properties;
     text-align: center;
-    // color: $orange;
-    // font-size: 2.5rem;
-    // font-weight: bold;
   }
 
   /* slider */
   .swiper {
     overflow: visible!important;
+    background-color: rgba(245, 236, 236, 0.284);
   }
   
   .portfolio-slider {
-    margin-top: 3rem;
+    padding: 1rem;
+    padding-left: 2rem;
     width: 100%;
 
     .swiper-wrapper {

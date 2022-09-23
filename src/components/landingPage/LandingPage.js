@@ -4,7 +4,10 @@
 import React, { useState } from 'react';
 import BackgroundSlider from 'react-background-slider';
 import { Link } from 'react-router-dom';
-import Portfolio from './Portfolio/Portfolio';
+import { IconContext } from 'react-icons';
+import { HiPlus, HiMinus } from 'react-icons/hi';
+
+import Feature from './Feature/Feature';
 import image1 from '../../assets/img/landing1.jpg';
 import image2 from '../../assets/img/landing2.jpg';
 import image3 from '../../assets/img/landing3.jpg';
@@ -18,12 +21,6 @@ import curbside from '../../assets/img/landing/curbside-new.png';
 import pickup from '../../assets/img/landing/pickup.png';
 import reduced from '../../assets/img/landing/reduced.png';
 import states from '../../assets/img/landing/states.svg';
-import feature1 from '../../assets/img/landing/feature1.png';
-import feature2 from '../../assets/img/landing/feature2.png';
-import feature3 from '../../assets/img/landing/feature3.png';
-import feature4 from '../../assets/img/landing/feature4.png';
-import feature5 from '../../assets/img/landing/feature5.png';
-import feature6 from '../../assets/img/landing/feature6.png';
 import styles from '../../assets/scss/LandingPage.module.scss';
 
 const LandingPage = () => {
@@ -31,11 +28,12 @@ const LandingPage = () => {
 
   const handleClick = (e) => {
     console.log('ehiuhfewiuhufier', e.target);
-    if (!showParag) {
-      setShowParag('show');
-    } else {
-      setShowParag('hide');
-    }
+
+    // if (!showParag) {
+    //   setShowParag('show');
+    // } else {
+    //   setShowParag('hide');
+    // }
   };
 
   return (
@@ -162,8 +160,12 @@ const LandingPage = () => {
                 </div>
                 <div id="1" className={styles['show-btn']}>
                   <button type="button" onClick={(e) => handleClick(e)}>
-                    <span className={styles.showMore} />
-                    <span className={styles.showLess} />
+                    <IconContext.Provider className={styles['show-more']} value={{ className: 'show-more' }}>
+                      <HiPlus />
+                    </IconContext.Provider>
+                    <IconContext.Provider className={styles['show-less']} value={{ className: 'logo-plus-icon' }}>
+                      <HiMinus />
+                    </IconContext.Provider>
                   </button>
                 </div>
               </div>
@@ -177,8 +179,12 @@ const LandingPage = () => {
                 </div>
                 <div id="2" className={styles['show-btn']}>
                   <button type="button" onClick={(e) => handleClick(e)}>
-                    <span className={styles.showMore} />
-                    <span className={styles.showLess} />
+                    <IconContext.Provider value={{ className: 'logo-plus-icon' }}>
+                      <HiPlus />
+                    </IconContext.Provider>
+                    <IconContext.Provider value={{ className: 'logo-plus-icon' }}>
+                      <HiMinus />
+                    </IconContext.Provider>
                   </button>
                 </div>
               </div>
@@ -192,8 +198,12 @@ const LandingPage = () => {
                 </div>
                 <div id="3" className={styles['show-btn']}>
                   <button type="button" onClick={(e) => handleClick(e)}>
-                    <span className={styles.showMore} />
-                    <span className={styles.showLess} />
+                    <IconContext.Provider value={{ className: 'logo-plus-icon' }}>
+                      <HiPlus />
+                    </IconContext.Provider>
+                    <IconContext.Provider value={{ className: 'logo-plus-icon' }}>
+                      <HiMinus />
+                    </IconContext.Provider>
                   </button>
                 </div>
               </div>
@@ -205,20 +215,7 @@ const LandingPage = () => {
           </ul>
         </article>
       </div>
-      <div className={styles['landing-6']}>
-        <div>
-          <h2>As Featured On</h2>
-        </div>
-        <ul className={styles['feature-container']}>
-          <li><div className={styles.img}><img src={feature1} alt="feature1" /></div></li>
-          <li><div className={styles.img}><img src={feature2} alt="feature2" /></div></li>
-          <li><div className={styles.img}><img src={feature3} alt="feature3" /></div></li>
-          <li><div className={styles.img}><img src={feature4} alt="feature4" /></div></li>
-          <li><div className={styles.img}><img src={feature5} alt="feature5" /></div></li>
-          <li><div className={styles.img}><img src={feature6} alt="feature6" /></div></li>
-        </ul>
-      </div>
-      <Portfolio />
+      <Feature />
     </section>
   );
 };

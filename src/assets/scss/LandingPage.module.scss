@@ -98,7 +98,7 @@
 
     button {
       width: 100%;
-      background: #A6631B;
+      // background: #A6631B;
       background: var(--primary);
       font-weight: 500;
       font-size: 18px;
@@ -164,8 +164,9 @@
 }
 
 .landing-dev {
-  background-color: azure;
-  padding: 1rem;
+  // background-color: azure;
+  background: #fffaf1 url(../img/landing/background-pattern.png) center center repeat;
+  padding: 2rem 1rem;
   width: 100%;
   @include d-flex(column);
 
@@ -189,7 +190,7 @@
 
   article {
     // background-color: beige;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 1rem;
 
     h2 {
       max-width: 480px;
@@ -230,7 +231,6 @@
         // width: 100%;
         @include d-flex(row);
         padding: 12px 0;
-
         background-color: #eee;
 
         img {
@@ -248,37 +248,46 @@
           width: 24px;
           height: 22px;
           position: relative;
-          background-color: white;
+          background-color: #ccc;
           transition: all 0.5s ease;
 
           &:hover {
             cursor: pointer;
-            transform: scale(1.1);
+            transform: scale(1.05);
           }
 
-          .showMore{
-            position: absolute;
-            top: 0;
-            left: 12px;
-            width: 20px;
-            height: 100%;
-            background-color: var(--black);
+          & > * {
+            color: var(--darker-primary);
+            font-size: 24px;
           }
 
-          .showLess{
-            position: absolute;
-            top: 11px;
-            left: 0;
-            width: 100%;
-            height: 20px;
-            background-color: var(--black);
-          }
+          // .showMore{
+          //   position: absolute;
+          //   top: 0;
+          //   left: 12px;
+          //   width: 2px;
+          //   height: 100%;
+          //   background-color: var(--black);
+          // }
+
+          // .showLess{
+          //   position: absolute;
+          //   top: 11px;
+          //   left: 0;
+          //   width: 100%;
+          //   height: 2px;
+          //   background-color: var(--black);
+          // }
         }
-    
+
+        .show-more {
+          display: none;
+          color:aqua;
+        }
       }
 
       p {
-        display: none;
+        // display: none;
         color: #666;
         font-size: 15px;
         line-height: 24px;
@@ -294,30 +303,6 @@
       //  }
     }
   } 
-}
-
-.landing-feature {
-  background-color: #A6631B;
-  padding:2rem 1rem;
-
-  h2 {
-    @extend %h2-properties;
-    display: inline-block;
-    text-align: center;
-  }
-}
-
-
-.feature-container {
-  @include d-flex(row);
-
-  li img{
-    width: 160px;
-  }
-
-  img {
-    width: 100%;
-  }
 }
 
 @media screen and (min-width: 480px) {
@@ -351,7 +336,14 @@
       margin-left: 1%;
       transform: translateY(-7rem);
     }
-  } 
+  }
+
+  .landing-dev {
+    // padding: 2rem 1rem;
+    .curbsideImg {
+      margin-top: 1.5rem;
+    }
+  }
 }
 
 
