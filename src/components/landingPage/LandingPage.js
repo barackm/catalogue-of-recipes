@@ -1,40 +1,51 @@
 /* eslint-disable no-console */
 /* eslint-disable max-len */
-/* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import BackgroundSlider from 'react-background-slider';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { IconContext } from 'react-icons';
-import { HiPlus, HiMinus } from 'react-icons/hi';
 
-import Feature from './Feature/Feature';
-import image1 from '../../assets/img/landing1.jpg';
-import image2 from '../../assets/img/landing2.jpg';
-import image3 from '../../assets/img/landing3.jpg';
-import image4 from '../../assets/img/landing4.jpg';
-import image5 from '../../assets/img/landing5.jpg';
-import image6 from '../../assets/img/landing6.jpg';
+// import BackgroundSlider from 'react-background-slider';
+// import image1 from '../../assets/img/landing1.jpg';
+// import image2 from '../../assets/img/landing2.jpg';
+// import image3 from '../../assets/img/landing3.jpg';
+// import image4 from '../../assets/img/landing4.jpg';
+// import image5 from '../../assets/img/landing5.jpg';
+// import image6 from '../../assets/img/landing6.jpg';
 // import logo from '../../assets/img/name.png';
 // import pattern from '../../assets/img/background-pattern.png';
 import plate from '../../assets/img/landing/plate-icon.svg';
 import curbside from '../../assets/img/landing/curbside-new.png';
+
+import Feature from './Feature/Feature';
+import Toggle from './Toggle/Toggle';
 import pickup from '../../assets/img/landing/pickup.png';
 import reduced from '../../assets/img/landing/reduced.png';
 import states from '../../assets/img/landing/states.svg';
 import styles from '../../assets/scss/LandingPage.module.scss';
 
 const LandingPage = () => {
-  const [showParag, setShowParag] = useState('hide');
+  const data = [
+    {
+      id: 1,
+      icons: pickup,
+      title: 'Curbside Pick-up',
+      paragraph: 'Make off-premises dining experience safe and convenient for your customers with a curbside pick up capability. Restolabs online ordering system allows seamless communication between the restaurants and the customers who will pick up the order.',
 
-  const handleClick = (e) => {
-    console.log('ehiuhfewiuhufier', e.target);
+    },
+    {
+      id: 2,
+      icons: reduced,
+      title: 'In-Store Touchless Ordering',
+      paragraph: 'Our QR Code Ordering is designed to make the customers&apos; dine-in journey safe and efficient, starting from ordering to receiving food and making the payment. It offers a fast and simple way to minimize human contact, encourage repeat visit, and boost loyalty.',
 
-    // if (!showParag) {
-    //   setShowParag('show');
-    // } else {
-    //   setShowParag('hide');
-    // }
-  };
+    },
+    {
+      id: 3,
+      icons: states,
+      title: 'Reduced On-boarding time',
+      paragraph: 'No one wants to wait for weeks and months to get to business. Our onboarding process is designed to help you reach your early value in the least amount of time by putting in minimum effort.',
+
+    },
+  ];
 
   return (
     <section className={styles.landingPage}>
@@ -152,63 +163,7 @@ const LandingPage = () => {
             </span>
           </h2>
           <ul>
-            <li>
-              <div className={styles['curbside-header']}>
-                <div className="flex-unit d-flex">
-                  <div><img src={pickup} alt="pickup" /></div>
-                  <h4>Curbside Pick-up</h4>
-                </div>
-                <div id="1" className={styles['show-btn']}>
-                  <button type="button" onClick={(e) => handleClick(e)}>
-                    <IconContext.Provider className={styles['show-more']} value={{ className: 'show-more' }}>
-                      <HiPlus />
-                    </IconContext.Provider>
-                    <IconContext.Provider className={styles['show-less']} value={{ className: 'logo-plus-icon' }}>
-                      <HiMinus />
-                    </IconContext.Provider>
-                  </button>
-                </div>
-              </div>
-              <p className={styles[`${showParag}`]}>Make off-premises dining experience safe and convenient for your customers with a curbside pick up capability. Restolabs online ordering system allows seamless communication between the restaurants and the customers who will pick up the order.</p>
-            </li>
-            <li>
-              <div className={styles['curbside-header']}>
-                <div className="flex-unit d-flex">
-                  <div><img src={reduced} alt="reduced" /></div>
-                  <h4>In-Store Touchless Ordering</h4>
-                </div>
-                <div id="2" className={styles['show-btn']}>
-                  <button type="button" onClick={(e) => handleClick(e)}>
-                    <IconContext.Provider value={{ className: 'logo-plus-icon' }}>
-                      <HiPlus />
-                    </IconContext.Provider>
-                    <IconContext.Provider value={{ className: 'logo-plus-icon' }}>
-                      <HiMinus />
-                    </IconContext.Provider>
-                  </button>
-                </div>
-              </div>
-              <p>Our QR Code Ordering is designed to make the customers&apos; dine-in journey safe and efficient, starting from ordering to receiving food and making the payment. It offers a fast and simple way to minimize human contact, encourage repeat visit, and boost loyalty.</p>
-            </li>
-            <li>
-              <div className={styles['curbside-header']}>
-                <div className="flex-unit d-flex">
-                  <div><img src={states} alt="states" /></div>
-                  <h4>Reduced On-boarding time</h4>
-                </div>
-                <div id="3" className={styles['show-btn']}>
-                  <button type="button" onClick={(e) => handleClick(e)}>
-                    <IconContext.Provider value={{ className: 'logo-plus-icon' }}>
-                      <HiPlus />
-                    </IconContext.Provider>
-                    <IconContext.Provider value={{ className: 'logo-plus-icon' }}>
-                      <HiMinus />
-                    </IconContext.Provider>
-                  </button>
-                </div>
-              </div>
-              <p>No one wants to wait for weeks and months to get to business. Our onboarding process is designed to help you reach your early value in the least amount of time by putting in minimum effort.</p>
-            </li>
+            {data.map((item) => <Toggle key={item.id} toggle={item} />)}
             <li>
               <button type="button">Request a Free Demo Now</button>
             </li>
