@@ -1,6 +1,8 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode } from 'swiper';
 // import 'swiper/css';
+// import 'swiper/css/free-mode';
 import './Feature.scss';
 import feature1 from '../../../assets/img/landing/feature1.png';
 import feature2 from '../../../assets/img/landing/feature2.png';
@@ -17,10 +19,36 @@ function Portfolio() {
 
       {/* slider */}
       <Swiper
-        spaceBetween={20}
-        slidesPerView={3}
+        FreeMode
+        spaceBetween={1}
+        slidesPerView={10}
         grabCursor
+        modules={[FreeMode]}
         className="portfolio-slider"
+        breakpoints={{
+          // when window width is >= 640px
+          480: {
+            // width: 480,
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          // when window width is >= 768px
+          768: {
+            // width: 768,
+            slidesPerView: 3,
+            spaceBetween: 25,
+          },
+          992: {
+            // width: 992,
+            slidesPerView: 4,
+            spaceBetween: 25,
+          },
+          1024: {
+            // width: 992,
+            slidesPerView: 5,
+            spaceBetween: 25,
+          },
+        }}
       >
         <SwiperSlide>
           <img src={feature1} alt="feature1" />
