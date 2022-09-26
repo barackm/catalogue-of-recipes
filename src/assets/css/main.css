@@ -3,6 +3,7 @@
   --black: #111;
   --white: #fff;
   --primary: #fbe0dc;
+  --secondary: #a6631b;
   --light-weight: 400;
   --dark-light-color: rgb(61, 61, 61);
   --light-color: rgb(187, 187, 187);
@@ -13,17 +14,37 @@
   --tablet: 768px;
   --desktop: 1200px;
   --mobile: 480px;
+  --body-bg: #352a22;
+}
+
+.root {
+  width: 100vw;
 }
 
 body {
+  max-width: 100%;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+body > * {
+  margin: 0 auto;
+}
+
+* {
+  box-sizing: border-box;
+  /* padding: 0;
+  margin: 0; */
+}
+
 ul {
   padding: 0;
+}
+
+button {
+  cursor: pointer;
 }
 
 ul,
