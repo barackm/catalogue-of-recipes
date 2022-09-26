@@ -1,6 +1,12 @@
 footer {
-  margin-top: 3rem;
+  /* margin-top: 1rem; */
+  padding-top: 2rem;
   padding-bottom: 1rem;
+  box-shadow: 0 7px 20px var(--darker-primary);
+  /* margin-top: auto; */
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-links-wrapper {
@@ -52,6 +58,7 @@ footer {
     justify-content: flex-start;
     align-items: flex-start;
     padding-left: 2rem;
+    /* box-shadow: 0 7px 20px var(--darker-primary); */
   }
 
   .nav-logo-wrapper.footer {
