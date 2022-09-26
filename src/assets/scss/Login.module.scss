@@ -2,15 +2,12 @@
 
 .login-section,
 .login-register {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 90%;
   @include d-flex(column);
   align-items: center;
   max-width: 580px;
   padding: 2rem 1rem;
+  margin: 2rem auto 3rem;
   background-color: var(--white);
   border-radius: 16px;
   // border: 3px solid black;
@@ -20,7 +17,7 @@
   background: #fffaf1 url(../img/landing/background-pattern.png) center center repeat;
 
   &:hover {
-    transform: scale(1.01) translate(-50%, -50%);
+    transform: scale(1.01);
   }
 
   .loginIcon svg {
@@ -59,10 +56,6 @@
 
       .icon {
         color: var(--black);
-        // position: absolute;
-        // right: 1.2rem;
-        // display: inline;
-        // color: $secondary-color;
       }
       
       input {
@@ -71,10 +64,6 @@
         background-color: transparent;
         width: 85%;
         font-size: 18px;
-        // padding: 0.8rem 1rem;
-        // margin-left: 2rem;
-        // background-color: inherit;
-        // color: $secondary-color;
         transition: all 0.5s ease;
 
         &:hover {
@@ -82,6 +71,10 @@
          transform: translateX(5px);
         //  transform: scale(1.05);
        }
+      }
+
+      &:hover {
+       border: $border-size;
       }
 
       &:focus {

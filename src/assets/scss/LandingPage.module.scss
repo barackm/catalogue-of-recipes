@@ -58,6 +58,7 @@
   article {
     // background-color: beige;
     padding: 1rem;
+    max-width: 600px;
     
     .plateImg img {
       box-shadow: none;
@@ -119,7 +120,7 @@
     Li h4 {
       font-weight: 700;
       position: relative;
-      color: #A6631B;
+      color: var(--secondary);
       letter-spacing: 0;
       margin-bottom: 6px;
     }
@@ -167,7 +168,7 @@
   // background-color: azure;
   background: #fffaf1 url(../img/landing/background-pattern.png) center center repeat;
   background-attachment: fixed;
-  padding: 2rem 1rem;
+  padding: 2rem;
   width: 100%;
   @include d-flex(column);
 
@@ -221,7 +222,7 @@
         text-align: center;
 
         button {
-          font-size: 18px;
+          font-size: 20px;
           padding: 20px 25px;
           color: var(--white);
           background-color: var(--primary);
@@ -248,7 +249,7 @@
         h4 {
           font-size: 16px;
           line-height: 24px;
-          // color: #A6631B;
+          color: var(--secondary);
         }
 
         .show-btn {
@@ -260,17 +261,16 @@
           &:hover {
             cursor: pointer;
             transform: scale(1.05);
+            border-radius: 40px;
           }
 
           & > * {
-            color: var(--darker-primary);
             font-size: 24px;
           }
         }
       }
 
       p {
-        // display: none;
         color: #666;
         font-size: 15px;
         line-height: 24px;
@@ -368,7 +368,8 @@
     padding: 1rem 4%;
   
     aside {
-      min-width: 400px;
+      // min-width: 400px;
+      max-width: 400px;
       margin-left: 3%;
     }
   }

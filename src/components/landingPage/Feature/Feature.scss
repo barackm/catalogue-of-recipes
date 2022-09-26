@@ -4,13 +4,14 @@
   @include d-flex(column);
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  // height: 70vh;
+  padding: 2rem 1rem;
   width: 100%;
   // background-color: red;
 
   h2 {
     @extend %h2-properties;
-    text-align: center;
+    margin: 1rem auto;
   }
 
   /* slider */
@@ -22,7 +23,6 @@
   
   .portfolio-slider {
     padding: 1rem;
-    padding-left: 2rem;
     width: 100%;
     overflow: hidden;
 

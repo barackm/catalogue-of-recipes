@@ -14,7 +14,6 @@ import feature6 from '../../../assets/img/landing/feature6.png';
 function Portfolio() {
   return (
     <section className="portfolio">
-      {/* heading */}
       <h2>As Featured On</h2>
 
       {/* slider */}
@@ -41,12 +40,12 @@ function Portfolio() {
           992: {
             // width: 992,
             slidesPerView: 4,
-            spaceBetween: 25,
+            spaceBetween: 30,
           },
           1024: {
             // width: 992,
             slidesPerView: 5,
-            spaceBetween: 25,
+            spaceBetween: 35,
           },
         }}
       >
