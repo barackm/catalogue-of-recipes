@@ -35,75 +35,77 @@ const Register = () => {
   };
 
   return (
-    <section className={styles['login-register']}>
-      <div className={styles.loginIcon}><FaUser /></div>
-      <h2>Sign up</h2>
-      <form onSubmit={handleRegister}>
-        <div className={styles['div-input']}>
-          <span className={styles.icon}><FaRegUser /></span>
-          <input
-            type="text"
-            className="form-control"
-            id="userName"
-            placeholder="Username"
-            required
-            onChange={(e) => setUserName(e.target.value)}
-            value={userName}
-          />
-        </div>
-        <div className={styles['div-input']}>
-          <span className={styles.icon}><HiOutlineMailOpen /></span>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            placeholder="Email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </div>
-        <div className={styles['div-input']}>
-          <span className={styles.icon}><FiPhoneCall /></span>
-          <input
-            type="tel"
-            className="form-control"
-            id="number"
-            placeholder="Mobile Number"
-          />
-        </div>
-        <div className={styles['div-input']}>
-          <span className={styles.icon}><RiLockPasswordLine /></span>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            placeholder="Password"
-            required
-            onChange={(e) => setPassowrd(e.target.value)}
-            value={password}
-          />
-        </div>
-        {/* <div className={styles['div-input']}>
-          <span className={styles.icon}><RiLockPasswordLine /></span>
-          <input
-            type="password"
-            className="form-control"
-            id="passwordConfirm"
-            placeholder="Confirm Password"
-            onChange={(e) => setPassowrd(e.target.value)}
-          />
-        </div> */}
-        <button type="submit">Sign Up</button>
-      </form>
-      <p className={styles.signup}>
-        Already have an account?
-        {' '}
-        <Link to="/login">
-          Login
-        </Link>
-      </p>
-    </section>
+    <div className={styles['login-register']}>
+      <section className={styles['register-section']}>
+        <div className={styles.loginIcon}><FaUser /></div>
+        <h2>Sign up</h2>
+        <form onSubmit={handleRegister}>
+          <div className={styles['div-input']}>
+            <span className={styles.icon}><FaRegUser /></span>
+            <input
+              type="text"
+              className="form-control"
+              id="userName"
+              placeholder="Username"
+              required
+              onChange={(e) => setUserName(e.target.value)}
+              value={userName}
+            />
+          </div>
+          <div className={styles['div-input']}>
+            <span className={styles.icon}><HiOutlineMailOpen /></span>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              placeholder="Email"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+          </div>
+          <div className={styles['div-input']}>
+            <span className={styles.icon}><FiPhoneCall /></span>
+            <input
+              type="tel"
+              className="form-control"
+              id="number"
+              placeholder="Mobile Number"
+            />
+          </div>
+          <div className={styles['div-input']}>
+            <span className={styles.icon}><RiLockPasswordLine /></span>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              placeholder="Password"
+              required
+              onChange={(e) => setPassowrd(e.target.value)}
+              value={password}
+            />
+          </div>
+          {/* <div className={styles['div-input']}>
+            <span className={styles.icon}><RiLockPasswordLine /></span>
+            <input
+              type="password"
+              className="form-control"
+              id="passwordConfirm"
+              placeholder="Confirm Password"
+              onChange={(e) => setPassowrd(e.target.value)}
+            />
+          </div> */}
+          <button type="submit">Sign Up</button>
+        </form>
+        <p className={styles.signup}>
+          Already have an account?
+          {' '}
+          <Link to="/login">
+            Login
+          </Link>
+        </p>
+      </section>
+    </div>
   );
 };
 

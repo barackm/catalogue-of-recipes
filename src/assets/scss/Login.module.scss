@@ -1,7 +1,17 @@
 @import 'config';
 
-.login-section,
 .login-register {
+  width: 100%;
+  height: 100vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.489) 13.02%, rgba(255, 255, 255, 0.364) 99.99%),  url(../img/landing3.jpg) center center no-repeat;
+  background-size: cover;
+  // overflow: hidden;
+
+}
+
+.login-section,
+.register-section {
   width: 90%;
   @include d-flex(column);
   align-items: center;
@@ -10,7 +20,7 @@
   margin: 2rem auto 3rem;
   background-color: var(--white);
   border-radius: 16px;
-  box-shadow: 2px 2px 20px var(--darker-primary);
+  box-shadow: 5px 5px 30px var(--darker-primary);
   font-family: Libre Baskerville,serif;
   background: #fffaf1 url(../img/landing/background-pattern.png) center center repeat;
 
