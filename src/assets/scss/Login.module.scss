@@ -1,0 +1,136 @@
+@import 'config';
+
+.login-section,
+.login-register {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  @include d-flex(column);
+  align-items: center;
+  max-width: 580px;
+  padding: 2rem 1rem;
+  background-color: var(--white);
+  border-radius: 16px;
+  // border: 3px solid black;
+  // transform: scale(1.01);
+  box-shadow: 2px 2px 20px var(--darker-primary);
+  font-family: Libre Baskerville,serif;
+  background: #fffaf1 url(../img/landing/background-pattern.png) center center repeat;
+
+  &:hover {
+    transform: scale(1.01) translate(-50%, -50%);
+  }
+
+  .loginIcon svg {
+    width: 80px;
+    height: 80px;
+    // border: none 1px transparent;
+    padding: 1rem 0;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: var(--white);
+  }
+
+  h2 {
+    font-size: 42px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--primary);
+    font-family: inherit;
+  }
+
+  form {
+    width: 90%;
+    max-width: 500px;
+    padding: 1.5rem 0;
+    @include d-flex(column);
+    // background-color: aqua;
+
+    .div-input {
+      @extend %btn-properties;
+      @include d-flex(row-reverse);
+      justify-content: space-between;
+      width: 100%;
+      height: 50px;
+      margin-bottom: 1rem;
+      background-color: var(--light);
+
+      .icon {
+        color: var(--black);
+        // position: absolute;
+        // right: 1.2rem;
+        // display: inline;
+        // color: $secondary-color;
+      }
+      
+      input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        width: 85%;
+        font-size: 18px;
+        // padding: 0.8rem 1rem;
+        // margin-left: 2rem;
+        // background-color: inherit;
+        // color: $secondary-color;
+        transition: all 0.5s ease;
+
+        &:hover {
+         cursor: pointer;
+         transform: translateX(5px);
+        //  transform: scale(1.05);
+       }
+      }
+
+      &:focus {
+        cursor: pointer;
+        background-color: inherit;
+      }
+    }
+
+    .div-checked {
+      width: 100%;
+      @include d-flex(row);
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 20px;
+
+       input {
+         margin-right: 5px;
+       }
+
+    }
+
+    button {
+      @extend %btn-properties;
+      width: 90%;
+      &:hover {
+        transform: scale(1.1);
+       //  transform: scale(1.05);
+      }
+    }
+  }
+
+  .div-links {
+    width: 100%;
+    // background-color: aqua;
+    @include d-flex(row);
+    justify-content: space-between;
+    padding: 0 1rem;
+    font-size: 18px;
+
+    .password {
+      text-decoration: underline;
+      color: var(--dark);
+        // font-size: 17px;
+    }    
+  }
+
+  p.signup {
+    // text-decoration: underline;
+    font-size: 18px;
+  }
+}
