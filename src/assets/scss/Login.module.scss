@@ -10,8 +10,6 @@
   margin: 2rem auto 3rem;
   background-color: var(--white);
   border-radius: 16px;
-  // border: 3px solid black;
-  // transform: scale(1.01);
   box-shadow: 2px 2px 20px var(--darker-primary);
   font-family: Libre Baskerville,serif;
   background: #fffaf1 url(../img/landing/background-pattern.png) center center repeat;
@@ -23,7 +21,6 @@
   .loginIcon svg {
     width: 80px;
     height: 80px;
-    // border: none 1px transparent;
     padding: 1rem 0;
     border-radius: 50%;
     background-color: var(--primary);
@@ -43,7 +40,6 @@
     max-width: 500px;
     padding: 1.5rem 0;
     @include d-flex(column);
-    // background-color: aqua;
 
     .div-input {
       @extend %btn-properties;
@@ -69,17 +65,12 @@
         &:hover {
          cursor: pointer;
          transform: translateX(5px);
-        //  transform: scale(1.05);
        }
       }
 
       &:hover {
        border: $border-size;
-      }
-
-      &:focus {
-        cursor: pointer;
-        background-color: inherit;
+      //  cursor: default !important;
       }
     }
 
@@ -93,6 +84,7 @@
 
        input {
          margin-right: 5px;
+         cursor: pointer;
        }
 
     }
@@ -100,16 +92,19 @@
     button {
       @extend %btn-properties;
       width: 90%;
+
       &:hover {
         transform: scale(1.1);
-       //  transform: scale(1.05);
+      }
+
+      &:focus {
+        transform: scale(1.01);
       }
     }
   }
 
   .div-links {
     width: 100%;
-    // background-color: aqua;
     @include d-flex(row);
     justify-content: space-between;
     padding: 0 1rem;
@@ -118,7 +113,6 @@
     .password {
       text-decoration: underline;
       color: var(--dark);
-        // font-size: 17px;
     }    
   }
 
