@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 // import image4 from '../../assets/img/landing4.jpg';
 // import image5 from '../../assets/img/landing5.jpg';
 // import image6 from '../../assets/img/landing6.jpg';
-// import logo from '../../assets/img/name.png';
+// import logo from '../../assets/img/logo_transparent.png';
 // import pattern from '../../assets/img/background-pattern.png';
 import plate from '../../assets/img/landing/plate-icon.svg';
 import curbside from '../../assets/img/landing/curbside-new.png';
@@ -64,14 +64,6 @@ const LandingPage = () => {
         <button type="submit" className={styles.signup}>
           <Link to="/signup" className={styles['signup-btn']}> Get Started</Link>
         </button>
-        {/* <p>Become cooking magician</p>
-      <h4>sweet~Aromas</h4> */}
-        {/* <h1>
-        Enjoy our
-        {' '}
-        <span>Delicious</span>
-        Food
-      </h1> */}
       </div>
 
       <div className={styles['landing-main']}>
@@ -171,6 +163,18 @@ const LandingPage = () => {
         </article>
       </div>
       <Feature />
+      {/* <div className={styles.curbsideImg}>
+        <h2>Become cooking magician</h2>
+        <p>
+          Enjoy our
+          {' '}
+          <span>Delicious</span>
+          Food
+        </p>
+        <div className={styles.curbsideImg}>
+          <img src={logo} alt="logo" />
+        </div>
+      </div> */}
     </section>
   );
 };
