@@ -13,14 +13,14 @@ const Footer = () => (
         <HiPlus />
       </IconContext.Provider>
     </Link>
-    <p className="footer-attribution d-flex flex-center">
+    <div className="footer-attribution d-flex flex-center">
       <span>
         &copy;
         {new Date().getFullYear()}
         , Built with  ❤️
         {' '}
       </span>
-      <div className="d-flex">
+      <p className="d-flex">
         <a href="https://barackm.me" target="_blank" rel="noreferrer">
           @Barack_Mukelenga,
           {' '}
@@ -29,8 +29,8 @@ const Footer = () => (
           {' '}
           @Ben_Mukebo
         </a>
-      </div>
-    </p>
+      </p>
+    </div>
     <ul className="d-flex footer-links-wrapper footer-links">
       <li>
         <a href="https://github.com/barackm" target="_blank" rel="noreferrer">

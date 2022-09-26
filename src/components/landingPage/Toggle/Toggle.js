@@ -16,7 +16,7 @@ const Toggle = ({ toggle }) => {
     <li>
       <div className={styles['curbside-header']}>
         <div className="flex-unit d-flex">
-          <div><img src={toggle.icons} alt={toggle.icons} /></div>
+          <div className={styles['header-icon']}><img src={toggle.icons} alt={toggle.icons} /></div>
           <h4>{toggle.title}</h4>
         </div>
         <div id={toggle.id} className={styles['show-btn']}>
@@ -39,10 +39,9 @@ const Toggle = ({ toggle }) => {
         </div>
       </div>
       <p {...getCollapseProps()}>
-        `
         {toggle.paragraph}
         {' '}
-        🙈`
+        🙈
       </p>
     </li>
   );
