@@ -37,10 +37,9 @@ const Register = () => {
   return (
     <section className={styles['login-register']}>
       <div className={styles.loginIcon}><FaUser /></div>
-      <h2>Welcome</h2>
+      <h2>Sign up</h2>
       <form onSubmit={handleRegister}>
-        <h4>Sign Up</h4>
-        <div className={styles['form-group']}>
+        <div className={styles['div-input']}>
           <span className={styles.icon}><FaRegUser /></span>
           <input
             type="text"
@@ -52,7 +51,7 @@ const Register = () => {
             value={userName}
           />
         </div>
-        <div className={styles['form-group']}>
+        <div className={styles['div-input']}>
           <span className={styles.icon}><HiOutlineMailOpen /></span>
           <input
             type="email"
@@ -64,7 +63,7 @@ const Register = () => {
             value={email}
           />
         </div>
-        <div className={styles['form-group']}>
+        <div className={styles['div-input']}>
           <span className={styles.icon}><FiPhoneCall /></span>
           <input
             type="tel"
@@ -73,7 +72,7 @@ const Register = () => {
             placeholder="Mobile Number"
           />
         </div>
-        <div className={styles['form-group']}>
+        <div className={styles['div-input']}>
           <span className={styles.icon}><RiLockPasswordLine /></span>
           <input
             type="password"
@@ -85,7 +84,7 @@ const Register = () => {
             value={password}
           />
         </div>
-        <div className={styles['form-group']}>
+        {/* <div className={styles['div-input']}>
           <span className={styles.icon}><RiLockPasswordLine /></span>
           <input
             type="password"
@@ -94,16 +93,15 @@ const Register = () => {
             placeholder="Confirm Password"
             onChange={(e) => setPassowrd(e.target.value)}
           />
-        </div>
+        </div> */}
         <button type="submit">Sign Up</button>
       </form>
-      <p>
+      <p className={styles.signup}>
         Already have an account?
         {' '}
-        <Link to="/login" style={{ textDecoration: 'none' }}>
+        <Link to="/login">
           Login
         </Link>
-
       </p>
     </section>
   );
