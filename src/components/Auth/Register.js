@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaRegUser, FaUser } from 'react-icons/fa';
 import { HiOutlineMailOpen } from 'react-icons/hi';
 import { FiPhoneCall } from 'react-icons/fi';
@@ -9,6 +9,7 @@ import axios from 'axios';
 import styles from '../../assets/scss/Login.module.scss';
 
 const Register = () => {
+  const navigate = useNavigate();
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   // const [phoneNumber, setPhoneNumber] = useState('');
@@ -29,6 +30,7 @@ const Register = () => {
       const response = await axios.post(`${baseUrl}/signup`, { user });
       // const response = await axios.post('/signup`, { user }');
       const { data } = response;
+      if (data) navigate('/login');
     } catch (error) {
       console.log(error);
     }
