@@ -3,13 +3,14 @@ import {
   Routes, Route, Navigate, Outlet,
 } from 'react-router-dom';
 import { useState } from 'react';
-import Home from '../containers/Home';
 import Navbar from './Navbar';
+import Home from '../containers/Home';
 import RecipeDetails from '../containers/RecipleDetails';
 import Footer from './Footer';
 import LandingPage from './landingPage/LandingPage';
 import Login from './Auth/Login';
 import Register from './Auth/Register';
+import NotFound from './landingPage/NotFound/NotFound';
 
 const SidebarLayout = () => (
   <>
@@ -20,23 +21,26 @@ const SidebarLayout = () => (
 );
 
 const App = () => {
-  const [showUser, setShowUser] = useState('');
+  const [loginUser, setLoginUser] = useState(true);
 
   return (
     <div className="ppp">
-      {/* <Navigate to="/" /> */}
+      {/* <Navigate from="/" to="/recipes" /> */}
       <Navbar />
       <Routes>
+        <Route path="*" element={<NotFound />} />
+        <Route exact path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
-        <Route element={<SidebarLayout />}>
-          <Route path="/recipes" exact element={<Home />} />
-          <Route path="/recipes/:id" element={<RecipeDetails />} />
-          <Route exact path="/" element={<LandingPage />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/recipes" replace />} />
+        {loginUser
+          ? (
+            <Route element={<SidebarLayout />}>
+              {/* <Route path="/login" element={<Navigate from="/login" to="/" replace />} /> */}
+              <Route path="/recipes" exact element={<Home />} />
+              <Route path="/recipes/:id" element={<RecipeDetails />} />
+            </Route>
+          ) : <Route path="*" element={<NotFound />} /> }
       </Routes>
-      {/* <Navigate from="/" to="/recipes" /> */}
       <Footer />
     </div>
   );
