@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { HiOutlineMailOpen } from 'react-icons/hi';
 import { RiLockPasswordLine } from 'react-icons/ri';
@@ -8,6 +8,7 @@ import LoginContext from '../Contexts/LoginContext';
 import styles from '../../assets/scss/Login.module.scss';
 
 const Login = () => {
+  const navigate = useNavigate();
   const { setUserId, setUsername, setLoginState } = useContext(LoginContext);
 
   const [email, setEmail] = useState('');
@@ -37,6 +38,7 @@ const Login = () => {
       setUserId(data.id);
       setUsername(data.user_name);
       setLoginState(true);
+      if (authorization) navigate('/recipes');
     } catch (error) {
       console.log(error);
     }
