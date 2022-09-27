@@ -23,15 +23,19 @@ const SidebarLayout = () => (
 
 const App = () => {
   const [loginUser, setLoginUser] = useState(false);
+  const [userId, setUserId] = useState('');
   const [username, setUsername] = useState('');
 
   return (
     <div className="ppp">
-      <LoginContext.Provider value={{ username, setUsername }}>
+      <LoginContext.Provider value={{
+        userId, setUserId, username, setUsername, setLoginUser,
+      }}
+      >
         {/* <Navigate from="/" to="/recipes" /> */}
         <Navbar />
         <Routes>
-          <Route path="*" element={<NotFound />} />
+          {/* <Route path="*" element={<NotFound />} /> */}
           <Route exact path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Register />} />
