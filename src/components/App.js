@@ -11,6 +11,7 @@ import LandingPage from './landingPage/LandingPage';
 import Login from './Auth/Login';
 import Register from './Auth/Register';
 import NotFound from './landingPage/NotFound/NotFound';
+import LoginContext from './Contexts/LoginContext';
 
 const SidebarLayout = () => (
   <>
@@ -21,27 +22,30 @@ const SidebarLayout = () => (
 );
 
 const App = () => {
-  const [loginUser, setLoginUser] = useState(true);
+  const [loginUser, setLoginUser] = useState(false);
+  const [username, setUsername] = useState('');
 
   return (
     <div className="ppp">
-      {/* <Navigate from="/" to="/recipes" /> */}
-      <Navbar />
-      <Routes>
-        <Route path="*" element={<NotFound />} />
-        <Route exact path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Register />} />
-        {loginUser
-          ? (
-            <Route element={<SidebarLayout />}>
-              {/* <Route path="/login" element={<Navigate from="/login" to="/" replace />} /> */}
-              <Route path="/recipes" exact element={<Home />} />
-              <Route path="/recipes/:id" element={<RecipeDetails />} />
-            </Route>
-          ) : <Route path="*" element={<NotFound />} /> }
-      </Routes>
-      <Footer />
+      <LoginContext.Provider value={{ username, setUsername }}>
+        {/* <Navigate from="/" to="/recipes" /> */}
+        <Navbar />
+        <Routes>
+          <Route path="*" element={<NotFound />} />
+          <Route exact path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
+          {loginUser
+            ? (
+              <Route element={<SidebarLayout />}>
+                {/* <Route path="/login" element={<Navigate from="/login" to="/" replace />} /> */}
+                <Route path="/recipes" exact element={<Home />} />
+                <Route path="/recipes/:id" element={<RecipeDetails />} />
+              </Route>
+            ) : <Route path="*" element={<NotFound />} /> }
+        </Routes>
+        <Footer />
+      </LoginContext.Provider>
     </div>
   );
 };
