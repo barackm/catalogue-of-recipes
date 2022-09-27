@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { HiOutlineMailOpen } from 'react-icons/hi';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import axios from 'axios';
+import LoginContext from '../Contexts/LoginContext';
 import styles from '../../assets/scss/Login.module.scss';
 
 const Login = () => {
+  const { setUserId, setUsername, setLoginState } = useContext(LoginContext);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  // const [userId, setUserId] = useState(null);
   const baseUrl = 'https://sweetaromas.herokuapp.com';
 
   const handleLogin = async (e) => {
@@ -23,9 +28,15 @@ const Login = () => {
       const response = await axios.post(`${baseUrl}/login`, { user });
       // const response = await axios.post('/login', { user });
       const { authorization } = response.headers;
-      console.log(authorization);
-
+      const { data } = response.data;
       localStorage.setItem('token', authorization);
+
+      console.log(authorization);
+      console.log('ID: ', data.id, ' USERNAME:', data.user_name);
+
+      setUserId(data.id);
+      setUsername(data.user_name);
+      setLoginState(true);
     } catch (error) {
       console.log(error);
     }
