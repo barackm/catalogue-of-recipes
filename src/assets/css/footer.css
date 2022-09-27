@@ -2,10 +2,11 @@ footer {
   /* margin-top: 1rem; */
   padding-top: 2rem;
   padding-bottom: 1rem;
+  background-color: var(--white);
   box-shadow: 0 7px 20px var(--darker-primary);
-  /* margin-top: auto; */
-  position: relative;
-  bottom: 0;
+  margin-top: auto;
+  /* position: absolute;
+  bottom: 0; */
   width: 100%;
 }
 

@@ -1,10 +1,12 @@
 header {
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .main-navbar-container {
+  width: 98%;
+  margin: 0 1rem;
   padding: 0.5rem 0;
-  background-color: rgb(237, 237, 237);
+  background-color: var(--white);
 }
 
 .nav-links-wrapper {
@@ -49,36 +51,59 @@ header {
 }
 
 .nav-logo-wrapper {
-  margin-left: 6rem;
-  margin-right: 6rem;
+  margin-left: 5rem;
+  margin-right: 5Frem;
   font-weight: 900;
   font-size: 2rem;
   color: var(--dark);
 }
 
 .div-logo {
-  width: 150px;
+  width: 130px;
   height: auto;
 }
 
 .div-logo img {
   width: 100%;
+  border-radius: 16px;
+}
+
+.div-logo img:hover {
+  box-shadow: none;
+  transform: scale(1.05);
+}
+
+.login-info li {
+  flex-wrap: nowrap;
+  transition: all 0.7s ease;
+}
+
+.links li:hover,
+.login-info li:hover {
+  transform: scale(1.1);
 }
 
 .signup-btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
   background-color: var(--black);
   color: var(--light-color);
   letter-spacing: 1px;
   border-radius: 8px;
-  padding: 0.5rem 0.9rem;
+  padding: 0.7rem 0.9rem;
   font-size: 0.8rem;
+  margin: 0;
   margin-left: 1rem;
   font-weight: var(--light-weight);
 }
 
 .login-btn {
+  display: inline-block;
+  width: 100%;
   font-weight: var(--light-weight);
   color: var(--dark);
+  text-decoration: underline;
 }
 
 .header-main-container {
@@ -143,15 +168,15 @@ header {
 
 @keyframes crane-float {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(-20deg);
   }
 
   50% {
-    transform: rotate(60deg);
+    transform: rotate(50deg);
   }
 
   100% {
-    transform: rotate(0deg);
+    transform: rotate(-20deg);
   }
 }
 
@@ -231,7 +256,7 @@ header {
   }
 
   .signup-btn {
-    margin-left: 0;
+    /* margin-left: 0; */
     margin-top: 1.5rem;
     font-size: 1rem;
     padding: 0.8rem 0.9rem;
