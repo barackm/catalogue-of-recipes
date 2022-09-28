@@ -17,10 +17,15 @@
 .landing-header {
   @include d-flex(column);
   align-items: flex-start;
+  min-height: 540px;
   margin: 0 auto;
-  padding: 2rem 2rem 4rem;
+  padding: 3rem 2rem 4rem;
+  // background: linear-gradient(90deg, rgba(255, 255, 255, 0.489) 13.02%, rgba(255, 255, 255, 0.364) 99.99%),
+  background: linear-gradient(90deg, rgb(4 2 2 / 63%) 13.02%, rgb(148 74 74 / 29%) 99.99%),
+  url(../img/landing3.jpg) center center no-repeat;
   background-color: var(--primary);
-  color: var(--black);
+  background-size: cover;
+  color: var(--white);
   border-radius: 8px;
 
   // background-image: linear-gradient(90deg, #000000 13.02%, rgba(0, 0, 0, 0) 99.99%), url('../img/landing5.jpg');
@@ -30,12 +35,14 @@
   // background: url('../img/landing5.jpg') no-repeat;
   h1 {
     font-size: 42px;
+    // color: var(--dark);
   }
 
   p {
     font-size: 18px;
-    line-height: 1.6;
+    line-height: 1.4;
     margin: 3rem auto 4rem;
+    // color: var(--black);
   }
 
   .signup-btn {
@@ -56,7 +63,6 @@
 
 
   article {
-    // background-color: beige;
     padding: 1rem;
     max-width: 600px;
     
@@ -85,7 +91,6 @@
     .asideDiv {
       width: 100%;
       border: 1px solid var(--primary);
-      // margin: 20px;
       padding: 20px 1rem;
     }
 
@@ -165,7 +170,6 @@
 }
 
 .landing-dev {
-  // background-color: azure;
   background: #fffaf1 url(../img/landing/background-pattern.png) center center repeat;
   background-attachment: fixed;
   padding: 2rem;
@@ -192,7 +196,6 @@
 
   article {
     width: 100%;
-    // background-color: beige;
     padding: 2rem 1rem 1rem;
 
     h2 {
@@ -216,7 +219,6 @@
       width: 100%;
       max-width: 640px;
       border-top: 1px solid var(--dark-light-color);
-      // padding: 1rem 0;
 
       &:last-child {
         text-align: center;
@@ -235,7 +237,6 @@
         width: 100%;
         @include d-flex(row);
         padding: 18px 0 10px;
-        // background-color: #eee;
 
         .header-icon {
           width: 24px;
@@ -281,40 +282,26 @@
 }
 
 @media screen and (min-width: 480px) {
-  .landing-header {
-    // width: 100%;
-    // background-color: #A6631B;
-  }
-
-  // .landing-main {
-  //   aside {
-  //     width: 100%;
-  //   }
-  // }
-    
 }
 
 @media screen and (min-width: 768px) {
   .landing-header {
-    // padding: 20px 3%;
-    // background-color: #A6631B;
+    padding: 4rem 8%;
   }
 
   .landing-main {
     @include d-flex(row);
     align-items: flex-start;
     justify-content: space-around;
-    // padding: 1rem;
   
     aside {
       min-width: 300px;
       margin-left: 1%;
-      transform: translateY(-7rem);
+      transform: translateY(-8.5rem);
     }
   }
 
   .landing-dev {
-    // padding: 2rem 1rem;
     .curbsideImg {
       margin: 2rem 0 3rem;
     }
@@ -348,7 +335,7 @@
 
 @media screen and (min-width: 992px) {
   .landing-header {
-    padding: 4rem 5% 5rem;
+    padding: 4rem 10% 5rem;
 
     h1 {
       font-size: 52px;
