@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaRegUser, FaUser } from 'react-icons/fa';
@@ -32,7 +31,7 @@ const Register = () => {
       const { data } = response;
       if (data) navigate('/login');
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 

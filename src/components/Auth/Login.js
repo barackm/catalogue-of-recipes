@@ -8,16 +8,16 @@ import LoginContext from '../Contexts/LoginContext';
 import styles from '../../assets/scss/Login.module.scss';
 
 const Login = () => {
+  const baseUrl = 'https://sweetaromas.herokuapp.com';
   const navigate = useNavigate();
-  const { setUserId, setUsername, setLoginState } = useContext(LoginContext);
+  const {
+    setUserId, setUsername, setRoutesUser, setUserToken,
+  } = useContext(LoginContext);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // const [userId, setUserId] = useState(null);
-  const baseUrl = 'https://sweetaromas.herokuapp.com';
-
-  const handleLogin = async (e) => {
+  const handleLoginUser = async (e) => {
     e.preventDefault();
     if (email === '' || password === '') return;
     const user = {
@@ -31,16 +31,13 @@ const Login = () => {
       const { authorization } = response.headers;
       const { data } = response.data;
       localStorage.setItem('token', authorization);
-
-      console.log(authorization);
-      console.log('ID: ', data.id, ' USERNAME:', data.user_name);
-
+      setUserToken(authorization);
       setUserId(data.id);
       setUsername(data.user_name);
-      setLoginState(true);
-      if (authorization) navigate('/recipes');
+      setRoutesUser(true);
+      navigate('/recipes');
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 
@@ -49,7 +46,7 @@ const Login = () => {
       <section className={styles['login-section']}>
         <div className={styles.loginIcon}><FaUser /></div>
         <h2>Sign In</h2>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleLoginUser}>
           <div className={styles['div-input']}>
             <span className={styles.icon}><HiOutlineMailOpen /></span>
             <input

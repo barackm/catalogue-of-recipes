@@ -22,34 +22,34 @@ const SidebarLayout = () => (
 );
 
 const App = () => {
-  const token = localStorage.getItem('token');
-  const [loginState, setLoginState] = useState(false);
+  const [routesUser, setRoutesUser] = useState(false);
   const [userId, setUserId] = useState('');
   const [username, setUsername] = useState('');
-  const [userToken, setUserToken] = useState(token);
+  const [userToken, setUserToken] = useState(null);
 
   useEffect(() => {
+    setUserToken(localStorage.getItem('token'));
     if (userToken) {
-      setLoginState(true);
+      setRoutesUser(true);
     }
   });
 
   return (
     <div className="ppp">
       <LoginContext.Provider value={{
-        userId, setUserId, username, setUsername, setLoginState, userToken, setUserToken,
+        userId, setUserId, username, setUsername, setRoutesUser, userToken, setUserToken,
       }}
       >
         {/* <Navigate from="/" to="/recipes" /> */}
         <Navbar />
         <Routes>
-          {/* <Route path="*" element={<NotFound />} /> */}
+          <Route path="*" element={<NotFound />} />
           <Route path="/signup" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route exact path="/" element={<LandingPage />} />
           {/* <Route exact path="/contact" element={<Home />} />
           <Route exact path="/feature" element={<Home />} /> */}
-          {loginState
+          {routesUser
             ? (
               <Route element={<SidebarLayout />}>
                 {/* <Route path="/login" element={<Navigate from="/login" to="/" replace />} /> */}
