@@ -2,7 +2,7 @@
 import {
   Routes, Route, Navigate, Outlet,
 } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import Home from '../containers/Home';
 import RecipeDetails from '../containers/RecipleDetails';
@@ -22,24 +22,34 @@ const SidebarLayout = () => (
 );
 
 const App = () => {
-  const [loginUser, setLoginUser] = useState(false);
+  const token = localStorage.getItem('token');
+  const [loginState, setLoginState] = useState(false);
   const [userId, setUserId] = useState('');
   const [username, setUsername] = useState('');
+  const [userToken, setUserToken] = useState(token);
+
+  useEffect(() => {
+    if (userToken) {
+      setLoginState(true);
+    }
+  });
 
   return (
     <div className="ppp">
       <LoginContext.Provider value={{
-        userId, setUserId, username, setUsername, setLoginUser,
+        userId, setUserId, username, setUsername, setLoginState, userToken, setUserToken,
       }}
       >
         {/* <Navigate from="/" to="/recipes" /> */}
         <Navbar />
         <Routes>
           {/* <Route path="*" element={<NotFound />} /> */}
-          <Route exact path="/" element={<LandingPage />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Register />} />
-          {loginUser
+          <Route path="/login" element={<Login />} />
+          <Route exact path="/" element={<LandingPage />} />
+          {/* <Route exact path="/contact" element={<Home />} />
+          <Route exact path="/feature" element={<Home />} /> */}
+          {loginState
             ? (
               <Route element={<SidebarLayout />}>
                 {/* <Route path="/login" element={<Navigate from="/login" to="/" replace />} /> */}
