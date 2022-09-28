@@ -4,7 +4,9 @@
   width: 100%;
   height: 100vh;
   padding: 2rem 1rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.489) 13.02%, rgba(255, 255, 255, 0.364) 99.99%),  url(../img/landing3.jpg) center center no-repeat;
+  // background: linear-gradient(90deg, rgb(44 20 20 / 42%) 13.02%, rgb(38 19 19 / 58%) 99.99%),
+  background: linear-gradient(90deg, rgb(0 0 0 / 41%) 13.02%, rgb(68 38 38 / 58%) 99.99%),
+  url(../img/landing3.jpg) center center no-repeat;
   background-size: cover;
   // overflow: hidden;
 

@@ -30,10 +30,12 @@ const Header = (props) => {
           </div>
           <div className="current-user">
             <p>
-              Welcome
-              {' ~ '}
-              <span>{ userName }</span>
-              {'. '}
+              <span className="hey">👋</span>
+              {' '}
+              Hello,
+              {' '}
+              { userName }
+              {'! '}
             </p>
           </div>
           <div className="hero-image-wrapper">
@@ -51,7 +53,7 @@ Header.defaultProps = {
   paragraph:
     'We are dedicated to serving the needs of our customers each every day. We have a large variety of pasta, chicken, veal, seafood, stuffed artichokes, braciole. Ask your server to ask the kitchen if we can make your favorite.',
   image: illustration,
-  userName: 'back',
+  userName: 'Welcome here 🚀',
 };
 
 Header.propTypes = {

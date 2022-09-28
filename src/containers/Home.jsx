@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import HashLoader from 'react-spinners/HashLoader';
@@ -11,51 +11,57 @@ import Header from '../components/Header';
 import Search from '../components/Search';
 import Sort from '../components/Sort';
 import RecipesList from './RecipesList';
+import LoginContext from '../components/Contexts/LoginContext';
 
 import {
   changeFilter,
   loadCategoriesAsync,
   loadRecipesAsync,
 } from '../store/actions';
+
 import paginate from '../components/utils/paginate';
 
 const Home = (props) => {
+  const {
+    userId, username, setUsername, userToken,
+  } = useContext(LoginContext);
+
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [query, setQuery] = useState('');
   const [orderColumn, setOrderColumn] = useState('None');
   const pageSize = 6;
   const [currentPage, setCurrentPage] = useState(1);
   const { loadCategories, loadRecipes } = props;
-  const [currentUser, setCurrentUser] = useState('');
   const baseUrl = 'https://sweetaromas.herokuapp.com';
 
-  const handleRequest = async () => {
+  const getCurrentUserData = async () => {
     const config = {
       headers: {
-        Authorization: localStorage.getItem('token'),
+        Authorization: userToken,
       },
     };
+    console.log('HOME-TOKEN:', userToken);
 
     try {
-      const response = await axios.get(`${baseUrl}/users/5`, config);
       // const response = await axios.get('/users/5');
-      const { data } = response;
       // const data = response?.data;
-      // const data = response?.data;
-      // console.log('Show', data);
       // const decoded = jwt_decode.decode(localStorage.getItem('token'), { header: true });
-      // console.log('hello here:', decoded);
-
-      setCurrentUser(data.user_name);
+      const response = await axios.get(`${baseUrl}/users/${userId}`, config);
+      const { data } = response;
+      console.log('SHOW-HOME:', data);
+      console.log('FORM:', username, 'NEW:', data.user_name);
+      if (username === data.user_name) setUsername(data.user_name);
     } catch (error) {
-      console.log(error);
+    // const { statusText, data } = error.response;
+    // console.log(error.message, statusText, data);
+      console.log(error.message);
     }
   };
 
   useEffect(() => {
+    getCurrentUserData();
     loadCategories();
     loadRecipes();
-    handleRequest();
   }, [loadCategories, loadRecipes]);
 
   // componentDidMount() {
@@ -116,13 +122,13 @@ const Home = (props) => {
   const sortedRecipes = renderSortedRecipes(searchedRecipes);
   const pagedRecipes = paginate(sortedRecipes, currentPage, pageSize);
 
-  if (!currentUser) {
-    console.log(currentUser);
-    return '402: You need to sign in or sign up before continuing.';
-  }
+  // if (!username) {
+  //   console.log(currentUser);
+  //   return '402: You need to sign in or sign up before continuing.';
+  // }
   return (
     <div>
-      <Header userName={currentUser} />
+      <Header userName={username} />
       <div className="home-content-main-area d-flex">
         <div className="side-bar-wrapper">
           {loadingCategories && (
@@ -160,7 +166,8 @@ const Home = (props) => {
               pageSize={pageSize}
               onPageChange={handlePageChange}
               error={loadRecipesError}
-              userName={currentUser}
+              userName={username}
+
             />
           )}
         </div>
