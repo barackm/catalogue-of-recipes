@@ -53,6 +53,12 @@
     padding: 0.8rem 1.2rem;
     font-size: 1.2rem;
     font-weight: var(--light-weight);
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      background-color: var(--primary);
+      color: var(--white  );
+    }
   } 
 }
 

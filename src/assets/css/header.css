@@ -32,8 +32,17 @@ header {
   transition-duration: 0.7s;
 }
 
+.links li {
+  padding: 0.3rem 1.3rem;
+}
+
+.links li:hover {
+  transform: scale(1.015);
+  box-shadow: 0 0 5px var(--darker-primary);
+}
+
+
 .links li a {
-  padding: 0 1.3rem;
   font-weight: var(--light-weight);
   color: var(--dark);
 }
@@ -52,7 +61,7 @@ header {
 
 .nav-logo-wrapper {
   margin-left: 5rem;
-  margin-right: 5Frem;
+  margin-right: 5rem;
   font-weight: 900;
   font-size: 2rem;
   color: var(--dark);
@@ -70,17 +79,12 @@ header {
 
 .div-logo img:hover {
   box-shadow: none;
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 
 .login-info li {
   flex-wrap: nowrap;
   transition: all 0.7s ease;
-}
-
-.links li:hover,
-.login-info li:hover {
-  transform: scale(1.1);
 }
 
 .signup-btn {
@@ -91,11 +95,11 @@ header {
   color: var(--light-color);
   letter-spacing: 1px;
   border-radius: 8px;
-  padding: 0.7rem 0.9rem;
-  font-size: 0.8rem;
+  padding: 0.7rem 0.7rem;
+  font-size: 0.9rem;
   margin: 0;
   margin-left: 1rem;
-  font-weight: var(--light-weight);
+  font-weight: 500;
 }
 
 .login-btn {
@@ -168,15 +172,15 @@ header {
 
 @keyframes crane-float {
   0% {
-    transform: rotate(-20deg);
+    transform: rotate(-30deg);
   }
 
   50% {
-    transform: rotate(50deg);
+    transform: rotate(45deg);
   }
 
   100% {
-    transform: rotate(-20deg);
+    transform: rotate(-30deg);
   }
 }
 

@@ -44,7 +44,12 @@
       width: 100%;
       height: 100%;
       // filter: drop-shadow(-12px 15px 13px var(--darker-primary));
-      border-radius: 19px;
+      
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: none;
+        opacity: 0.9;
+      }
     }
   }
 }
