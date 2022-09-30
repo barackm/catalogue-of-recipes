@@ -29,22 +29,20 @@ header {
   border: none;
   opacity: 0;
   transition: var(--default-transition);
+}
+
+.links li a {
+  display: inline-block;
+  padding: 0.3rem 1.3rem;
+  font-weight: var(--light-weight);
+  color: var(--dark);
   transition-duration: 0.7s;
 }
 
-.links li {
-  padding: 0.3rem 1.3rem;
-}
-
-.links li:hover {
+.links li a:hover,
+.links li .active {
   transform: scale(1.015);
-  box-shadow: 0 0 5px var(--darker-primary);
-}
-
-
-.links li a {
-  font-weight: var(--light-weight);
-  color: var(--dark);
+  box-shadow: 0 0 3px var(--darker-primary);
 }
 
 .close-menu-btn {
@@ -108,6 +106,13 @@ header {
   font-weight: var(--light-weight);
   color: var(--dark);
   text-decoration: underline;
+  padding: 0.3rem 1.3rem;
+  transition-duration: 0.7s;
+}
+
+.login-btn:hover {
+  transform: scale(1.015);
+  box-shadow: 0 0 3px var(--darker-primary);
 }
 
 .header-main-container {
