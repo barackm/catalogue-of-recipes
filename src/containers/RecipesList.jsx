@@ -1,17 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Pagination from '../components/Pagination';
 import Recipe from '../components/Recipe';
 
 export default function RecipesList(props) {
   const {
-    recipes, itemsCount, pageSize, currentPage, onPageChange, error, userName,
+    recipes, itemsCount, pageSize, currentPage, onPageChange, error,
   } = props;
-
-  if (!userName) {
-    return '402: You need to sign in or sign up before continuing.';
-  }
 
   return (
     (error || recipes.length === 0) ? (
@@ -40,7 +35,6 @@ export default function RecipesList(props) {
 RecipesList.defaultProps = {
   itemsCount: 0,
   error: '',
-  userName: '',
 };
 
 RecipesList.propTypes = {
@@ -50,5 +44,4 @@ RecipesList.propTypes = {
   currentPage: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
   error: PropTypes.string,
-  userName: PropTypes.string,
 };
