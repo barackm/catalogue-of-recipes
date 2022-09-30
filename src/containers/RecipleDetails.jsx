@@ -17,6 +17,7 @@ function RecipeDetails() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // setCurrentUser(username);
     dispatch(loadDetailsAsync(id, navigate));
     // const foundid = id;
     // // if (!foundid) return navigate('/recipes');
@@ -42,7 +43,7 @@ function RecipeDetails() {
         )}
         {!loading && (
         <>
-          <Header image={cooker} title1={`${recipe.strMeal} 👨‍🍳 🍽️`} title2={`From: ${recipe.strArea}`} />
+          <Header image={cooker} title1={`${recipe.strMeal} 👨‍🍳 🍽️`} title2={`From: ${recipe.strArea}`} icon="🚀 " message="Welcome back here " />
           <div className="recipe-details-content-wrapper d-flex flex-unit">
             <div className="recipe-image-details">
               <div className="recipe-image-wrapper">

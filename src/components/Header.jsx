@@ -1,14 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import { IconContext } from 'react-icons';
 import { BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import illustration from '../assets/img/hero-illustration.png';
+import LoginContext from './Contexts/LoginContext';
 
 const Header = (props) => {
+  const baseUrl = 'https://sweetaromas.herokuapp.com';
   const {
-    title1, title2, paragraph, image, userName,
+    title1, title2, paragraph, image, icon, message,
   } = props;
+
+  const {
+    userId, username, setUsername, userToken,
+  } = useContext(LoginContext);
+  const [currentUserName, setCurrentUserName] = useState('');
+
+  const getCurrentUserData = async () => {
+    const config = {
+      headers: {
+        Authorization: userToken,
+      },
+    };
+
+    try {
+      // const response = await axios.get('/users/5');
+      // const data = response?.data;
+      const response = await axios.get(`${baseUrl}/users/${userId}`, config);
+      const { data } = await response;
+
+      setCurrentUserName(data.user_name);
+      setUsername(currentUserName);
+      console.log('LASTNAME:', username, 'LASTID:', userId);
+      console.log('DATAUSERNAME:', data.user_name, 'CURRENTUSER:', currentUserName);
+    } catch (error) {
+    // const { statusText, data } = error.response;
+    // console.log(error.message, statusText, data);
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    console.log('LASTNAME:', username, 'LASTID:', userId);
+    getCurrentUserData();
+  }, []);
 
   return (
     <header className="app-header">
@@ -30,12 +67,11 @@ const Header = (props) => {
           </div>
           <div className="current-user">
             <p>
-              <span className="hey">👋</span>
+              <span className="hey">{icon}</span>
               {' '}
-              Hello,
-              {' '}
-              { userName }
-              {'! '}
+              {message}
+              {currentUserName}
+              {'. '}
             </p>
           </div>
           <div className="hero-image-wrapper">
@@ -53,7 +89,8 @@ Header.defaultProps = {
   paragraph:
     'We are dedicated to serving the needs of our customers each every day. We have a large variety of pasta, chicken, veal, seafood, stuffed artichokes, braciole. Ask your server to ask the kitchen if we can make your favorite.',
   image: illustration,
-  userName: 'Welcome here 🚀',
+  icon: '👋',
+  message: 'Bienvenu encore ici',
 };
 
 Header.propTypes = {
@@ -61,7 +98,8 @@ Header.propTypes = {
   title2: PropTypes.string,
   paragraph: PropTypes.string,
   image: PropTypes.string,
-  userName: PropTypes.string,
+  icon: PropTypes.string,
+  message: PropTypes.string,
 };
 
 export default Header;
