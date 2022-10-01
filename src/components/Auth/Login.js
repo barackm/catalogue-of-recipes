@@ -31,6 +31,7 @@ const Login = () => {
       const { authorization } = response.headers;
       const { data } = response.data;
       localStorage.setItem('token', authorization);
+      localStorage.setItem('loginId', data.id);
       setUserToken(authorization);
       setUserId(data.id);
       setUsername(data.user_name);

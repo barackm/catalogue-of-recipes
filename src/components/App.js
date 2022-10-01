@@ -23,7 +23,7 @@ const SidebarLayout = () => (
 
 const App = () => {
   const [routesUser, setRoutesUser] = useState(false);
-  const [userId, setUserId] = useState('');
+  const [userId, setUserId] = useState(null);
   const [username, setUsername] = useState('');
   const [userToken, setUserToken] = useState(null);
 
@@ -31,6 +31,7 @@ const App = () => {
     setUserToken(localStorage.getItem('token'));
     if (userToken) {
       setRoutesUser(true);
+      setUserId(localStorage.getItem('loginId'));
     }
   });
 
