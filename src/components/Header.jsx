@@ -33,8 +33,6 @@ const Header = (props) => {
 
       setCurrentUserName(data.user_name);
       setUsername(currentUserName);
-      console.log('LASTNAME:', username, 'LASTID:', userId);
-      console.log('DATAUSERNAME:', data.user_name, 'CURRENTUSER:', currentUserName);
     } catch (error) {
     // const { statusText, data } = error.response;
     // console.log(error.message, statusText, data);

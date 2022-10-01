@@ -47,10 +47,10 @@ const Navbar = () => {
       <nav className="d-flex flex-center flex-unit nav-links-wrapper">
         <ul className="d-flex flex-center flex-between links-container">
           <div className="d-flex flex-center links">
-            <li><Link to="/" onClick={closeMenu}>Home</Link></li>
-            <li><Link to={logoDirectTo} onClick={closeMenu}>Features</Link></li>
-            <li><Link to={logoDirectTo} onClick={closeMenu}>Contact</Link></li>
+            <li><NavLink to="/" onClick={closeMenu}>Accueil</NavLink></li>
             <li><NavLink to={recipeDirectTo} onClick={closeMenu}>Recipes</NavLink></li>
+            <li><Link to={logoDirectTo} onClick={closeMenu}>Features</Link></li>
+            <li><NavLink to="/contact" onClick={closeMenu}>Contact</NavLink></li>
           </div>
           {isUserAuthenticated ? (
             <div className="login-info d-flex">

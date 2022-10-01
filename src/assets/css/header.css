@@ -36,13 +36,13 @@ header {
   padding: 0.3rem 1.3rem;
   font-weight: var(--light-weight);
   color: var(--dark);
-  transition-duration: 0.7s;
+  transition-duration: 0.5s;
 }
 
-.links li a:hover,
-.links li .active {
+/* .links li .active, */
+.links li a:hover {
   transform: scale(1.015);
-  box-shadow: 0 0 3px var(--darker-primary);
+  box-shadow: 0 1px 1px var(--darker-primary);
 }
 
 .close-menu-btn {
@@ -160,13 +160,13 @@ header {
 
 .current-user p {
   position: absolute;
-  width: 250px;
+  width: 270px;
   top: 0.7rem;
   left: 17rem;
   font-size: 22px;
   font-weight: 500;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: var(--dark);
+  color: var(--secondary);
   justify-items: flex-start;
 }
 
@@ -370,13 +370,14 @@ header {
   }
 
   .current-user p {
+    width: 250px;
     top: 0.5rem;
     left: 2.5rem;
     font-size: 16px;
-    animation: crane-float 10s alternate infinite ease-in-out both;
+    /* animation: crane-float 10s alternate infinite ease-in-out both; */
   }
 
-  @keyframes crane-float {
+  /* @keyframes crane-float {
     0% {
       transform: translateX(0);
     }
@@ -384,7 +385,7 @@ header {
     100% {
       transform: translateX(-20px);
     }
-  }
+  } */
 
   .hiro-image {
     opacity: 0.4;
