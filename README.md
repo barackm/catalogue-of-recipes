@@ -6,6 +6,8 @@
 
 |-| Sweet~aromas |-|
 |-|----------------------------------|-|
+|-| ![screenshot](./Screenshot0.png) |-|
+|-| |-|
 |-| ![screenshot](./Screenshot1.png) |-|
 |-| |-|
 |-| ![screenshot](./Screenshot2.png) |-|
@@ -28,82 +30,60 @@
 
 [Documentation Link](https://sweetaromas.herokuapp.com/api-docs/)
 
-# Getting Started
+<!-- ## TheMealDB
 
-**To get the local copy of the project up and running you will need to run the following commands on your terminal:**
+[API Link](https://www.themealdb.com/api.php ) -->
 
-`git clone https://github.com/barackm/catalogue-of-recipes`
+## Getting Started
 
-## Available Scripts
+### Clone this repository
 
-After you have cloned the repository you will need to install all the available dependencies, for that you can run:
+- To get the content of this project locally you need to run this command in your terminal:
 
-`npm install`
+```bash
+$ git git clone https://github.com/barackm/catalogue-of-recipes.git
+$ cd catalogue-of-recipes
+```
+### Run project
 
-In the project directory, you can run:
+- After cloning the project you need to run this command In the project directory:
 
-`npm start`
+```bash
+$ npm install
+$ npm run start 
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Install **ESLint** & **Stylelint** linter
 
-`npm test`
+* To instal RSpec for testing please run the following command on your terminal:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+$  npm install --save-dev eslint@7.x eslint-config-airbnb@18.x eslint-plugin-import@2.x eslint-plugin-jsx-a11y@6.x eslint-plugin-react@7.x eslint-plugin-react-hooks@4.x @babel/eslint-parser@7.x @babel/core@7.x  @babel/plugin-syntax-jsx@7.x  @babel/preset-react@7.x @babel/preset-react@7.x
 
-`npm run build`
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+$  npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- To run the tests locally :
 
-`npm run eject`
+```bash
+$  npx eslint .
+$  npx stylelint "**/*.{css,scss}" 
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Automatic fix
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+$  npx eslint . --fix 
+$  npx stylelint "**/*.{css,scss}" --fix 
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-`npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 ## Authors
 

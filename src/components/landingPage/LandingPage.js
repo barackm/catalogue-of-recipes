@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable max-len */
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -57,9 +56,9 @@ const LandingPage = () => {
       <div className={styles['landing-header']}>
         <h1>Online Ordering with Built-in Marketing Driving You to Success</h1>
         <p>
-          With the industry’s most comprehensive suite of marketing tools, MenuDrive will
-          increase new traffic to your site, convert those new visitors to customers, and
-          keep them coming back for more. Sign up today for a 90-day free trial.
+          With your restaurant&apos;s own online ordering portal, you can start:
+          Take Orders For Delivery, Takeaway, QR Dine In, Catering and Reservation
+          On Your Own Website &/or Mobile App. Sign up today for a 90-day free trial.
         </p>
         <button type="submit" className={styles.signup}>
           <Link to="/signup" className={styles['signup-btn']}> Get Started</Link>
@@ -73,9 +72,9 @@ const LandingPage = () => {
           </div>
           <h2>EXQUISITE FINE DINING. HAND-CRAFTED COCKTAILS.</h2>
           <p>
-            The NEW Pines Modern Steakhouse—reopened on the 1st floor of the Casino expansion—offers guests
-            timeless glamour,hospitality, and modern design along with specialty items such as wagyu steak tartare,
-            imported caviar, homemade pastas, and house made gelato. Experience a unique and authentic dining experience only at The Pines.
+            With the industry’s most comprehensive suite of marketing tools, MenuDrive will increase new traffic to your site,
+            convert those new visitors to customers, and keep them coming back for more. No hold payments, full customer data ownership,
+            and a mobile ordering app all for 0% commission. Please call us to discuss; we want to work with you!
           </p>
           <p>
             Make your reservations today for the restaurant honored by Wine Spectator with the 2021 Award of Excellence and
