@@ -66,7 +66,7 @@ const LandingPage = () => {
       </div>
 
       <div className={styles['landing-main']}>
-        <article>
+        <article className={styles['landing-main-article']}>
           <div className={styles.plateImg}>
             <img src={plate} alt="plate" />
           </div>
@@ -81,7 +81,7 @@ const LandingPage = () => {
             named the “Best Restaurant” by Inland Empire Magazine readers, for three consecutive years (2018, 2019, and 2020).
           </p>
         </article>
-        <aside>
+        <aside className={styles['landing-main-aside']}>
           <div className={styles.asideDiv}>
             <div className={styles.btn}>
               <button type="button">RESERVATION</button>
@@ -144,7 +144,7 @@ const LandingPage = () => {
         <div className={styles.curbsideImg}>
           <img src={curbside} alt="curbside" />
         </div>
-        <article>
+        <article className={styles['landing-dev-article']}>
           <h2>
             Do More With
             <br />

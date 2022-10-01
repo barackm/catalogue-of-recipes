@@ -7,7 +7,6 @@
 $border-size: 3px solid var(--primary);
 $box-shadow: 2px 2px 20px var(--darker-primary);
 
-
 @mixin d-flex($position) {
   display: flex;
   align-items: center;
@@ -35,7 +34,6 @@ $box-shadow: 2px 2px 20px var(--darker-primary);
   background-color: var(--primary);
   color: var(--white);
 }
-
 
 svg,
 img {
@@ -70,7 +68,7 @@ button {
   &::after {
     content: " ";
     display: block;
-    width: 40%;  
+    width: 40%;
     margin: 5px 0 20px;
     border-top: 2px solid var(--primary);
   }

@@ -5,25 +5,26 @@
   height: 100vh;
   padding: 2rem 1rem;
   // background: linear-gradient(90deg, rgb(44 20 20 / 42%) 13.02%, rgb(38 19 19 / 58%) 99.99%),
-  background: linear-gradient(90deg, rgb(0 0 0 / 41%) 13.02%, rgb(68 38 38 / 58%) 99.99%),
-  url(../img/landing3.jpg) center center no-repeat;
+  background:
+    linear-gradient(90deg, rgb(0 0 0 / 41%) 13.02%, rgb(68 38 38 / 58%) 99.99%),
+    url(../img/landing3.jpg) center center no-repeat;
   background-size: cover;
   // overflow: hidden;
-
 }
 
 .login-section,
 .register-section {
   width: 90%;
+
   @include d-flex(column);
+
   align-items: center;
   max-width: 580px;
   padding: 2rem 1rem;
   margin: 2rem auto 3rem;
-  background-color: var(--white);
   border-radius: 16px;
   box-shadow: 5px 5px 30px var(--darker-primary);
-  font-family: Libre Baskerville,serif;
+  font-family: Libre Baskerville, serif;
   background: #fffaf1 url(../img/landing/background-pattern.png) center center repeat;
 
   &:hover {
@@ -51,11 +52,30 @@
     width: 90%;
     max-width: 500px;
     padding: 1.5rem 0;
+
     @include d-flex(column);
+
+    .div-checked {
+      width: 100%;
+
+      @include d-flex(row);
+
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 20px;
+
+      input {
+        margin-right: 5px;
+        cursor: pointer;
+      }
+    }
 
     .div-input {
       @extend %btn-properties;
+
       @include d-flex(row-reverse);
+
       justify-content: space-between;
       width: 100%;
       height: 50px;
@@ -65,7 +85,7 @@
       .icon {
         color: var(--black);
       }
-      
+
       input {
         border: none;
         outline: none;
@@ -82,28 +102,13 @@
       }
 
       &:hover {
-       border: $border-size;
-      //  cursor: default !important;
+        border: $border-size;
       }
-    }
-
-    .div-checked {
-      width: 100%;
-      @include d-flex(row);
-      justify-content: flex-start;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      font-size: 20px;
-
-       input {
-         margin-right: 5px;
-         cursor: pointer;
-       }
-
     }
 
     button {
       @extend %btn-properties;
+
       width: 90%;
 
       &:hover {
@@ -118,7 +123,9 @@
 
   .div-links {
     width: 100%;
+
     @include d-flex(row);
+
     justify-content: space-between;
     padding: 0 1rem;
     font-size: 18px;
@@ -126,7 +133,7 @@
     .password {
       text-decoration: underline;
       color: var(--dark);
-    }    
+    }
   }
 
   p.signup {

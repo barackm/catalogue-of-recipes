@@ -11,18 +11,19 @@
   // background-color: rgb(251, 230, 230);
   padding: 0 1rem;
   // max-width: 90%;
-  
 }
 
 .landing-header {
   @include d-flex(column);
+
   align-items: flex-start;
   min-height: 540px;
   margin: 0 auto;
   padding: 3rem 2rem 4rem;
   // background: linear-gradient(90deg, rgba(255, 255, 255, 0.489) 13.02%, rgba(255, 255, 255, 0.364) 99.99%),
-  background: linear-gradient(90deg, rgb(4 2 2 / 63%) 13.02%, rgb(148 74 74 / 29%) 99.99%),
-  url(../img/landing3.jpg) center center no-repeat;
+  background:
+    linear-gradient(90deg, rgb(4 2 2 / 63%) 13.02%, rgb(148 74 74 / 29%) 99.99%),
+    url(../img/landing3.jpg) center center no-repeat;
   background-color: var(--primary);
   background-size: cover;
   color: var(--white);
@@ -57,9 +58,9 @@
 
     &:hover {
       background-color: var(--primary);
-      color: var(--white  );
+      color: var(--white);
     }
-  } 
+  }
 }
 
 .landing-main {
@@ -67,17 +68,17 @@
   // align-items: flex-start;
   padding: 1rem;
 
-
   article {
     padding: 1rem;
     max-width: 600px;
-    
-    .plateImg img {
+
+    img {
       box-shadow: none;
     }
 
     h2 {
       @extend %h2-properties;
+
       margin-top: 2rem;
     }
 
@@ -120,15 +121,16 @@
       color: var(--white);
       padding: 17px;
     }
- 
+
     ul {
       @include d-flex(column);
+
       align-items: flex-start;
       width: 100%;
       padding-left: 2rem;
     }
 
-    Li h4 {
+    li h4 {
       font-weight: 700;
       position: relative;
       color: var(--secondary);
@@ -152,26 +154,6 @@
       top: -5px;
       left: -35px;
     }
-
-    .time h4 span {
-      // position: absolute;
-      // content: " ";
-      // display: block;
-      background: url(../../assets/img/landing/time-icon.svg) no-repeat center center;
-    }
-
-    .location h4 span {
-      background: url(../../assets/img/landing/location-icon.svg) no-repeat center center;
-    }
-
-    .phone h4 span {
-      background: url(../../assets/img/landing/phone-icon.svg) no-repeat center center;
-    }
-
-    .chefHat h4 span {
-      background: url(../../assets/img/landing/chef-hat-icon.svg) no-repeat center center;
-    }
-  
   }
 }
 
@@ -180,6 +162,7 @@
   background-attachment: fixed;
   padding: 2rem;
   width: 100%;
+
   @include d-flex(column);
 
   .curbsideImg {
@@ -189,14 +172,10 @@
     // margin: 0 auto;
     border-radius: 16px;
     background-color: var(--light);
-    
+
     img {
       border-radius: 8px;
-        width: 100%;
-
-        // &:hover {
-        //   transform: scale(1.07);
-        // }
+      width: 100%;
     }
   }
 
@@ -207,9 +186,11 @@
     h2 {
       max-width: 480px;
       width: 90%;
+
       @extend %h2-properties;
+
       margin: 0 auto 2rem;
-      
+
       span {
         color: var(--primary);
       }
@@ -217,6 +198,7 @@
 
     ul {
       @include d-flex(column);
+
       align-items: center;
       width: 100%;
     }
@@ -241,7 +223,9 @@
 
       .curbside-header {
         width: 100%;
+
         @include d-flex(row);
+
         padding: 18px 0 10px;
 
         .header-icon {
@@ -252,7 +236,7 @@
             width: 100%;
           }
         }
-    
+
         h4 {
           font-size: 16px;
           line-height: 24px;
@@ -261,6 +245,7 @@
 
         .show-btn {
           @include d-flex(row);
+
           align-items: center;
           justify-content: center;
           transition: all 0.5s ease;
@@ -284,10 +269,27 @@
         padding-bottom: 1.3rem;
       }
     }
-  } 
+  }
 }
 
-@media screen and (min-width: 480px) {
+// .landing-main section
+
+.landing-main-aside {
+  .time h4 span {
+    background: url(../../assets/img/landing/time-icon.svg) no-repeat center center;
+  }
+
+  .location h4 span {
+    background: url(../../assets/img/landing/location-icon.svg) no-repeat center center;
+  }
+
+  .phone h4 span {
+    background: url(../../assets/img/landing/phone-icon.svg) no-repeat center center;
+  }
+
+  .chefHat h4 span {
+    background: url(../../assets/img/landing/chef-hat-icon.svg) no-repeat center center;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -297,9 +299,10 @@
 
   .landing-main {
     @include d-flex(row);
+
     align-items: flex-start;
     justify-content: space-around;
-  
+
     aside {
       min-width: 300px;
       margin-left: 1%;
@@ -314,30 +317,28 @@
 
     article {
       li .curbside-header {
-  
         .header-icon {
           width: 28px;
           margin-right: 14px;
         }
-    
+
         h4 {
           font-size: 18px;
           line-height: 28px;
         }
-  
+
         .show-btn > * {
-            font-size: 28px;
+          font-size: 28px;
         }
       }
 
-      li  p {
+      li p {
         font-size: 17px;
         line-height: 24px;
       }
     }
   }
 }
-
 
 @media screen and (min-width: 992px) {
   .landing-header {
@@ -346,20 +347,20 @@
     h1 {
       font-size: 52px;
     }
-  
+
     p {
       font-size: 24px;
     }
 
     .signup-btn {
       font-size: 1.4rem;
-    } 
+    }
   }
 
   .landing-main {
     justify-content: space-around;
     padding: 1rem 4%;
-  
+
     aside {
       // min-width: 400px;
       max-width: 400px;
@@ -370,7 +371,9 @@
   .landing-dev {
     padding: 1rem 4%;
     width: 100%;
+
     @include d-flex(row);
+
     align-items: flex-start;
     justify-content: space-around;
 
@@ -384,6 +387,5 @@
         width: 100%;
       }
     }
-
   }
 }

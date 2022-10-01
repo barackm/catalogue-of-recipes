@@ -2,6 +2,7 @@
 
 .portfolio {
   @include d-flex(column);
+
   align-items: center;
   justify-content: center;
   // height: 70vh;
@@ -11,16 +12,17 @@
 
   h2 {
     @extend %h2-properties;
+
     margin: 1rem auto;
   }
 
   /* slider */
   .swiper {
-    overflow: visible!important;
+    overflow: visible !important;
     background-color: rgba(245, 236, 236, 0.284);
     width: 100%;
   }
-  
+
   .portfolio-slider {
     padding: 1rem;
     width: 100%;
@@ -31,11 +33,11 @@
       width: 100%;
       // flex-wrap: wrap;
     }
-    
+
     .swiper-slide {
       // width: 16rem;
       width: 100%;
-      overflow: visible!important;
+      overflow: visible !important;
       // height: 8rem;
     }
 
@@ -44,7 +46,7 @@
       width: 100%;
       height: 100%;
       // filter: drop-shadow(-12px 15px 13px var(--darker-primary));
-      
+
       &:hover {
         transform: scale(1.05);
         box-shadow: none;
